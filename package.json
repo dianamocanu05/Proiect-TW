@@ -15,5 +15,9 @@
   "homepage": "",
   "engines": {
     "node": "14.16.0"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security"
   }
 }
