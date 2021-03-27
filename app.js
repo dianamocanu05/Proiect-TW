@@ -8,7 +8,7 @@ const server = http.createServer((req, res) => {
     //res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
 
-    const path = "./HTML/index.html";
+    const path = "./html/index.html";
     fs.readFile(path, function (err, html) {
         if (err) {
             throw err;
