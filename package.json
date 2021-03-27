@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "fs": "0.0.1-security",
-    "http": "0.0.1-security"
+    "http": "0.0.1-security",
+    "serve": "^11.3.2"
   }
 }
