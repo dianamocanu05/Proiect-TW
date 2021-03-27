@@ -1,7 +1,7 @@
 {
   "name": "AcS",
   "version": "1.0.0",
-  "description": "node app ",
+  "description": "USA Accidents Smart Visualizer",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": ""
   },
-  "author": "",
+  "author": "diana mocanu",
   "license": "ISC",
   "bugs": {
     "url": ""
