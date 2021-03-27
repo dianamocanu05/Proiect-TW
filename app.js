@@ -1,8 +1,9 @@
 const http = require('http');
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 const fs = require('fs');
+
 const server = http.createServer((req, res) => {
-    res.statusCode = 200;
+    //res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
     const path = "D:\\UNI\\SEM_2\\Proiect TW\\HTML\\index.html";
     fs.readFile(path, function (err, html) {
