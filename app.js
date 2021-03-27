@@ -1,6 +1,6 @@
 const http = require('http');
 const fs = require('fs');
-
+process.env.PORT = 5000;
 const port = process.env.PORT || 3000;
 console.log(process.env.PORT)
 console.log(port)
