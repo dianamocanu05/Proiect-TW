@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 
 const port = process.env.PORT || 3000;
+console.log(port);
 const server = http.createServer((req, res) => {
     //res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -15,4 +16,9 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(port);
+server.listen(port, (err) => {
+    if (err) {
+        return console.error(err);
+    }
+    return console.log(`server is listening on ${port}`);
+});
