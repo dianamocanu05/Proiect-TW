@@ -2,6 +2,8 @@ const http = require('http');
 const fs = require('fs');
 
 const port = process.env.PORT || 3000;
+console.log(process.env.PORT)
+console.log(port)
 const server = http.createServer((req, res) => {
     //res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
