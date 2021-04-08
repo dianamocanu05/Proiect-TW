@@ -1,0 +1,18 @@
+table{
+    border-spacing: 0;
+    width: 50%;
+    border: 1px solid darkcyan;
+    font-family: "Trebuchet MS";
+}
+
+th{
+    position: sticky;
+    top:0;
+    text-align: left;
+    padding: 15px;
+}
+
+td{
+    text-align: left;
+    padding: 15px;
+}

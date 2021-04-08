@@ -1,4 +1,5 @@
 import csv
+import create_database
 
 
 class AccidentInstance:
@@ -48,7 +49,7 @@ class MockData:
                     break
 
     def write_data(self):
-        with open(self.output_path, mode='w', newline = '') as out_file:
+        with open(self.output_path, mode='w', newline='') as out_file:
             writer = csv.writer(out_file)
             writer.writerow(self.header)
             writer.writerows(list(accident) for accident in self.accidents)
@@ -59,3 +60,6 @@ mock_data_path = r"..\data\mock\mock_data.csv"
 mockData = MockData(file_path, mock_data_path, 100)
 mockData.get_data()
 mockData.write_data()
+
+connection = create_database.create_database()
+create_database.write_db(connection=connection, accidents=mockData.accidents)
