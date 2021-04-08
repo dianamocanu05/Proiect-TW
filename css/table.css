@@ -1,18 +1,11 @@
 table{
-    border-spacing: 0;
-    width: 50%;
-    border: 1px solid darkcyan;
+    border: darkcyan;
+    border-collapse: collapse;
+    background-color: aquamarine;
     font-family: "Trebuchet MS";
 }
 
-th{
-    position: sticky;
-    top:0;
-    text-align: left;
-    padding: 15px;
-}
-
-td{
-    text-align: left;
-    padding: 15px;
+table td, table th{
+    border: 2px solid black;
+    border-collapse: collapse;
 }
