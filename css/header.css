@@ -1,0 +1,31 @@
+.header{
+    font-family: "Trebuchet MS";
+    display: inline-block;
+}
+
+.title{
+    text-align: center;
+    color: white;
+}
+
+#title-text{
+    font-size: min(70px,6vmin);
+}
+
+.navbar{
+    background-color: rgb(202,240,248);
+    overflow: hidden;
+}
+
+.navbar a{
+    float: right;
+    text-align: right;
+    color: blue;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover{
+    color: blueviolet;
+}

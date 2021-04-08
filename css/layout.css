@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(0,119,182);
+}
+
+.wrapper{
+    width: min(1200px,100%);
+    margin: auto;
+}
+
