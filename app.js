@@ -5,7 +5,6 @@ const http = require('http');
 const {query} = require('./scripts/query_database')
 const port = process.env.PORT || 3000;
 
-//const port = 3000;
 const server = http.createServer((req, res) => {
     //res.statusCode = 200;
     console.log(req.url)
@@ -15,11 +14,30 @@ const server = http.createServer((req, res) => {
         query()
     }
     else if(req.url !== "/favicon.ico"){
-        if(req.url === "/media-util/usa.svg"){
-            res.setHeader('Content-Type', 'image/svg+xml');
+        let url = req.url;
+        const extension = url[url.length - 1];
+        switch (extension) {
+            case "css":
+                res.setHeader('Content-Type', 'text/css');
+                break;
+            case "js":
+                res.setHeader('Content-Type', 'application/javascript');
+                break;
+            case "html":
+                res.setHeader('Content-Type', 'text/html');
+                break;
+            case "jpg":
+                res.setHeader('Content-Type', 'image/jpg');
+                break;
+            case "png":
+                res.setHeader('Content-Type', 'image/png');
+                break;
         }
         routing(res,`.${req.url}`);
     }
+
+
+
 
 });
 
