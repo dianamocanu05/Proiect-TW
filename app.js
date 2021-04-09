@@ -4,7 +4,6 @@ const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
 
-    console.log(req.url);
     res.setHeader('Access-Control-Allow-Origin', '*');
     if(req.url === "/"){
         routing(res,"./html/index.html");
@@ -12,7 +11,7 @@ const server = http.createServer((req, res) => {
     else if(req.url === "./report.html"){
         routing(res,"./html/report.html");
     }
-    else if(req.url === "./contact.html"){
+    else if(req.url === "/contact.html"){
         routing(res,"./html/contact.html");
     }
     else if(req.url === "./export.html"){
