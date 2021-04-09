@@ -1,8 +1,8 @@
-let myCanvas = document.getElementById("canvas");
-myCanvas.width = 300;
-myCanvas.height = 300;
+let canvas = document.getElementById("canvas");
+canvas.width = 300;
+canvas.height = 300;
 
-let context = myCanvas.getContext("2d");
+let context = canvas.getContext("2d");
 
 function drawLine(context, startX, startY, endX, endY,color){
     context.save();
@@ -21,12 +21,6 @@ function drawBar(context, upperLeftCornerX, upperLeftCornerY, width, height,colo
     context.restore();
 }
 
-let myVinyls = {
-    "Classical music": 10,
-    "Alternative rock": 14,
-    "Pop": 2,
-    "Jazz": 12
-};
 
 let Barchart = function(options){
     this.options = options;
@@ -97,7 +91,7 @@ let Barchart = function(options){
 
         //draw legend
         barIndex = 0;
-        let legend = document.querySelector("legend[for='myCanvas']");
+        let legend = document.querySelector("legend[for='canvas']");
         let ul = document.createElement("ul");
         legend.append(ul);
         for (categ in this.options.data){
@@ -115,7 +109,7 @@ let Barchart = function(options){
 
 let myBarchart = new Barchart(
     {
-        canvas:myCanvas,
+        canvas:canvas,
         seriesName:"Vinyl records",
         padding:20,
         gridScale:5,
