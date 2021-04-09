@@ -1,4 +1,9 @@
+import query from "./query_database.js"
+
 function create_table() {
+    console.log("HELLO");
+    let data = query();
+    console.log(data);
 
     let table = document.getElementById("table");
     let thead = document.createElement('thead');
