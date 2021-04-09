@@ -9,7 +9,7 @@ function query(cb){
     console.log(db_path)
     console.log(resolve("."))
     db.all("SELECT * FROM accidents", function (err,rows){
-        if(err) return cb(err);
+        if(err) return err;
         let count = 0;
         rows.forEach(function (row){
             console.log(row)
