@@ -17,6 +17,9 @@ const server = http.createServer((req, res) => {
     else if(req.url === "/export.html"){
         routing(res,"./html/export.html");
     }
+    else if(req.url === "/index.html"){
+        routing(res,"./html/index.html");
+    }
     else if(req.url !== "/favicon.ico"){
         let url = req.url;
         const extension = url.split('.').pop();
