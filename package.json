@@ -22,6 +22,7 @@
     "fs": "0.0.1-security",
     "html": "^1.0.0",
     "http": "0.0.1-security",
-    "serve": "^11.3.2"
+    "serve": "^11.3.2",
+    "sqlite3": "^5.0.2"
   }
 }

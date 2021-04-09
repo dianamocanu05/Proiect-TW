@@ -21,47 +21,12 @@
     </div>
     <img class="map" id="map-img" src="../media-util/usa.svg" alt="USA map">
     <!--to add vectorization to map, make it interactive-->
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Severity</th>
-            <th>Start_Time</th>
-            <th>Street</th>
-            <th>Side</th>
-            <th>City</th>
-            <th>County</th>
-            <th>State</th>
-            <th>Temperature</th>
-            <th>Visibility</th>
-            <th>Weather_Condition</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>3</td>
-            <td>2020-05-02 12:02</td>
-            <td>Munteni</td>
-            <td>R</td>
-            <td>Iasi</td>
-            <td>Iasi</td>
-            <td>Moldova</td>
-            <td>24</td>
-            <td>2</td>
-            <td>Rainy</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>3</td>
-            <td>2020-05-02 12:02</td>
-            <td>Munteni</td>
-            <td>R</td>
-            <td>Iasi</td>
-            <td>Iasi</td>
-            <td>Moldova</td>
-            <td>24</td>
-            <td>2</td>
-            <td>Rainy</td>
-        </tr>
-    </table>
+    <canvas id="canvas"></canvas>
+    <script type ="text/javascript" src = "../scripts/barchart.js">
+    </script>
+
 </div>
+<script type="text/javascript" src="../app.js"></script>
+<script type="module" src="../scripts/query_database.js"></script>
 </body>
 </html>

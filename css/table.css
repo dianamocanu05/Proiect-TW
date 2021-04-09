@@ -1,11 +1,18 @@
 table{
     border: darkcyan;
     border-collapse: collapse;
-    background-color: aquamarine;
+    background-color: white;
     font-family: "Trebuchet MS";
+    width: 100%;
 }
 
+table.a{
+    table-layout: auto;
+    width: 400px;
+}
+
+
 table td, table th{
-    border: 2px solid black;
+    border: 1px solid black;
     border-collapse: collapse;
 }

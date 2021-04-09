@@ -1,0 +1,1 @@
+import {list} from "../scripts/query_database";
