@@ -4,12 +4,14 @@
   Web Technologies (2020-2021) @ FII UAIC
   
   ## URL
-  link
+  https://acs-tw.herokuapp.com/
   
   ## REPORT
   link
   
   ## OTHER DETAILS
-  insert here
+  -> dataset : https://www.kaggle.com/sobhanmoosavi/us-accidents
+  
+  -> deployment : https://dashboard.heroku.com/apps/acs-tw
   
 
