@@ -18,7 +18,8 @@ const server = http.createServer((req, res) => {
         //     res.setHeader('Content-Type', 'image/svg+xml');
         // }
         let url = req.url;
-        const extension = url[url.length - 1]; //workaround pt cazurile in care un fisier e de forma blabla.txt.js
+        const extension = url.split('.').pop();
+        console.log(extension)
         switch (extension) {
             case "svg":
                 res.setHeader('Content-Type','image/svg+xml');
