@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
 
+    console.log(req.url);
     res.setHeader('Access-Control-Allow-Origin', '*');
     if(req.url === "/"){
         routing(res,"./html/index.html");
