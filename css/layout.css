@@ -7,3 +7,14 @@ body{
     margin: auto;
 }
 
+.contact{
+    font-family: "Trebuchet MS";
+    font-size: 35px;
+    color: white;
+}
+
+#list-text{
+    font-size: 25px;
+    color:white;
+}
+
