@@ -14,11 +14,14 @@ const server = http.createServer((req, res) => {
         query()
     }
     else if(req.url !== "/favicon.ico"){
+        // if(req.url === "/media-util/usa.svg"){
+        //     res.setHeader('Content-Type', 'image/svg+xml');
+        // }
         let url = req.url;
-        const extension = url[url.length - 1];
+        const extension = url[url.length - 1]; //workaround pt cazurile in care un fisier e de forma blabla.txt.js
         switch (extension) {
             case "svg":
-                res.setHeader('Content-Type','image/svg');
+                res.setHeader('Content-Type','image/svg+xml');
                 break;
             case "css":
                 res.setHeader('Content-Type', 'text/css');
@@ -38,8 +41,6 @@ const server = http.createServer((req, res) => {
         }
         routing(res,`.${req.url}`);
     }
-
-
 
 
 });
