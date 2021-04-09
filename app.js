@@ -9,6 +9,15 @@ const server = http.createServer((req, res) => {
     if(req.url === "/"){
         routing(res,"./html/index.html");
     }
+    else if(req.url === "./report.html"){
+        routing(res,"./html/report.html");
+    }
+    else if(req.url === "./contact.html"){
+        routing(res,"./html/contact.html");
+    }
+    else if(req.url === "./export.html"){
+        routing(res,"./html/export.html");
+    }
     else if(req.url !== "/favicon.ico"){
         let url = req.url;
         const extension = url.split('.').pop();
