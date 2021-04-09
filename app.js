@@ -17,6 +17,9 @@ const server = http.createServer((req, res) => {
         let url = req.url;
         const extension = url[url.length - 1];
         switch (extension) {
+            case "svg":
+                res.setHeader('Content-Type','image/svg');
+                break;
             case "css":
                 res.setHeader('Content-Type', 'text/css');
                 break;
