@@ -1,3 +1,11 @@
+html {
+    max-width: 1000px;
+    margin: auto;
+    background: #264653;
+    color: #f7f7f7;
+}
+
+
 .header{
     font-family: "Trebuchet MS";
     display: inline-block;
