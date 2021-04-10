@@ -58,7 +58,7 @@ function drawRegionsMap() {
         ['US-WY', 488]
     ]);
 
-    var options = { colorAxis: {colors: ['#FFF59E', '#00853f', '#e31b23']},
+    var options = { colorAxis: {colors: ['#FFF59E', '#e36414', '#8d0801']},
     width: 900, height: 500, region: "US", resolution: "provinces"};
 
     var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
