@@ -1,8 +1,5 @@
 google.charts.load('current', {
     'packages':['geochart'],
-    // Note: you will need to get a mapsApiKey for your project.
-    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-    'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
 });
 google.charts.setOnLoadCallback(drawRegionsMap);
 function drawRegionsMap() {
@@ -61,9 +58,10 @@ function drawRegionsMap() {
         ['US-WY', 488]
     ]);
 
-    var options = {};
+    var options = { colorAxis: {colors: ['#FFF59E', '#00853f', '#e31b23']},
+    width: 900, height: 500, region: "US", resolution: "provinces"};
 
     var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-    chart.draw(data, {width: 900, height: 500, region: "US", resolution: "provinces"});
-  //  chart.draw(data, options);
+   // chart.draw(data, {width: 900, height: 500, region: "US", resolution: "provinces"}, options);
+    chart.draw(data, options);
 }
