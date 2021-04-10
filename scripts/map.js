@@ -59,7 +59,7 @@ function drawRegionsMap() {
     ]);
 
     var options = { colorAxis: {colors: ['#FFF59E', '#e36414', '#8d0801']},
-    width: 900, height: 500, region: "US", resolution: "provinces"};
+    width: 984, height: 500, region: "US",backgroundColor: '#81d4fa', resolution: "provinces"};
 
     var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
    // chart.draw(data, {width: 900, height: 500, region: "US", resolution: "provinces"}, options);
