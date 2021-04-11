@@ -9,6 +9,7 @@ const server = http.createServer((req, res) => {
         routing(res,"./html/index.html");
     }
     else if(req.url === "/report.html"){
+        server.use('./css/report.css');
         routing(res,"./html/report.html");
     }
     else if(req.url === "/contact.html"){
