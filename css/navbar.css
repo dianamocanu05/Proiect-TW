@@ -42,10 +42,10 @@ a.line::after{
     display: block;
     width: 0;
     height: 4px;
-    background: #86C232;
+    background: #FF7A00;
     transition: width .3s;
 }
 a.line:hover::after {
     width: 100%;
-    //transition: width .3s;
+  
 }

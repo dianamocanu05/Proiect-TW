@@ -57,7 +57,7 @@ function drawRegionsMap() {
         ['WYOMING', 488]
     ]);
 
-    var options = { colorAxis: {colors: ['#76A739', '#787C7D', '#41484E']},
+    var options = { colorAxis: {colors: ['#B5DE7D', '#FFA500', '#FF7A00']},
     width: 1000, height: 500, region: "US",backgroundColor: 'transparent', resolution: "provinces"};
 
     var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));

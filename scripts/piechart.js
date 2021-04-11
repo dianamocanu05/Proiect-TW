@@ -19,7 +19,7 @@ function drawChart1() {
             fontName: 'Oxygen',
             fontSize: '25',
         },
-        colors: ['#AFB1B2', '#86C232'],
+        colors: ['#6B6E70', '#FF7A00'],
         backgroundColor: 'transparent',
         legendTextStyle: {color: 'white', fontSize: 12, fontName: 'Oxygen'}
     };
@@ -44,7 +44,7 @@ function drawChart2() {
             fontName: 'Oxygen',
             fontSize: '25',
         },
-        colors: ['#AFB1B2', '#86C232'],
+        colors: ['#6B6E70', '#FF7A00'],
         backgroundColor: 'transparent',
         legendTextStyle: {color: 'white', fontSize: 12, fontName: 'Oxygen'}
     };
