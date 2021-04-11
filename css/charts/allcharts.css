@@ -1,0 +1,75 @@
+#pie-charts {
+  width: 110%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#pie-charts>div {
+  width: 50% !important;
+  height: 500px !important;
+  position: relative;
+}
+
+#donut-charts {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#donut-charts>div {
+  width: 100% !important;
+  height: 400px !important;
+  position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+#bar-charts {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#bar-charts>div {
+  width: 100% ;
+  height: 300px;
+  position: relative;
+    align-items: center;
+    justify-content: center;
+}
+#chartdiv-charts {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#chartdiv-charts>div {
+  width: 100% ;
+  height: 300px;
+  position: relative;
+    align-items: center;
+    justify-content: center;
+}
+#table-charts {
+  width: 97%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#table-charts>div {
+  width: 100% ;
+  height: 300px;
+  position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
