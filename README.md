@@ -7,7 +7,7 @@
   https://acs-tw.herokuapp.com/
   
   ## REPORT
-  link
+  https://acs-tw.herokuapp.com/report.html
   
   ## OTHER DETAILS
   -> dataset : https://www.kaggle.com/sobhanmoosavi/us-accidents
