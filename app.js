@@ -20,6 +20,9 @@ const server = http.createServer((req, res) => {
     else if(req.url === "/index.html"){
         routing(res,"./html/index.html");
     }
+    else if(req.url === "/mit.txt"){
+        routing(res,"./media-util/mit.txt")
+    }
     else if(req.url !== "/favicon.ico"){
         let url = req.url;
         const extension = url.split('.').pop();
