@@ -1,7 +1,7 @@
 html {
     max-width: 1000px;
     margin: auto;
-    background: #264653;
+    background: #2A9D8F;
 }
 
 
@@ -20,14 +20,14 @@ html {
 }
 
 .navbar{
-    background-color: rgb(202,240,248);
+    background-color: #6DD9CB;
     overflow: hidden;
 }
 
 .navbar a{
     float: right;
     text-align: right;
-    color: #2a9d8f;
+    color: black;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
