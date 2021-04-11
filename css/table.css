@@ -1,6 +1,31 @@
-#table {
-    border-collapse: collapse;
+.cssHeaderRow {
+    background-color: #BF5D0D;
 }
-#th, td {
-    border: 1px solid black;
+.cssTableRow {
+    background-color: #43474C;
 }
+.cssOddTableRow {
+    background-color: #26292B;
+
+}
+.cssSelectedTableRow {
+    font-size: 20px;
+    font-weight:bold;
+}
+.cssHoverTableRow {
+    background: #303336;
+}
+.cssHeaderCell {
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 10px !important;
+    border: solid 1px #464749;
+}
+.cssTableCell {
+    color: #C9CCCF;
+    font-size: 16px;
+    padding: 10px !important;
+    border: solid 1px #464749;
+}
+
+
