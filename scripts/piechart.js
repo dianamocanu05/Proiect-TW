@@ -1,42 +1,55 @@
 google.charts.load('current', {
-  packages: ['corechart']
+    packages: ['corechart']
 });
- google.charts.setOnLoadCallback(drawChart1);
-  google.charts.setOnLoadCallback(drawChart2);
-     function drawChart1() {
+google.charts.setOnLoadCallback(drawChart1);
+google.charts.setOnLoadCallback(drawChart2);
 
-        var data = google.visualization.arrayToDataTable([
+function drawChart1() {
+
+    var data = google.visualization.arrayToDataTable([
         ['State', 'Number of accidents'],
         ['OH', 90],
         ['MN', 233]
-        ]);
+    ]);
 
-        var options = {
-          title: 'Accidents in OH and MN',
-           colors: ['#F4A261', '#2A9D8F'],
-           backgroundColor: '6DD9CB'
-        };
+    var options = {
+        title: 'Accidents in OH and MN',
+        titleTextStyle: {
+            color: 'FFFFFF',
+            fontName: 'Oxygen',
+            fontSize: '25',
+        },
+        colors: ['#AFB1B2', '#86C232'],
+        backgroundColor: 'transparent',
+        legendTextStyle: {color: 'white', fontSize: 12, fontName: 'Oxygen'}
+    };
 
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div_l'));
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div_l'));
 
-        chart.draw(data, options);
-     }
-      
-      function drawChart2() {
+    chart.draw(data, options);
+}
 
-        var data = google.visualization.arrayToDataTable([
+function drawChart2() {
+
+    var data = google.visualization.arrayToDataTable([
         ['State', 'Number of accidents'],
         ['SD', 266],
         ['AZ', 124]
-        ]);
+    ]);
 
-        var options = {
-          title: 'Accidents in SD and AZ',
-           colors: ['#F4A261', '#2A9D8F'],
-           backgroundColor: '6DD9CB'
-        };
+    var options = {
+        title: 'Accidents in SD and AZ',
+        titleTextStyle: {
+            color: 'FFFFFF',
+            fontName: 'Oxygen',
+            fontSize: '25',
+        },
+        colors: ['#AFB1B2', '#86C232'],
+        backgroundColor: 'transparent',
+        legendTextStyle: {color: 'white', fontSize: 12, fontName: 'Oxygen'}
+    };
 
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div_r'));
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div_r'));
 
-        chart.draw(data, options);
-      }
+    chart.draw(data, options);
+}

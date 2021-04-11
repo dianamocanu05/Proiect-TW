@@ -1,5 +1,9 @@
 body{
-    background-color: #2A9D8F;
+    background-color: #222629;
+    font-family: "Oxygen", "sans-serif";
+      justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .wrapper{
@@ -8,7 +12,7 @@ body{
 }
 
 .contact{
-    font-family: "Trebuchet MS";
+    font-family: "Oxygen", "sans-serif";
     font-size: 35px;
     color: white;
 }

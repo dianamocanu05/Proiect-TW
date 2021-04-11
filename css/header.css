@@ -1,38 +1,18 @@
 html {
-    max-width: 1000px;
+    max-width: 100%;
     margin: auto;
-    background: #2A9D8F;
+    background: #222629;
+    font-family: "Oxygen", "sans-serif";
 }
 
-
 .header{
-    font-family: "Trebuchet MS";
     display: inline-block;
 }
 
 .title{
     text-align: center;
     color: white;
+    font-size:4vw;
 }
 
-#title-text{
-    font-size: min(70px,6vmin);
-}
 
-.navbar{
-    background-color: #6DD9CB;
-    overflow: hidden;
-}
-
-.navbar a{
-    float: right;
-    text-align: right;
-    color: black;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.navbar a:hover{
-    color: blueviolet;
-}
