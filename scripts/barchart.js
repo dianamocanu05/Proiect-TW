@@ -30,12 +30,18 @@ function drawBarChart() {
             title: 'Month',
             textStyle: {
                 color: '#FFFFFF'
+            },
+            titleTextStyle: {
+                color: 'white',
             }
         },
         vAxis: {
             title: 'Number of accidents',
             textStyle: {
                 color: '#FFFFFF'
+            },
+            titleTextStyle: {
+                color: 'white',
             }
         },
         series: {

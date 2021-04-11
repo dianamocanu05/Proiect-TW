@@ -24,18 +24,30 @@ function drawVisualization() {
         vAxis: {
             title: 'Accidents',
             textStyle: {
-                color: '#FFFFFF'
+                color: 'white',
+            },
+            titleTextStyle: {
+                color: 'white',
             }
+        },
+        textStyle: {
+            color: 'white',
+            fontName: 'Oxygen',
         },
         hAxis: {
             title: 'Month',
             textStyle: {
-                color: '#FFFFFF'
+                color: 'white'
+            },
+            titleTextStyle: {
+                color: 'white',
             }
         },
         backgroundColor: 'transparent',
-        legendTextStyle: {
-            color: 'white'
+        legend: {
+            textStyle: {
+                color: '#ffffff'
+            }
         },
         seriesType: 'bars',
         series: {
@@ -43,7 +55,7 @@ function drawVisualization() {
                 type: 'line'
             },
             0: {
-             
+
                 color: "#FFA500"
             },
             1: {
