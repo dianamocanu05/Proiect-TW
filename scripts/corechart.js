@@ -14,8 +14,19 @@ function drawVisualization() {
 
     var options = {
         title : 'Accidents between June-December 2020',
-        vAxis: {title: 'Accidents'},
-        hAxis: {title: 'Month'},
+        titleTextStyle: {
+            color: 'FFFFFF',
+            fontName: 'Oxygen',
+            fontSize: '25',
+        },
+        vAxis: {title: 'Accidents' ,textStyle: {
+                color: '#FFFFFF'
+            }},
+        hAxis: {title: 'Month', textStyle: {
+                color: '#FFFFFF'
+            }},
+        backgroundColor: 'transparent',
+        legendTextStyle: {color: 'white'},
         seriesType: 'bars',
         series: {5: {type: 'line'}}
     };
