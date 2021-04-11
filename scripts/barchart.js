@@ -1,122 +1,56 @@
-let canvas = document.getElementById("canvas");
-canvas.width = 300;
-canvas.height = 300;
+google.charts.load('current', {
+    'packages': ['corechart'],
+});
+google.charts.setOnLoadCallback(drawBarChart);
 
-let context = canvas.getContext("2d");
+function drawBarChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Month', 'Number of accidents'],
+        ["july 2016", 123],
+        ["august 2016", 205],
+        ["july 2017", 124],
+        ["august 2017", 450],
+        ["july 2018", 345],
+    ]);
 
-function drawLine(context, startX, startY, endX, endY,color){
-    context.save();
-    context.strokeStyle = color;
-    context.beginPath();
-    context.moveTo(startX,startY);
-    context.lineTo(endX,endY);
-    context.stroke();
-    context.restore();
+
+    var options = {
+        title: 'Number of accidents between 2016-2020',
+        titleTextStyle: {
+            color: '#FFFFFF'
+        },
+        annotations: {
+            textStyle: {
+                color: '#FFFFFF'
+            },
+            fontName: 'Oxygen',
+            fontSize: '25',
+        },
+        hAxis: {
+            title: 'Month',
+            textStyle: {
+                color: '#FFFFFF'
+            }
+        },
+        vAxis: {
+            title: 'Number of accidents',
+            textStyle: {
+                color: '#FFFFFF'
+            }
+        },
+        series: {
+            0: {
+                color: '#FF7A00'
+            }
+        },
+
+        color: '#FF7A00',
+        backgroundColor: 'transparent',
+        legendTextStyle: {color: 'white', fontSize: 12, fontName: 'Oxygen'},
+        width: 1000,
+        height: 500
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('barchart-div'));
+    chart.draw(data, options);
 }
-
-function drawBar(context, upperLeftCornerX, upperLeftCornerY, width, height,color){
-    context.save();
-    context.fillStyle=color;
-    context.fillRect(upperLeftCornerX,upperLeftCornerY,width,height);
-    context.restore();
-}
-
-
-let Barchart = function(options){
-    this.options = options;
-    this.canvas = options.canvas;
-    this.context = this.canvas.getContext("2d");
-    this.colors = options.colors;
-
-    this.draw = function(){
-        let maxValue = 0;
-        for (let categ in this.options.data){
-            maxValue = Math.max(maxValue,this.options.data[categ]);
-        }
-        let canvasActualHeight = this.canvas.height - this.options.padding * 2;
-        let canvasActualWidth = this.canvas.width - this.options.padding * 2;
-
-        //drawing the grid lines
-        let gridValue = 0;
-        while (gridValue <= maxValue){
-            let gridY = canvasActualHeight * (1 - gridValue/maxValue) + this.options.padding;
-            drawLine(
-                this.context,
-                0,
-                gridY,
-                this.canvas.width,
-                gridY,
-                this.options.gridColor
-            );
-
-            //writing grid markers
-            this.context.save();
-            this.context.fillStyle = this.options.gridColor;
-            this.context.textBaseline="bottom";
-            this.context.font = "bold 10px Arial";
-            this.context.fillText(gridValue, 10,gridY - 2);
-            this.context.restore();
-
-            gridValue+=this.options.gridScale;
-        }
-
-        //drawing the bars
-        let barIndex = 0;
-        let numberOfBars = Object.keys(this.options.data).length;
-        let barSize = (canvasActualWidth)/numberOfBars;
-
-        for (categ in this.options.data){
-            let val = this.options.data[categ];
-            let barHeight = Math.round( canvasActualHeight * val/maxValue) ;
-            drawBar(
-                this.context,
-                this.options.padding + barIndex * barSize,
-                this.canvas.height - barHeight - this.options.padding,
-                barSize,
-                barHeight,
-                this.colors[barIndex%this.colors.length]
-            );
-
-            barIndex++;
-        }
-
-        //drawing series name
-        this.context.save();
-        this.context.textBaseline="bottom";
-        this.context.textAlign="center";
-        this.context.fillStyle = "#000000";
-        this.context.font = "bold 14px Arial";
-        this.context.fillText(this.options.seriesName, this.canvas.width/2,this.canvas.height);
-        this.context.restore();
-
-        //draw legend
-        barIndex = 0;
-        let legend = document.querySelector("legend[for='canvas']");
-        let ul = document.createElement("ul");
-        legend.append(ul);
-        for (categ in this.options.data){
-            let li = document.createElement("li");
-            li.style.listStyle = "none";
-            li.style.borderLeft = "20px solid "+this.colors[barIndex%this.colors.length];
-            li.style.padding = "5px";
-            li.textContent = categ;
-            ul.append(li);
-            barIndex++;
-        }
-    }
-}
-
-
-let myBarchart = new Barchart(
-    {
-        canvas:canvas,
-        seriesName:"Vinyl records",
-        padding:20,
-        gridScale:5,
-        gridColor:"#eeeeee",
-        data:myVinyls,
-        colors:["#a55ca5","#67b6c7", "#bccd7a","#eb9743"]
-    }
-);
-
-myBarchart.draw();
