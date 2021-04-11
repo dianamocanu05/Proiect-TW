@@ -1,4 +1,4 @@
-# USA Accidents Smart Visulizer (AcS)
+# USA Accidents Smart Visualizer (AcS)
   **Authors:** Mocanu Diana, Olaru Andreea, Pricop Ana
   
   Web Technologies (2020-2021) @ FII UAIC
