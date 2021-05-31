@@ -1,0 +1,23 @@
+body{
+    font-family: "Oxygen", "sans-serif";
+    justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.wrapper{
+    width: min(1200px,100%);
+    margin: auto;
+}
+
+.contact{
+    font-family: "Oxygen", "sans-serif";
+    font-size: 35px;
+    color: white;
+}
+
+#list-text{
+    font-size: 25px;
+    color:white;
+}
+

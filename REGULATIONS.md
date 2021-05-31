@@ -40,3 +40,12 @@ The **model** is the data. In this todo application, that'll be the actual todos
 The **view** is how the data is displayed. In this todo application, that will be the rendered HTML in the DOM and CSS.
 
 The **controller** connects the model and the view. It takes user input, such as clicking or typing, and handles callbacks for user interactions.
+
+
+
+
+
+### c.On the go observations:
+1. For creating database, used sqlite's utilitary mode .csv
+2. For generating the Accident model, used sequelize-auto
+3.
