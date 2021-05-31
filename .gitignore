@@ -1,3 +1,4 @@
-/data/complete
-/node_modules
-/old/data-manipulation/venv
+data
+node_modules
+old
+
