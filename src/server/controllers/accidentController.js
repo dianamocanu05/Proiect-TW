@@ -33,25 +33,25 @@ module.exports = class Accident{
         }
     }
 
-    static async apiUpdateAccident(req, res, next){
-        try {
-            const comment = {}
-            comment.title        = req.body.title;
-            comment.body         = req.body.body;
-            comment.AccidentImage = req.body.Accident_image
-
-            const updatedAccident = await AccidentService.updateAccident(comment);
-
-            if(updatedAccident.modifiedCount === 0){
-                throw new Error("Unable to update accident, error occured");
-            }
-
-            res.json(updatedAccident);
-
-        } catch (error) {
-            res.status(500).json({error: error});
-        }
-    }
+    // static async apiUpdateAccident(req, res, next){
+    //     try {
+    //         const comment = {}
+    //         comment.title        = req.body.title;
+    //         comment.body         = req.body.body;
+    //         comment.AccidentImage = req.body.Accident_image
+    //
+    //         const updatedAccident = await AccidentService.updateAccident(comment);
+    //
+    //         if(updatedAccident.modifiedCount === 0){
+    //             throw new Error("Unable to update accident, error occured");
+    //         }
+    //
+    //         res.json(updatedAccident);
+    //
+    //     } catch (error) {
+    //         res.status(500).json({error: error});
+    //     }
+    // }
 
     static async apiDeleteAccident(req, res, next){
         try {

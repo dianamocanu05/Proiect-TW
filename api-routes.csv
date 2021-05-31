@@ -1,0 +1,6 @@
+ROUTE,METHOD,ACCESS,ACTION
+127.0.0.1:3000/api/getAll,GET,ADMIN,get all accidents
+127.0.0.1:3000/api/add,POST,ADMIN,add accident
+127.0.0.1:3000/api/delete/:id,GET,ADMIN,delete accident whose id=:id
+127.0.0.1:3000/api/get/:id,GET,ADMIN,get accident whose id=:id
+127.0.0.1:3000/api/update,POST,ADMIN,update accident

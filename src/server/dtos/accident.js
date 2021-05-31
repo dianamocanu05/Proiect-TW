@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3');
-const Schema = sqlite3.Schema;
+const schema = sqlite3.Schema;
 
-const accidentSchema = Schema({
+const accidentSchema = schema({
     ID: {
         type: String,
         allowNull: true,
@@ -193,4 +193,4 @@ const accidentSchema = Schema({
     }
 });
 
-module.exports = Accident = sqlite3.model("Accident",accidentSchema);
+module.exports = Accident = sqlite3.model('Accident',accidentSchema);
