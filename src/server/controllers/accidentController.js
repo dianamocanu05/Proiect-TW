@@ -1,20 +1,16 @@
 const AccidentService = require("../services/accidentService");
-
+const AccidentRepository = require("../repositories/accidentRepository");
 module.exports = class Accident {
-    static async apiGetAllAccidents(req, res, next) {
+    static async apiGetAllAccidents(){
         try {
-            const Accidents = await AccidentService.getAllAccidents();
-            if (!Accidents) {
-                res.status(404).json("There are no accidents published yet!")
-            }
-            res.json(Accidents);
-        } catch (error) {
-            res.status(500).json({error: error})
+            return await AccidentRepository.getAllAccidents();
+        }catch (error){
+            console.log(`ERROR : ${error.message}`);
         }
     }
 
 
-    static async apiGetAccidentById(req, res, next) {
+    static async apiGetAccidentById(res, req, next) {
         try {
             let id = req.params.id || {};
             const Accident = await AccidentService.getAccidentbyId(id);

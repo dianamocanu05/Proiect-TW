@@ -41,8 +41,12 @@ The **view** is how the data is displayed. In this todo application, that will b
 
 The **controller** connects the model and the view. It takes user input, such as clicking or typing, and handles callbacks for user interactions.
 
+Controller -> receives the request, validates the data that the service needs invokes the service and returns the result.
+Service -> perform business logic like piecing together data from multiple db calls, data processing, etc.
+Repository -> wrapper for model 
 
 
+req -> controller -> service -> repository -> model
 
 
 ### c.On the go observations:
