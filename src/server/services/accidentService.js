@@ -3,7 +3,7 @@ const Accident = require("../dtos/accident");
 module.exports = class AccidentService {
     static async getAllAccidents() {
         try {
-            return await Accident.find();
+            return await Accident.findAll();
         } catch (error) {
             console.log(`Could not fetch accidents ${error}`);
         }

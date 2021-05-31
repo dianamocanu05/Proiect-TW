@@ -1,7 +1,9 @@
 const sqlite3 = require('sqlite3');
-const schema = sqlite3.Schema;
+const Sequelize = require('sequelize');
+const db = require('../database/database.js')
 
-const accidentSchema = schema({
+
+const accidentSchema = {
     ID: {
         type: String,
         allowNull: true,
@@ -191,6 +193,7 @@ const accidentSchema = schema({
         type: String,
         allowNull: true
     }
-});
+};
 
-module.exports = Accident = sqlite3.model('Accident',accidentSchema);
+const Accident = db.define('accidents',accidentSchema);
+module.exports = Accident;

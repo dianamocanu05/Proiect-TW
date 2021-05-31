@@ -5,12 +5,12 @@ const AccidentController = require("./controllers/accidentController");
 const hostname = '127.0.0.1';
 const port = 3000;
 
-let db = new sqlite3.Database('../../data/us-accidents.db', sqlite3.OPEN_READWRITE, (err) => {
-    if(err){
-        console.error(err.message);
-    }
-    console.log('[BE] Connected to the database!')
-})
+// let db = new sqlite3.Database('../../data/us-accidents.db', sqlite3.OPEN_READWRITE, (err) => {
+//     if(err){
+//         console.error(err.message);
+//     }
+//     console.log('[BE] Connected to the database!')
+// })
 
 const server = http.createServer((req, res) => {
     const reqUrl = url.parse(req.url);
