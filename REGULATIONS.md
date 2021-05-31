@@ -1,5 +1,12 @@
 # TW PROJECT REGULATIONS
+## !!!!FILE STRUCTURE AND TODO
+Am mutat vechiul proiect in /old, putem sa mai luam de acolo daca mai trebuie ceva, dar structura noua este alta.
+Toate sursele vor fi in src/. In src/server se gaseste toata logica API-ului, care respecta design patternul MVC(vezi mai jos).Aceasta este partea pe care user-ul nu o poate accesa.
+In src/webapp va fi tot ce tine de frontend si de functionalitatile principale (charturi, exporturi, filtrare de date). Vom lucra pe servici, adica fiecare din cele dinainte
+trebuie facute in .js separat. Tineti minte ca un astfel de json trebuie sa fie ceva de tipul:
 
+        input -> prelucrare -> return output;
+    spre ex.: serviciul donutChart: input: lista de state, lista de criterii -> prelucrare (requesturi la api) si crearea p-z de chart -> return chart;
 
 
 ## a. CERINTE
