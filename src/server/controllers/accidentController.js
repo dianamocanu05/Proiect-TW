@@ -1,22 +1,39 @@
 const AccidentService = require("../services/accidentService");
-const AccidentRepository = require("../repositories/accidentRepository");
+const utils = require("../utils");
+
 module.exports = class Accident {
-    static async apiGetAllAccidents(){
+    static async apiGetAllAccidents(res,req,next){
         try {
-            return await AccidentService.getAllAccidents();
+            const accidents = AccidentService.getAllAccidents();
+            res.write(JSON.stringify(accidents));
         }catch (error){
             console.log(`ERROR : ${error.message}`);
+            res.statusCode = 500;
+        }
+    }
+
+    static async apiGetAccidentsWhere(res,req){
+        let json = utils.getJson(req);
+        console.log(json);
+        try {
+            const accidents = AccidentService.getAccidentsWhere(json);
+            res.write(accidents);
+        }catch (error){
+            console.log(`ERROR : ${error.message}`);
+            res.statusCode = 500;
         }
     }
 
 
+
     static async apiGetAccidentById(res, req, next) {
         try {
-            let id = '1';
+            let id = utils.parseForId(req);
             console.log(id);
             const accidentId = await AccidentService.getAccidentbyId(id);
             res.write(JSON.stringify(accidentId));
         } catch (error) {
+            console.log(`ERROR : ${error.message}`);
             res.statusCode = 500;
         }
     }
@@ -54,11 +71,11 @@ module.exports = class Accident {
     static
     async apiDeleteAccident(req, res, next) {
         try {
-            const AccidentId = req.params.id;
-            const deleteResponse = await AccidentService.deleteAccident(AccidentId)
-            res.json(deleteResponse);
+            const id = utils.parseForId(req);
+            const deleteResponse = await AccidentService.deleteAccident(id);
+            res.send(JSON.stringify(deleteResponse));
         } catch (error) {
-            res.status(500).json({error: error})
+            res.statusCode = 500;
         }
     }
 

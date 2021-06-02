@@ -2,7 +2,6 @@ const AccidentModel = require("../dtos/accident");
 const Sequelizer = require('sequelize');
 const db = require('../config/database.config');
 const Accident = AccidentModel(db, Sequelizer);
-console.log(Object.keys(Accident) ," HERE ");
 
 module.exports = class AccidentService {
     static async getAllAccidents() {
@@ -70,11 +69,20 @@ module.exports = class AccidentService {
         }
     }
 
-    static async getAccidentbyId(AccidentId) {
+    static async getAccidentbyId(id) {
         try {
-            return await Accident.findByPk('A-100');
+            return await Accident.findByPk(id);
         } catch (error) {
             console.log(`Accident not found. ${error}`)
+        }
+    }
+
+    static async getAccidentsWhere(options){
+        try{
+
+            return await Accident.findAll(options);
+        }catch (error){
+            console.log(`Accidents not found. ${error}`)
         }
     }
 
@@ -91,7 +99,7 @@ module.exports = class AccidentService {
 
     static async deleteAccident(AccidentId) {
         try {
-            return await Accident.findOneAndDelete(AccidentId);
+            return await Accident.destroy(AccidentId);
         } catch (error) {
             console.log(`Could  ot delete Accident ${error}`);
         }
