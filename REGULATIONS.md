@@ -59,4 +59,4 @@ req -> controller -> service -> repository -> model
 ### c.On the go observations:
 1. For creating database, used sqlite's utilitary mode .csv
 2. For generating the Accident model, used sequelize-auto
-3.
+3. 

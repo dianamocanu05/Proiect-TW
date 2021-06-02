@@ -3,7 +3,7 @@ const AccidentRepository = require("../repositories/accidentRepository");
 module.exports = class Accident {
     static async apiGetAllAccidents(){
         try {
-            return await AccidentRepository.getAllAccidents();
+            return await AccidentService.getAllAccidents();
         }catch (error){
             console.log(`ERROR : ${error.message}`);
         }
@@ -12,11 +12,12 @@ module.exports = class Accident {
 
     static async apiGetAccidentById(res, req, next) {
         try {
-            let id = req.params.id || {};
-            const Accident = await AccidentService.getAccidentbyId(id);
-            res.json(Accident);
+            let id = '1';
+            console.log(id);
+            const accidentId = await AccidentService.getAccidentbyId(id);
+            res.write(JSON.stringify(accidentId));
         } catch (error) {
-            res.status(500).json({error: error})
+            res.statusCode = 500;
         }
     }
 

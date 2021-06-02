@@ -1,4 +1,8 @@
-const Accident = require("../dtos/accident");
+const AccidentModel = require("../dtos/accident");
+const Sequelizer = require('sequelize');
+const db = require('../config/database.config');
+const Accident = AccidentModel(db, Sequelizer);
+console.log(Object.keys(Accident) ," HERE ");
 
 module.exports = class AccidentService {
     static async getAllAccidents() {
@@ -68,7 +72,7 @@ module.exports = class AccidentService {
 
     static async getAccidentbyId(AccidentId) {
         try {
-            return await Accident.findById({_id: AccidentId});
+            return await Accident.findByPk('A-100');
         } catch (error) {
             console.log(`Accident not found. ${error}`)
         }

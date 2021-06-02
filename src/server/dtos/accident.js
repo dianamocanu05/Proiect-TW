@@ -1,7 +1,6 @@
 const sqlite3 = require('sqlite3');
 const Sequelize = require('sequelize');
-const db = require('../database/database.js')
-
+const db = require('../config/database.config');
 
 const accidentSchema = {
     ID: {
@@ -37,7 +36,7 @@ const accidentSchema = {
         type: String,
         allowNull: true
     },
-    Distance: {
+    "Distance(mi)": {
         type: String,
         allowNull: true
     },
@@ -89,23 +88,23 @@ const accidentSchema = {
         type: String,
         allowNull: true
     },
-    Temperature: {
+    "Temperature(F)": {
         type: String,
         allowNull: true
     },
-    Wind_Chill: {
+    "Wind_Chill(F)": {
         type: String,
         allowNull: true
     },
-    Humidity: {
+    "Humidity(%)": {
         type: String,
         allowNull: true
     },
-    Pressure: {
+    "Pressure(in)": {
         type: String,
         allowNull: true
     },
-    Visibility: {
+    "Visibility(mi)": {
         type: String,
         allowNull: true
     },
@@ -113,11 +112,11 @@ const accidentSchema = {
         type: String,
         allowNull: true
     },
-    Wind_Speed: {
+    "Wind_Speed(mph)": {
         type: String,
         allowNull: true
     },
-    Precipitation: {
+    "Precipitation(in)": {
         type: String,
         allowNull: true
     },
@@ -195,5 +194,9 @@ const accidentSchema = {
     }
 };
 
-const Accident = db.define('accidents',accidentSchema);
-module.exports = Accident;
+const AccidentModel = db.define('accident',accidentSchema,{
+    timestamps : false,
+    createdAt: false,
+    updatedAt: false
+});
+module.exports = () => AccidentModel;
