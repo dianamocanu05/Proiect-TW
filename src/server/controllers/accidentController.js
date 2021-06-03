@@ -4,7 +4,7 @@ let options;
 module.exports = class Accident {
     static async apiGetAllAccidents(res,req,next){
         try {
-            const accidents = AccidentService.getAllAccidents();
+            const accidents = await AccidentService.getAllAccidents();
             res.write(JSON.stringify(accidents));
         }catch (error){
             console.log(`ERROR : ${error.message}`);

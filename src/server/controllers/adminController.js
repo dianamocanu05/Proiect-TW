@@ -15,9 +15,11 @@ module.exports = class Accident {
             }else{
                 res.write("Bad credentials!");
             }
+            return true;
         } catch (error) {
             console.log(`ERROR : ${error.message}`);
             res.statusCode = 500;
+            return false;
         }
     }
 }

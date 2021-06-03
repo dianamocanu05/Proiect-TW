@@ -1,3 +1,11 @@
 1. admin panel and auth for update, delete, add import
+admin panel should require (via a popup) the admin credentials -> then buttons:
+	add accident
+	delete accident
+	update accident
+	import database
+	export database
+
 2. import feature
 3. think of what other routes are needed
+4. solution for too long waiting times for the API to respond (use limit or lookup sequelizer streams);

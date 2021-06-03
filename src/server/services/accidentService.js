@@ -5,8 +5,9 @@ const Accident = AccidentModel(db, Sequelizer);
 
 module.exports = class AccidentService {
     static async getAllAccidents() {
+        let limit = 100;
         try {
-            return await Accident.findAll();
+            return await Accident.findAll({limit : limit});
         } catch (error) {
             console.log(`Could not fetch accidents ${error}`);
         }
