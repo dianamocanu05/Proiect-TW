@@ -2,6 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 const http = require('http');
 const url = require('url');
 const AccidentController = require("./controllers/accidentController");
+const AdminController = require("./controllers/adminController");
 const hostname = '127.0.0.1';
 const port = 3000;
 
@@ -28,6 +29,7 @@ function routing (path,res,req){
         case '/api/add': return 'add';
         case '/api/update': return 'update';
         case '/api/getWhere' : return AccidentController.apiGetAccidentsWhere(res,req);
+        case '/api/login' : return  AdminController.apiLoginAdmin(res,req);
     }
     if(path.includes('/api/delete')){
         return AccidentController.apiDeleteAccident(res,req);

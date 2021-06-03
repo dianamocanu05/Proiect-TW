@@ -3,8 +3,8 @@ module.exports.parseForId = function (req){
     return fields[fields.length-1];
 };
 
-module.exports.getJson = function (req){
-    const data = req.on('data',function (data){
-        return JSON.parse(data);
-    };
-}
+// module.exports.getJson = function (req){
+//     const data = req.on('data',function (data){
+//         return JSON.parse(data);
+//     };
+// }

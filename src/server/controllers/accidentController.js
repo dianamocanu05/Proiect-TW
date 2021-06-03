@@ -1,6 +1,6 @@
 const AccidentService = require("../services/accidentService");
 const utils = require("../utils");
-
+let options;
 module.exports = class Accident {
     static async apiGetAllAccidents(res,req,next){
         try {
@@ -13,11 +13,13 @@ module.exports = class Accident {
     }
 
     static async apiGetAccidentsWhere(res,req){
-        let json = utils.getJson(req);
-        console.log(json);
+        const data = await req.on('data',function (data){
+            options = JSON.parse(data);
+        });
+        console.log(options);
         try {
-            const accidents = AccidentService.getAccidentsWhere(json);
-            res.write(accidents);
+            const accidents = await AccidentService.getAccidentsWhere({where : options});
+            res.write(JSON.stringify(accidents));
         }catch (error){
             console.log(`ERROR : ${error.message}`);
             res.statusCode = 500;
