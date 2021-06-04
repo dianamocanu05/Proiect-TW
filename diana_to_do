@@ -10,3 +10,4 @@ admin panel should require (via a popup) the admin credentials -> then buttons:
 3. think of what other routes are needed
 4. solution for too long waiting times for the API to respond (use limit or lookup sequelizer streams);
 5. style admin panel
+6. replace jquery!!!!!!!!!!!!!!
