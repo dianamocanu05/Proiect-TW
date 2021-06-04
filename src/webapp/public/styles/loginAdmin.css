@@ -35,8 +35,8 @@ h3{
 .sidenav {
     height: 100%;
     width: 0; /*to be changed in js*/
-    position: fixed;
-    z-index: 1;
+    position: absolute;
+    z-index: 11;
     top: 0;
     left: 0;
     background-color: #e0943d ;
@@ -44,7 +44,28 @@ h3{
     padding-top: 60px;
     transition: 0.5s;
 }
+.container {
+    left: 350px;
+    padding: 0;
+    margin: 0;
+}
 
+.left-element {
+    display: inline-block;
+    float: left;
+}
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    margin: auto;
+    width: 960px;
+    overflow: auto;
+}
+
+.right-element {
+    display: inline-block;
+    float: left;
+}
 
 .sidenav a {
     padding: 8px 8px 8px 32px;
@@ -55,19 +76,13 @@ h3{
     transition: 0.3s;
 }
 .add-accident, .delete-accident, .update-accident, .import-database{
-    position: relative;
-    margin-left: 300px;
+    float: right;
 }
 
 .sidenav a:hover {
     color: red;
 }
 
-
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
 
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
