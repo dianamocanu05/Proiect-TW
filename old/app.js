@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
                 res.setHeader('Content-Type','image/svg+xml');
                 break;
             case "css":
-                res.setHeader('Content-Type', 'text/css');
+                res.setHeader('Content-Type', 'text/style');
                 break;
             case "js":
                 res.setHeader('Content-Type', 'application/javascript');

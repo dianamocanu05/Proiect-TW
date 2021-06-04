@@ -6,6 +6,7 @@ module.exports = class Accident {
         try {
             const data = await req.on('data',function (data){
                 credentials = JSON.parse(data);
+                console.log(credentials);
             });
 
             let admins = await AdminService.findAdminWhere(credentials.username, credentials.password);

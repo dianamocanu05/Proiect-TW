@@ -1,0 +1,23 @@
+#popupbox{
+    margin: 0;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 50px;
+    padding-top: 10px;
+    width: 20%;
+    height: 150px;
+    position: absolute;
+    background: #FBFBF0;
+    border: solid #000000 2px;
+    z-index: 9;
+    font-family: 'Helvetica','Arial',sans-serif;
+    text-align: center;
+}
+h1 {
+    color: #e0943d;
+    font-family: 'Helvetica','Arial',sans-serif;
+    font-size: 100px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 1px;
+}
