@@ -12,9 +12,9 @@ module.exports = class Accident {
             let admins = await AdminService.findAdminWhere(credentials.username, credentials.password);
 
             if(admins.toString() !== "") {
-                res.write("Logged in successfully!");
+                console.log("Logged in successfully!");
             }else{
-                res.write("Bad credentials!");
+                console.log("Bad credentials!");
             }
             return true;
         } catch (error) {

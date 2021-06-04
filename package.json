@@ -2,9 +2,9 @@
   "name": "acs",
   "version": "1.0.0",
   "description": "USA Accidents Smart Visualizer",
-  "main": "server/App.js",
+  "main": "src/App.js",
   "scripts": {
-    "start": "node server/App.js"
+    "start": "node src/App.js"
   },
   "repository": {
     "type": "git",
