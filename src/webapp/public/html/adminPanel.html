@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Acs Admin</title>
+    <link rel="stylesheet" type="text/css" href="../styles/loginAdmin.css">
+
+</head>
+<body onload="openNav()">
+<script>
+    window.smoothScroll = function(target) {
+        var scrollContainer = target;
+        do { //find scroll container
+            scrollContainer = scrollContainer.parentNode;
+            if (!scrollContainer) return;
+            scrollContainer.scrollTop += 1;
+        } while (scrollContainer.scrollTop === 0);
+
+        var targetY = 0;
+        do { //find the top of target relatively to the container
+            if (target === scrollContainer) break;
+            targetY += target.offsetTop;
+        } while (target === target.offsetParent);
+
+        scroll = function(c, a, b, i) {
+            i++; if (i > 30) return;
+            c.scrollTop = a + (b - a) / 30 * i;
+            setTimeout(function(){ scroll(c, a, b, i); }, 20);
+        }
+        // start scrolling
+        scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+    }
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+    openNav();
+</script>
+<div id="mySidenav" class="sidenav">
+    <a onclick="smoothScroll(document.getElementById('add-accident'))">Add accident</a>
+    <a onclick="smoothScroll(document.getElementById('update-accident'))">Update accident</a>
+    <a onclick="smoothScroll(document.getElementById('delete-accident'))">Delete accident</a>
+    <a onclick="smoothScroll(document.getElementById('import-database'))">Import new database</a>
+</div>
+
+
+
+
+    <h1 align="center">AcS Admin</h1>
+
+<div id="add-accident"><h3 >Add-accident</h3></div>
+<div id="update-accident"><h3 >Update-accident</h3></div>
+<div id="delete-accident"><h3 >Delete-accident</h3></div>
+<div id="import-database"><h3 >Import-database</h3></div>
+<!--    <label for="add-accident"><h3 align="center"> Add accident</h3></label>-->
+<!--    <br>-->
+<!--    <textarea id="add-accident" name="add-accident" rows="50" cols="150" align="center">-->
+<!--add-->
+<!--</textarea>-->
+
+<!--    <br>-->
+<!--    <label for="update-accident"><h3 align="right">Update accident</h3> </label>-->
+<!--    <br>-->
+<!--    <textarea id="update-accident" name="update-accident" rows="50" cols="150">-->
+<!--update-->
+<!--</textarea>-->
+
+<!--    <br>-->
+<!--    <label for="delete-accident"><h3 align="right"> Delete accident</h3></label>-->
+<!--    <br>-->
+<!--    <textarea id="delete-accident" name="delete-accident" rows="50" cols="150">-->
+<!--delete-->
+<!--</textarea>-->
+
+
+</body>
+</html>
