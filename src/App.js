@@ -15,6 +15,11 @@ const server = http.createServer(async (req, res) => {
     res.statusCode = 200;
     if (path === '/api/loginAdmin') {
         directHtml(res, "./webapp/public/html/loginAdmin.html");
+    }else if(path === '/api/adminPanel'){
+        directHtml(res,"./webapp/public/html/adminPanel.html");
+    }else if(path === '/api/adminPanel.html#update-accident'){
+        alert('Heyo');
+        directHtml(res,"./webapp/public/html/adminPanel.html#update-accident");
     }
     else if (path === '/styles/loginAdmin.css') {
         fs.readFile('./webapp/public/styles/loginAdmin.css', function (err, page) {

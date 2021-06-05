@@ -35,12 +35,12 @@ h3{
 .sidenav {
     height: 100%;
     width: 0; /*to be changed in js*/
-    position: absolute;
-    z-index: 11;
+    position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
     background-color: #e0943d ;
-    /*overflow-x: hidden;*/
+    overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
 }
