@@ -3,6 +3,7 @@ const Sequelizer = require('sequelize');
 const Op = Sequelizer.Op;
 const db = require('../config/database.config');
 const Accident = AccidentModel(db, Sequelizer);
+let parseTemperatureRange = require('../utils').parseTemperatureRange;
 
 module.exports = class AccidentService {
     static async getAllAccidents() {
@@ -111,7 +112,6 @@ module.exports = class AccidentService {
     }
 
     static async getAccidentsWhere(options){
-
         try{
             return await Accident.count({
                 where: options,
@@ -120,6 +120,7 @@ module.exports = class AccidentService {
                 .then(function (count){
                     console.log(count);
                     return count;
+
                 });
         }catch (error){
             console.log(`Accidents not found. ${error}`)
@@ -146,7 +147,7 @@ module.exports = class AccidentService {
 
     }
 
-    static async getAllWeathers(res,req){
+    static async getAllWeathers(){
         try{
             return await Accident.findAll({
                 attributes: [
@@ -155,14 +156,14 @@ module.exports = class AccidentService {
             })
                 .then(function (list){
                     console.log(list);
-                    res.write(JSON.stringify(list));
+                    return list;
             });
         }catch (error){
             console.log(`Could not get weathers ${error}`);
         }
     }
 
-    static async getAllStates(res,req){
+    static async getAllStates(){
         try{
             return await Accident.findAll({
                 attributes: [
@@ -171,11 +172,35 @@ module.exports = class AccidentService {
             })
                 .then(function (list){
                     console.log(list);
-                    res.write(JSON.stringify(list));
+                    return list;
                 });
         }catch (error){
             console.log(`Could not get states ${error}`);
         }
+    }
+
+
+    static async getAccidentsByTemperature(options){
+        let temperatureRange = options.Temperature;
+        let temps = parseTemperatureRange(temperatureRange);
+        let low = temps[0];
+        let high = temps[1];
+        delete options.Temperature;
+        options = Object.assign(options, {"Temperature(F)" : {[Op.between] : [low, high]}});
+        console.log(options);
+        try{
+            return await Accident.count({
+                where: options,
+                distinct: 'accident.ID'
+            })
+                .then(function (count){
+                    console.log(count);
+                    return count;
+                });
+        }catch (error){
+            console.log(`Accidents not found. ${error}`)
+        }
+
     }
 
 

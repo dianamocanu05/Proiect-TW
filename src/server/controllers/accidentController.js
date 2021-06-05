@@ -29,7 +29,7 @@ module.exports = class Accident {
     static async apiGetWeathers(res,req){
         try{
             const weathers = await AccidentService.getAllWeathers(res,req);
-            res.write(weathers);
+            res.write(JSON.stringify(weathers));
         }catch (error){
             console.log(`ERROR : ${error.message}`);
             res.statusCode = 500;
@@ -39,7 +39,20 @@ module.exports = class Accident {
     static async apiGetStates(res,req){
         try{
             const states = await AccidentService.getAllStates(res,req);
-            res.write(states);
+            res.write(JSON.stringify(states));
+        }catch (error){
+            console.log(`ERROR : ${error.message}`);
+            res.statusCode = 500;
+        }
+    }
+
+    static async apiGetAccidentsByTemperature(res,req){
+        const data = await req.on('data',function (data){
+            options = JSON.parse(data);
+        });
+        try{
+            const accidents = await AccidentService.getAccidentsByTemperature(options);
+            res.write(JSON.stringify(accidents));
         }catch (error){
             console.log(`ERROR : ${error.message}`);
             res.statusCode = 500;

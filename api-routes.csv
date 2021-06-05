@@ -7,3 +7,6 @@ ROUTE,METHOD,ACCESS,ACTION,JSON FORMAT
 127.0.0.1:3000/api/getWhere, POST, ADMIN, get all accidents where condition, {"Severity" : 2, "Side" : R, ...}
 127.0.0.1:3000/api/getCount,POST,user, get number of accidents in specific state, {"State" : "CA"}
 127.0.0.1:3000/api/getCountYear,POST,user, get number of accidents in specific state in specific year, {"State" : "CA", "Year" : "2019"}
+127.0.0.1:3000/api/getByTemp, POST,user, get number of accidents with specific filters and temperature in range,{filters, Temperature:"75.5-76.0"}
+127.0.0.1:3000/api/weather,GET,user,get all weather types,none
+127.0.0.1:3000/api/states,GET,user,get all states, none

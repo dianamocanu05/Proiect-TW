@@ -67,3 +67,11 @@ req -> controller -> service -> repository -> model
 4. DonutChart -> 
 5. Tabel -> anything
 6. ColumnChart -> comprasion for multiple states, mutliple filters
+
+wind chill,
+humidity,
+pressure,
+visibility
+wind_speed,
+precipitation,
+distance,
