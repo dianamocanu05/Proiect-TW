@@ -18,7 +18,7 @@ module.exports = class Accident {
         });
         console.log(options);
         try {
-            const accidents = await AccidentService.getAccidentsWhere({where : options});
+            const accidents = await AccidentService.getAccidentsWhere(options);
             res.write(JSON.stringify(accidents));
         }catch (error){
             console.log(`ERROR : ${error.message}`);
@@ -26,6 +26,25 @@ module.exports = class Accident {
         }
     }
 
+    static async apiGetWeathers(res,req){
+        try{
+            const weathers = await AccidentService.getAllWeathers(res,req);
+            res.write(weathers);
+        }catch (error){
+            console.log(`ERROR : ${error.message}`);
+            res.statusCode = 500;
+        }
+    }
+
+    static async apiGetStates(res,req){
+        try{
+            const states = await AccidentService.getAllStates(res,req);
+            res.write(states);
+        }catch (error){
+            console.log(`ERROR : ${error.message}`);
+            res.statusCode = 500;
+        }
+    }
 
 
     static async apiGetAccidentById(res, req, next) {

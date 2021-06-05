@@ -6,9 +6,8 @@ const Accident = AccidentModel(db, Sequelizer);
 
 module.exports = class AccidentService {
     static async getAllAccidents() {
-        let limit = 100;
         try {
-            return await Accident.findAll({limit : limit});
+            return await Accident.count();
         } catch (error) {
             console.log(`Could not fetch accidents ${error}`);
         }
@@ -112,9 +111,16 @@ module.exports = class AccidentService {
     }
 
     static async getAccidentsWhere(options){
-        try{
 
-            return await Accident.findAll(options);
+        try{
+            return await Accident.count({
+                where: options,
+                distinct: 'accident.ID'
+            })
+                .then(function (count){
+                    console.log(count);
+                    return count;
+                });
         }catch (error){
             console.log(`Accidents not found. ${error}`)
         }
@@ -135,8 +141,42 @@ module.exports = class AccidentService {
         try {
             return await Accident.destroy(AccidentId);
         } catch (error) {
-            console.log(`Could  ot delete Accident ${error}`);
+            console.log(`Could not delete Accident ${error}`);
         }
 
     }
+
+    static async getAllWeathers(res,req){
+        try{
+            return await Accident.findAll({
+                attributes: [
+                    [Sequelizer.fn('DISTINCT', Sequelizer.col('Weather_Condition')) ,'weather'],
+                ]
+            })
+                .then(function (list){
+                    console.log(list);
+                    res.write(JSON.stringify(list));
+            });
+        }catch (error){
+            console.log(`Could not get weathers ${error}`);
+        }
+    }
+
+    static async getAllStates(res,req){
+        try{
+            return await Accident.findAll({
+                attributes: [
+                    [Sequelizer.fn('DISTINCT', Sequelizer.col('State')) ,'state'],
+                ]
+            })
+                .then(function (list){
+                    console.log(list);
+                    res.write(JSON.stringify(list));
+                });
+        }catch (error){
+            console.log(`Could not get states ${error}`);
+        }
+    }
+
+
 }

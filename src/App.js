@@ -65,7 +65,10 @@ function routing(path, res, req) {
             return AccidentController.apiGetAccidentsCount(res,req);
         case '/api/getCountYear':
             return AccidentController.apiGetAccidentsCountInStatePerYear(res,req);
-
+        case '/api/weathers':
+            return AccidentController.apiGetWeathers(res,req);
+        case '/api/states':
+            return AccidentController.apiGetStates(res,req);
     }
     if (path.includes('/api/delete')) {
         return AccidentController.apiDeleteAccident(res, req);
