@@ -59,4 +59,11 @@ req -> controller -> service -> repository -> model
 ### c.On the go observations:
 1. For creating database, used sqlite's utilitary mode .csv
 2. For generating the Accident model, used sequelize-auto
-3. 
+
+
+1. Map -> all states/ all accidents
+2. PieChart -> at least 2 states, comparison by numbers of accidents + filters
+3. LineChart -> 1 state, evolution of number of accidents + filters
+4. DonutChart -> 
+5. Tabel -> anything
+6. ColumnChart -> comprasion for multiple states, mutliple filters

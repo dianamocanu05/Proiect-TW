@@ -83,6 +83,21 @@ module.exports = class Accident {
         }
     }
 
+    static async apiGetAccidentsCountInStatePerYear(res,req,next){
+        const data = await req.on('data',function (data){
+            options = JSON.parse(data);
+        });
+        console.log(options.State);
+        console.log(options.Year);
+        try{
+            const response = await AccidentService.getAccidentsInStatePerYear(options.State,options.Year);
+            console.log(response);
+            res.write(JSON.stringify(response));
+        }catch (error){
+            res.statusCode = 500;
+        }
+    }
+
     static
     async apiDeleteAccident(req, res, next) {
         try {

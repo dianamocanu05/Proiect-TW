@@ -63,6 +63,8 @@ function routing(path, res, req) {
             return AdminController.apiLoginAdmin(res, req);
         case '/api/getCount':
             return AccidentController.apiGetAccidentsCount(res,req);
+        case '/api/getCountYear':
+            return AccidentController.apiGetAccidentsCountInStatePerYear(res,req);
 
     }
     if (path.includes('/api/delete')) {
