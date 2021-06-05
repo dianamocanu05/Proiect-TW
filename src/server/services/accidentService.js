@@ -12,6 +12,20 @@ module.exports = class AccidentService {
             console.log(`Could not fetch accidents ${error}`);
         }
     }
+    static async getAccidentsCount(state){
+        try {
+            return await Accident.count({
+                where: [{'State': state}],
+                distinct: 'accident.ID'
+            })
+                .then(function (count) {
+                    console.log(count);
+                    return count;
+                });
+        }catch (error){
+            console.log(`Could not fetch accidents count ${error}`)
+        }
+    }
 
     static async createAccident(data) {
         try {

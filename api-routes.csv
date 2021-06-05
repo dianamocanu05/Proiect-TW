@@ -5,3 +5,4 @@ ROUTE,METHOD,ACCESS,ACTION,JSON FORMAT
 127.0.0.1:3000/api/get,POST,update,get accident whose id=:id, {"id" : id}
 127.0.0.1:3000/api/update,POST,ADMIN,update accident, {"id" : id}
 127.0.0.1:3000/api/getWhere, POST, ADMIN, get all accidents where condition, {"Severity" : 2, "Side" : R, ...}
+127.0.0.1:3000/api/getCount,POST,user, get number of accidents in specific state, {"State" : "CA"}

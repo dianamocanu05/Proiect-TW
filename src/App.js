@@ -61,6 +61,8 @@ function routing(path, res, req) {
             return AccidentController.apiGetAccidentsWhere(res, req);
         case '/api/login' :
             return AdminController.apiLoginAdmin(res, req);
+        case '/api/getCount':
+            return AccidentController.apiGetAccidentsCount(res,req);
 
     }
     if (path.includes('/api/delete')) {

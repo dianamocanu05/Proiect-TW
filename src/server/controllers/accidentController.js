@@ -69,13 +69,26 @@ module.exports = class Accident {
 //         res.status(500).json({error: error});
 //     }
 // }
+    static async apiGetAccidentsCount(res,req,next){
+        const data = await req.on('data',function (data){
+            options = JSON.parse(data);
+        });
+        console.log(options.State);
+        try{
+            const response = await AccidentService.getAccidentsCount(options.State);
+            console.log(response);
+            res.write(JSON.stringify(response));
+        }catch (error){
+            res.statusCode = 500;
+        }
+    }
 
     static
     async apiDeleteAccident(req, res, next) {
         try {
             const id = utils.parseForId(req);
             const deleteResponse = await AccidentService.deleteAccident(id);
-            res.send(JSON.stringify(deleteResponse));
+            res.write(JSON.stringify(deleteResponse));
         } catch (error) {
             res.statusCode = 500;
         }
