@@ -28,6 +28,7 @@
     "sequelizer": "^1.1.4",
     "serve": "^11.3.2",
     "sqlite3": "^5.0.2",
-    "uniq": "^1.0.1"
+    "uniq": "^1.0.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }
