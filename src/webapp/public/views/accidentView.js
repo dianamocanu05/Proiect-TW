@@ -1,14 +1,20 @@
+//pentru lista de state si de tipuri de temperatura
 let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 function prettyFormat(json){ //json parse
-    let states = [];
+    let objects = [];
     json = JSON.parse(json);
-    json.forEach(function (obj){states.push(obj.state)});
-    return states;
+
+    json.forEach(function (obj){
+        Object.keys(obj).forEach(function(key){
+            objects.push(obj[key]);
+        })
+
+    });
+    return objects;
 }
-function getData(callback) { //request
+function getData(callback,url) { //request
     let request = new XMLHttpRequest();
-    let url = "http://127.0.0.1:3000/api/states";
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             let response = request.responseText;
@@ -21,8 +27,19 @@ function getData(callback) { //request
 }
 
 
-let states = []; //aici sunt statele
+let url = "http://127.0.0.1:3000/api/states";
+let objects = []; //aici sunt obiectele
 getData(function (result){
-    states = prettyFormat(result);
-});
-states.forEach(function (state){console.log(state)}); //afisare
+    objects = prettyFormat(result);
+},url);
+//objects.forEach(function (object){console.log(object)}); //afisare
+
+exports.array = objects;
+
+
+/*
+    let test = require('./test');
+    let objects = test.array;
+
+    console.log(objects);
+ */
