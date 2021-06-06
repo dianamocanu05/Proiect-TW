@@ -4,14 +4,18 @@
   Web Technologies (2020-2021) @ FII UAIC
   
   ## URL
-  https://acs-tw.herokuapp.com/
+  1. Application is running at : 127.0.0.1:3000
   
+  2. Admin panel is running at 127.0.0.1:3000/api/loginAdmin
+
+  3. Api routes can be found under: 127.0.0.1:3000/api/
   ## REPORT
-  https://acs-tw.herokuapp.com/report.html
-  
+  The report can be found at : 127.0.0.1:3000/report
+
+  ## PRESENTATION VIDEO:
+  Youtube link: 
   ## OTHER DETAILS
   -> dataset : https://www.kaggle.com/sobhanmoosavi/us-accidents
   
-  -> deployment : https://dashboard.heroku.com/apps/acs-tw
   
 
