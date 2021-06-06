@@ -81,6 +81,7 @@ module.exports = class Accident {
             options = JSON.parse(data);
         });
         console.log(options);
+        console.log(options.State, options.Astronomical_Twilight);
         try {
             const createdAccident = await AccidentService.createAccident(options);
             res.write('Success');

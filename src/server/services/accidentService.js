@@ -48,6 +48,7 @@ module.exports = class AccidentService {
 
     static async createAccident(data) {
         try {
+
             const newAccident = {
                 ID: data.ID,
                 Severity: data.Severity,
@@ -97,7 +98,10 @@ module.exports = class AccidentService {
                 Nautical_Twilight: data.Nautical_Twilight,
                 Astronomical_Twilight: data.Astronomical_Twilight
             }
-            Accident.build(newAccident).save().then(onSuccess).catch(onError);
+            console.log(newAccident);
+            await Accident.create(newAccident);
+            console.log("success!");
+            return "success";
 
         } catch (error) {
             console.log(error);
