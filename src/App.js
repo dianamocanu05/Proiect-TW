@@ -73,6 +73,12 @@ const server = http.createServer(async (req, res) => {
             res.write(page);
             res.end();
         });
+    }else if (path === '../views/tmp.js'){
+        fs.readFile('./src/webapp/public/views/tmp.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
     }
     else if (path === '/src/webapp/public/views/map.js') {
         fs.readFile('./src/webapp/public/views/map.js', function (err, page) {

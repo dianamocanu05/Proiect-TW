@@ -37,10 +37,3 @@ function admin_import(){
 
 }
 
-function admin_export_csv(){
-
-}
-
-function admin_export_db(){
-
-}

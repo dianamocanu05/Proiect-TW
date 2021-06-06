@@ -37,9 +37,4 @@ getData(function (result){
 exports.array = objects;
 
 
-/*
-    let test = require('./test');
-    let objects = test.array;
 
-    console.log(objects);
- */
