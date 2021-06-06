@@ -48,7 +48,6 @@ module.exports = class AccidentService {
 
     static async createAccident(data) {
         try {
-            console.log("AICI : " , data.Distance);
             const newAccident ={
                 "ID": data.ID,
                 "Severity": data.Severity,
@@ -98,7 +97,6 @@ module.exports = class AccidentService {
                 "Nautical_Twilight": data.Nautical_Twilight,
                 "Astronomical_Twilight": data.Astronomical_Twilight
             }
-            console.log('HELLO', newAccident["Distance(mi)"]);
             await Accident.create(newAccident);
             console.log("success!");
             return "success";
@@ -132,16 +130,23 @@ module.exports = class AccidentService {
         }
     }
 
-    /*static async updateAccident(title, body, AccidentImage) {
-        try {
-            return await Accident.updateOne(
-                {title, body, AccidentImage},
-                {$set: {date: new Date.now()}});
-        } catch (error) {
-            console.log(`Could not update Accident ${error}`);
-
+    static async updateAccident(fields){
+        try{
+            Accident.update({
+                fields
+            },
+                {
+                    where : {
+                        "ID" : fields.ID
+                    }
+                }).then(function (result){
+                    console.log("success");
+                    return result;
+            });
+        }catch (error){
+            console.log(`Error updating object ${error}`);
         }
-    }*/
+    }
 
     static async deleteAccident(options) {
         options = JSON.parse(options);

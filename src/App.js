@@ -129,7 +129,7 @@ function routing(path, res, req) {
         case '/api/getAll':
             return AccidentController.apiGetAllAccidents(res, req);
         case '/api/add': return AccidentController.apiCreateAccident(res,req);
-        case '/api/update':return 'update'; ///TODO
+        case '/api/update':return AccidentController.apiUpdateAccident(res,req);
         case '/api/delete' : return AccidentController.apiDeleteAccident(res,req);
         case '/api/getWhere' :
             return AccidentController.apiGetAccidentsWhere(res, req);
