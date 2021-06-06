@@ -5,68 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>USA Accidents Smart Visualizer (AcS)</title>
     <link rel="stylesheet" type="text/css" href="../styles/layout.css">
     <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
     <link rel="stylesheet" type="text/css" href="../styles/header.css">
-    <script src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="/src/webapp/mvc/entities/map.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            packages:['geochart'],
-        });
-        google.charts.setOnLoadCallback(draw);
+    <link rel="stylesheet" type="text/css" href="../styles/map.css">
+    <link rel="stylesheet" type="text/css" href="../styles/tags.css">
+     <script type="text/javascript" src="https://www.google.com/jsapi">
+     </script>
+     <script type="text/javascript">
+         google.load('visualization', '1.0', {'packages': ['corechart']});
+     </script>
+ </head>
 
+ <body>
+ <div class="wrapper">
+     <div class="header">
+         <h1 class="title">Data about accidents in USA between 2016-2020</h1>
 
-        function drawRegionsMap() {
-            var data = google.visualization.arrayToDataTable([
-                ['Country', 'Popularity'],
-                ['Germany', 200],
-                ['United States', 300],
-                ['Brazil', 400],
-                ['Canada', 500],
-                ['France', 600],
-                ['RU', 700]
-            ]);
+         <nav>
+             <ul>
+                 <li class="active"><a class="line" href="./index.html">Home</a></li>
 
-            var options = {};
+                 <li><a class="line" href="report.html">Report</a></li>
 
-            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+                 <li><a class="line" href="export.html">Export</a></li>
 
-            chart.draw(data, options);
-        }
-        let map = new Map("","","");
-        map.create();
+                 <li><a class="line" href="contact.html">Contact</a></li>
+             </ul>
+         </nav>
+     </div><!--to add vectorization to map, make it interactive-->
+    <!--<canvas id="canvas"></canvas>-->
 
-    </script>
+    <div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+     <div class="container">
+         Press enter after you typed.
+         <br />
+         <br />
+         <div class="tag-container">
+             <input  />
 
-</head>
-
-<body>
-
-<div class="wrapper">
-    <div class="header">
-        <h1 class="title">Data about accidents in USA between 2016-2020</h1>
-
-        <nav>
-            <ul>
-                <li class="active"><a class="line" href="./index.html">Home</a></li>
-
-                <li><a class="line" href="report.html">Report</a></li>
-
-            </ul>
-        </nav>
-    </div>
+         </div>
 </div>
-
-<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
-<!--<script type="text/javascript">-->
-<!--    console.log("here1");-->
-<!--    const map = require("../views/mapView");-->
-<!--    window.onload = map();-->
-<!--    console.log("here2");-->
-<!--</script>-->
-<!--<script type="text/javascript" src="../views/mapView.js"></script>-->
+ </div>
+<script type="text/javascript" src="src/webapp/public/views/mapView.js"></script>
+ <script type="text/javascript" src="src/webapp/public/views/tagView.js"></script>
+ <script type="text/javascript" src="src/webapp/public/views/map.js"></script>
 </body>
 </html>
