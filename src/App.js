@@ -18,7 +18,7 @@ const server = http.createServer(async (req, res) => {
     res.statusCode = 200;
 
     if(path === '/'){
-        directHtml(res,"./webapp/public/html/index.html");
+        directHtml(res,"./src/webapp/public/html/index.html");
     }else if(path === '/favicon.ico'){
 
     }
@@ -37,50 +37,64 @@ const server = http.createServer(async (req, res) => {
         directHtml(res,"./webapp/public/html/adminPanel.html#update-accident");
     }
     else if (path === '/styles/loginAdmin.css') {
-        fs.readFile('./webapp/public/styles/loginAdmin.css', function (err, page) {
+        fs.readFile('./src/webapp/public/styles/loginAdmin.css', function (err, page) {
             res.writeHead(200, {'Content-Type': 'text/css'});
             res.write(page);
             res.end();
         });
     }else if (path === '/styles/header.css') {
-        fs.readFile('./webapp/public/styles/header.css', function (err, page) {
+        fs.readFile('./src/webapp/public/styles/header.css', function (err, page) {
             res.writeHead(200, {'Content-Type': 'text/css'});
             res.write(page);
             res.end();
         });
     }else if (path === '/styles/navbar.css') {
-        fs.readFile('./webapp/public/styles/navbar.css', function (err, page) {
+        fs.readFile('./src/webapp/public/styles/navbar.css', function (err, page) {
             res.writeHead(200, {'Content-Type': 'text/css'});
             res.write(page);
             res.end();
         });
-    } else if (path === '../mvc/chartsService/controllers/mapController.js'){
-        fs.readFile('./webapp/public/views/loginAdminView.js', function (err, page) {
+    }
+    else if (path === '/styles/tags.css') {
+        fs.readFile('./src/webapp/public/styles/tags.css', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'text/css'});
+            res.write(page);
+            res.end();
+        });
+    }
+    else if (path === '../mvc/chartsService/controllers/mapController.js'){
+        fs.readFile('./src/webapp/public/views/loginAdminView.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
         });
     } else if (path === '../views/mapView.js'){
-        fs.readFile('./webapp/public/views/mapView.js', function (err, page) {
+        fs.readFile('./src/webapp/public/views/mapView.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
         });
     }
-    else if (path === '/views/map.js') {
-        fs.readFile('./webapp/public/views/map.js', function (err, page) {
+    else if (path === '/src/webapp/public/views/map.js') {
+        fs.readFile('./src/webapp/public/views/map.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
         });
     }else if (path === '/views/loginAdminView.js') {
-        fs.readFile('./webapp/public/views/loginAdminView.js', function (err, page) {
+        fs.readFile('./src/webapp/public/views/loginAdminView.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
         });
     }else if (path === '/scripts/admin-utils.js') {
-        fs.readFile('./webapp/public/scripts/admin-utils.js', function (err, page) {
+        fs.readFile('./src/webapp/public/scripts/admin-utils.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/src/webapp/public/views/tagView.js') {
+        fs.readFile('./src/webapp/public/views/tagView.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
@@ -139,4 +153,3 @@ function routing(path, res, req) {
 server.listen(port, hostname, () => {
     console.log('Server running on port 5000...');
 })
-
