@@ -118,9 +118,8 @@ module.exports = class AccidentService {
 
     static async getAccidentsWhere(options){
         try{
-            return await Accident.count({
-                where: options,
-                distinct: 'accident.ID'
+            return await Accident.findAll({
+                where: options
             })
                 .then(function (count){
                     console.log(count);
