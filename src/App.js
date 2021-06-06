@@ -9,12 +9,12 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer(async (req, res) => {
-    console.log(DB_PATH);
+
     res.setHeader('Access-Control-Allow-Origin', '*');
     const reqUrl = url.parse(req.url);
 
     const path = reqUrl.pathname;
-    console.log(path);
+
     res.statusCode = 200;
 
     if(path === '/'){
