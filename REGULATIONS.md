@@ -50,7 +50,21 @@ The **controller** connects the model and the view. It takes user input, such as
 
 Controller -> receives the request, validates the data that the service needs invokes the service and returns the result.
 Service -> perform business logic like piecing together data from multiple db calls, data processing, etc.
-Repository -> wrapper for model 
+Repository -> wrapper for model
+
+
+### JS
+        Modules are singleton. They will be loaded and executed only once.
+        Modules can use import and export.
+        Modules are always executed in strict mode.
+        All objects (class, const, function, let or var) are private unless explicitly exported.
+        The value of "this" is undefined at the outer scope (not window).
+        Modules are loaded asynchronously.
+        Modules are loaded using CORS. see Access-Control-Allow-Origin: *.
+        Modules don't send cookies and authentication info by default. See crossorigin="use-credentials".
+        imports are resolved statically at load time rather than dynamically at runtime.
+        html comments are not allowed.
+
 
 
 req -> controller -> service -> repository -> model
