@@ -32,7 +32,15 @@ function admin_update_accident(){
     console.log(document.getElementsByName("update-accident")[0].value);
 }
 
+
 function admin_import(){
 
 }
 
+function admin_export_csv(){
+
+}
+
+function admin_export_db(){
+
+}

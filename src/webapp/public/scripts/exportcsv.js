@@ -139,5 +139,6 @@ function downloadCSV(filename, csvStringContent) {
     document.body.removeChild(element);
 }
 
+
 function exportTableCSV() {
 }

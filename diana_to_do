@@ -1,10 +1,7 @@
 1. admin panel and auth for update, delete, add import
 admin panel should require (via a popup) the admin credentials -> then buttons:
-	delete accident
 	X update accident
 	X import database
-	X export database
-
 2. import feature (as db)
-3. export feature (as db and csv)
+
 
