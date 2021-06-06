@@ -137,10 +137,12 @@ module.exports = class Accident {
     }
 
     static async apiDeleteAccident(res, req, next) {
+        const data = await req.on('data',function (data){
+            options = JSON.parse(data);
+        });
+        console.log(options);
         try {
-            const id = utils.parseForId(req);
-            console.log('HERE', id);
-            const deleteResponse = await AccidentService.deleteAccident(id);
+            const deleteResponse = await AccidentService.deleteAccident(options);
             res.write(JSON.stringify(deleteResponse));
         } catch (error) {
             res.statusCode = 500;

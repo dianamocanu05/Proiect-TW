@@ -1,4 +1,3 @@
-const DB_PATH = require('../config');
 const sqlite3 = require('sqlite3').verbose();
 const http = require('http');
 const url = require('url');
@@ -23,18 +22,18 @@ const server = http.createServer(async (req, res) => {
 
     }
     else if(path === '/styles/loader.css'){
-        fs.readFile('./webapp/public/styles/loader.css', function (err, page) {
+        fs.readFile('./src/webapp/public/styles/loader.css', function (err, page) {
             res.writeHead(200, {'Content-Type': 'text/css'});
             res.write(page);
             res.end();
         });
     }
     else if (path === '/api/loginAdmin') {
-        directHtml(res, "./webapp/public/html/loginAdmin.html");
+        directHtml(res, "./src/webapp/public/html/loginAdmin.html");
     }else if(path === '/api/adminPanel'){
-        directHtml(res,"./webapp/public/html/adminPanel.html");
+        directHtml(res,"./src/webapp/public/html/adminPanel.html");
     }else if(path === '/api/adminPanel.html#update-accident'){
-        directHtml(res,"./webapp/public/html/adminPanel.html#update-accident");
+        directHtml(res,"./src/webapp/public/html/adminPanel.html#update-accident");
     }
     else if (path === '/styles/loginAdmin.css') {
         fs.readFile('./src/webapp/public/styles/loginAdmin.css', function (err, page) {
@@ -151,5 +150,5 @@ function routing(path, res, req) {
 }
 
 server.listen(port, hostname, () => {
-    console.log('Server running on port 5000...');
+    console.log(`Server running on port ...${port}`);
 })

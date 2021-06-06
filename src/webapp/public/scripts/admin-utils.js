@@ -13,10 +13,8 @@ function admin_add_accident(){
 }
 
 function admin_delete_accident(){
-    console.log("COAIE");
-    console.log('AICIA' , document.getElementsByName("delete-accident").length);
     let json = document.getElementsByName("delete-accident")[0].value;
-    console.log(json);
+    //console.log(json);
     let request = new XMLHttpRequest();
     let url = "http://127.0.0.1:3000/api/delete";
     request.open("POST",url,true);
@@ -26,6 +24,7 @@ function admin_delete_accident(){
             alert("Accident deleted successfully!");
         }
     };
+    console.log(typeof json);
     request.send(JSON.stringify(json));
 }
 
