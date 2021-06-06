@@ -143,9 +143,14 @@ module.exports = class AccidentService {
         }
     }*/
 
-    static async deleteAccident(AccidentId) {
+    static async deleteAccident(accidentId) {
+        console.log(accidentId);
         try {
-            return await Accident.destroy(AccidentId);
+            return await Accident.destroy({
+                where: {
+                    "ID" : accidentId
+                }
+            });
         } catch (error) {
             console.log(`Could not delete Accident ${error}`);
         }

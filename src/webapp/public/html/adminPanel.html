@@ -7,42 +7,41 @@
     <link rel="stylesheet" type="text/css" href="../styles/loginAdmin.css">
 
 </head>
-<body onload="openNav()">
-<script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    }
 
-    openNav();
-</script>
 <h1 align="center">AcS Admin</h1>
 
 <div class="container">
-    <div class="left-element">
-        <div id="mySidenav" class="sidenav">
-            <a href="adminPanel.html#add-accident">Add accident</a>
-            <a href="adminPanel.html#update-accident">Update accident</a>
-            <a href="adminPanel.html#delete-accident">Delete accident</a>
-            <a href="adminPanel.html#import-database">Import new database</a>
-        </div>
-    </div>
+<!--    <div class="left-element">-->
+<!--        <div id="mySidenav" class="sidenav">-->
+<!--            <a href="adminPanel.html#add-accident">Add accident</a>-->
+<!--            <a href="adminPanel.html#update-accident">Update accident</a>-->
+<!--            <a href="adminPanel.html#delete-accident">Delete accident</a>-->
+<!--            <a href="adminPanel.html#import-database">Import new database</a>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
     <div class="right-element">
 
+<!--        ADD-->
         <div id="add-accident"><h3>Add-accident</h3>
-            <textarea name="add-accident" rows="50" cols="150" align="center">add</textarea>
+            <textarea name="add-accident" rows="50" cols="150" align="center">type..</textarea>
         </div>
-        <button class="button" type="submit" id="add-button" onclick="admin_add_accident()">Add</button>
-        <div id="update-accident"><h3>Update-accident</h3>
-            <textarea name="update-accident" rows="50" cols="150">update</textarea>
-        </div>
-        <button class="button" type="submit" id="update-button" onclick="admin_update_accident()">Add</button>
+        <button class="button" type="submit" id="add-button" onclick="admin_add_accident();">submit</button>
+
+<!--&lt;!&ndash;        UPDATE&ndash;&gt;-->
+<!--        <div id="update-accident"><h3>Update-accident</h3>-->
+<!--            <textarea name="update-accident" rows="50" cols="150">type..</textarea>-->
+<!--        </div>-->
+<!--        <button class="button" type="submit" id="update-button" onclick="admin_update_accident()">submit</button>-->
+
+<!--        DELETE-->
         <div id="delete-accident"><h3>Delete-accident</h3>
-            <textarea name="delete-accident" rows="50" cols="150">update</textarea>
+            <textarea name="delete-accident" rows="50" cols="150" align="center">type..</textarea>
         </div>
-        <button class="button" type="submit" id="import-button" onclick="admin_import()">Add</button>
+        <button class="button" type="submit" id="delete-button" onclick="admin_delete_accident();">submit</button>
+
+
 <!--        <div id="import-database"><h3>Import-database</h3>-->
 <!--            <textarea name="import-database" rows="50" cols="150">delete</textarea>-->
 <!--        </div>-->

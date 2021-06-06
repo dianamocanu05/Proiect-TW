@@ -13,7 +13,20 @@ function admin_add_accident(){
 }
 
 function admin_delete_accident(){
-    console.log(document.getElementsByName("delete-accident")[0].value);
+    console.log("COAIE");
+    console.log('AICIA' , document.getElementsByName("delete-accident").length);
+    let json = document.getElementsByName("delete-accident")[0].value;
+    console.log(json);
+    let request = new XMLHttpRequest();
+    let url = "http://127.0.0.1:3000/api/delete";
+    request.open("POST",url,true);
+    request.setRequestHeader("Content-Type","application/json");
+    request.onreadystatechange = function(){
+        if(request.readyState === 4 && request.status ===200){
+            alert("Accident deleted successfully!");
+        }
+    };
+    request.send(JSON.stringify(json));
 }
 
 function admin_update_accident(){
@@ -23,3 +36,4 @@ function admin_update_accident(){
 function admin_import(){
 
 }
+
