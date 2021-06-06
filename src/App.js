@@ -104,6 +104,20 @@ const server = http.createServer(async (req, res) => {
             res.write(page);
             res.end();
         });
+    }else if (path === '/src/webapp/public/scripts/barchart.js') {
+        console.log('05')
+        fs.readFile('./src/webapp/public/scripts/barchart.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/src/webapp/public/scripts/donutchart.js') {
+        console.log('05')
+        fs.readFile('./src/webapp/public/scripts/donutchart.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
     }
 
     else {
