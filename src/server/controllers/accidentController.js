@@ -61,6 +61,10 @@ module.exports = class Accident {
 
 
     static async apiGetAccidentById(res, req, next) {
+        const data = await req.on('data',function (data){
+            options = JSON.parse(data);
+        });
+        console.log(options);
         try {
             let id = utils.parseForId(req);
             console.log(id);
@@ -72,13 +76,16 @@ module.exports = class Accident {
         }
     }
 
-    static
-    async apiCreateAccident(req, res, next) {
+    static async apiCreateAccident(res, req, next) {
+        const data = await req.on('data',function (data){
+            options = JSON.parse(data);
+        });
+        console.log(options);
         try {
-            const createdAccident = await AccidentService.createAccident(req.body);
-            res.json(createdAccident);
+            const createdAccident = await AccidentService.createAccident(options);
+            res.write('Success');
         } catch (error) {
-            res.status(500).json({error: error});
+            res.statusCode(500);
         }
     }
 
@@ -130,8 +137,7 @@ module.exports = class Accident {
         }
     }
 
-    static
-    async apiDeleteAccident(req, res, next) {
+    static async apiDeleteAccident(res, req, next) {
         try {
             const id = utils.parseForId(req);
             const deleteResponse = await AccidentService.deleteAccident(id);

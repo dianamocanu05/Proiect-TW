@@ -57,7 +57,7 @@ module.exports = class AccidentService {
                 Start_Lng: data.Start_Lng,
                 End_Lat: data.End_Lat,
                 End_Lng: data.End_Lng,
-                Distance: data.Distance,
+                "Distance(mi)": data.Distance,
                 Description: data.Description,
                 Number: data.Number,
                 Street: data.Street,
@@ -70,14 +70,14 @@ module.exports = class AccidentService {
                 Timezone: data.Timezone,
                 Airport_Code: data.Airport_Code,
                 Weather_Timestamp: data.Weather_Timestamp,
-                Temperature: data.Temperature,
-                Wind_Chill: data.Wind_Chill,
-                Humidity: data.Humidity,
-                Pressure: data.Pressure,
-                Visibility: data.Visibility,
+                "Temperature(F)": data.Temperature,
+                "Wind_Chill(F)": data.Wind_Chill,
+                "Humidity(%)": data.Humidity,
+                "Pressure(in)": data.Pressure,
+                "Visibility(mi)": data.Visibility,
                 Wind_Direction: data.Wind_Direction,
-                Wind_Speed: data.Wind_Speed,
-                Precipitation: data.Precipitation,
+                "Wind_Speed(mph)": data.Wind_Speed,
+                "Precipitation(in)": data.Precipitation,
                 Weather_Condition: data.Weather_Condition,
                 Amenity: data.Amenity,
                 Bump: data.Bump,
@@ -97,7 +97,8 @@ module.exports = class AccidentService {
                 Nautical_Twilight: data.Nautical_Twilight,
                 Astronomical_Twilight: data.Astronomical_Twilight
             }
-            return await new Accident(newAccident).save();
+            Accident.build(newAccident).save().then(onSuccess).catch(onError);
+
         } catch (error) {
             console.log(error);
         }

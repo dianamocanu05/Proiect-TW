@@ -1,3 +1,4 @@
+const DB_PATH = require('../config');
 const sqlite3 = require('sqlite3').verbose();
 const http = require('http');
 const url = require('url');
@@ -8,11 +9,12 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer(async (req, res) => {
+    console.log(DB_PATH);
     res.setHeader('Access-Control-Allow-Origin', '*');
     const reqUrl = url.parse(req.url);
 
     const path = reqUrl.pathname;
-    // console.log(path);
+    console.log(path);
     res.statusCode = 200;
 
     if(path === '/'){
@@ -66,7 +68,19 @@ const server = http.createServer(async (req, res) => {
         });
     }
     else if (path === '/views/map.js') {
+        fs.readFile('./webapp/public/views/map.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/views/loginAdminView.js') {
         fs.readFile('./webapp/public/views/loginAdminView.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/scripts/admin-utils.js') {
+        fs.readFile('./webapp/public/scripts/admin-utils.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
@@ -93,14 +107,11 @@ function directHtml(res, path) {
 
 function routing(path, res, req) {
     switch (path) {
-        case '/':
-            return 'home';
         case '/api/getAll':
             return AccidentController.apiGetAllAccidents(res, req);
-        case '/api/add':
-            return 'add';
-        case '/api/update':
-            return 'update';
+        case '/api/add': return AccidentController.apiCreateAccident(res,req);
+        case '/api/update':return 'update'; ///TODO
+        case '/api/delete' : return AccidentController.apiDeleteAccident(res,req);
         case '/api/getWhere' :
             return AccidentController.apiGetAccidentsWhere(res, req);
         case '/api/login' :

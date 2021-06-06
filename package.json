@@ -20,6 +20,7 @@
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.3",
     "fs": "0.0.1-security",
+    "google-charts": "^2.0.0",
     "html": "^1.0.0",
     "http": "0.0.1-security",
     "pg": "^8.6.0",
@@ -30,5 +31,9 @@
     "sqlite3": "^5.0.2",
     "uniq": "^1.0.1",
     "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "dotenv-webpack": "^7.0.3"
   }
 }

@@ -3,7 +3,7 @@ const Sequelizer = require('sequelize');
 const db = require('../config/database.config');
 const Admin = AdminModel(db, Sequelizer);
 
-module.exports = class AccidentService {
+module.exports = class AdminService {
     static async findAdminWhere(username, password) {
         try {
             return await Admin.findAll({
