@@ -9,10 +9,16 @@
     <link rel="stylesheet" type="text/css" href="../styles/layout.css">
     <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
     <link rel="stylesheet" type="text/css" href="../styles/header.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi">
+    </script>
+    <script type="text/javascript">
+        google.load('visualization', '1.0', {'packages': ['corechart']});
+    </script>
 
 </head>
 
 <body>
+
 <div class="wrapper">
     <div class="header">
         <h1 class="title">Data about accidents in USA between 2016-2020</h1>
@@ -29,5 +35,13 @@
 </div>
 
 
+<div id="map_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+<script type="text/javascript">
+    console.log("here1");
+    const map = require("../views/mapView");
+    window.onload = map();
+    console.log("here2");
+</script>
+<!--<script type="text/javascript" src="../views/mapView.js"></script>-->
 </body>
 </html>

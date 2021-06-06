@@ -12,13 +12,26 @@ const server = http.createServer(async (req, res) => {
     const reqUrl = url.parse(req.url);
 
     const path = reqUrl.pathname;
+    // console.log(path);
     res.statusCode = 200;
-    if (path === '/api/loginAdmin') {
+
+    if(path === '/'){
+        directHtml(res,"./webapp/public/html/index.html");
+    }else if(path === '/favicon.ico'){
+
+    }
+    else if(path === '/styles/loader.css'){
+        fs.readFile('./webapp/public/styles/loader.css', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'text/css'});
+            res.write(page);
+            res.end();
+        });
+    }
+    else if (path === '/api/loginAdmin') {
         directHtml(res, "./webapp/public/html/loginAdmin.html");
     }else if(path === '/api/adminPanel'){
         directHtml(res,"./webapp/public/html/adminPanel.html");
     }else if(path === '/api/adminPanel.html#update-accident'){
-        alert('Heyo');
         directHtml(res,"./webapp/public/html/adminPanel.html#update-accident");
     }
     else if (path === '/styles/loginAdmin.css') {
@@ -27,13 +40,39 @@ const server = http.createServer(async (req, res) => {
             res.write(page);
             res.end();
         });
-    }else if (path === '/views/loginAdminView.js') {
+    }else if (path === '/styles/header.css') {
+        fs.readFile('./webapp/public/styles/header.css', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'text/css'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/styles/navbar.css') {
+        fs.readFile('./webapp/public/styles/navbar.css', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'text/css'});
+            res.write(page);
+            res.end();
+        });
+    } else if (path === '../mvc/chartsService/controllers/mapController.js'){
+        fs.readFile('./webapp/public/views/loginAdminView.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    } else if (path === '../views/mapView.js'){
+        fs.readFile('./webapp/public/views/mapView.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }
+    else if (path === '/views/map.js') {
         fs.readFile('./webapp/public/views/loginAdminView.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
         });
     }
+
     else {
         res.setHeader('Content-Type', 'application/json');
         await routing(path, res, req);

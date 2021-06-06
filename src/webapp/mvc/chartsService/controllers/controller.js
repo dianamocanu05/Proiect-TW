@@ -5,5 +5,3 @@ class Controller{
     setFilters();
     getData();
 }
-
-
