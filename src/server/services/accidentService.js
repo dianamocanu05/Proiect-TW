@@ -119,7 +119,8 @@ module.exports = class AccidentService {
     static async getAccidentsWhere(options){
         try{
             return await Accident.findAll({
-                where: options
+                where: options,
+                limit: 10000
             })
                 .then(function (count){
                     console.log(count);
