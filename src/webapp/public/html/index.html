@@ -35,51 +35,56 @@
             </ul>
         </nav>
     </div>
-    <section id="column-charts">
-        <div id="column_chart-div" style="width: 900px; height: 500px;"></div>
-    </section>
-<!--    <section id="pie-charts">-->
-<!--        <div id="chart_div_l" style="width: 900px; height: 500px;"></div>-->
-<!--    </section>-->
+
 </div>
 
-<!--            <div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>-->
-<!--    <div class="container">-->
-<!--        Press enter after you typed.-->
-<!--        <br/>-->
-<!--        <br/>-->
-<!--        <div class="tag-container">-->
-<!--            <input/>-->
+    <div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+    <div class="container">
+        Press enter after you typed.
+        <br/>
+        <br/>
+        <div class="tag-container">
+            <input/>
 
-<!--        </div>-->
-<!--        <div class="container">-->
-<!--            Press enter after you typed.-->
-<!--            <br/>-->
-<!--            <br/>-->
-<!--            <div class="tag-container">-->
-<!--                <input/>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--                <select id="county-dropdown" onchange="onCountyChange()"></select>-->
-<!--                <section id="donut-charts">-->
-<!--                    <div id="donutchart" style="width: 700px; height: 500px;"></div>-->
+        </div>
+        <div class="container">
+            Press enter after you typed.
+            <br/>
+            <br/>
+            <div class="tag-container">
+                <input/>
+            </div>
+        </div>
+                <select id="county-dropdown" onchange="onCountyChange()"></select>
+                <section id="donut-charts">
+                    <div id="donutchart" style="width: 700px; height: 500px;"></div>
+                    <section id="column-charts">
+                        <div id="column_chart-div" style="width: 900px; height: 500px;"></div>
+                    </section>
+                    <section id="pie-charts">
+                        <div id="chart_div_l" style="width: 900px; height: 500px;"></div>
+                    </section>
 
+                    <div id="columnchart_values" style="width: 900px; height: 400px;"></div>
+                </section>
+                <section id="bar-charts">
+                    <div id="barchart-div"
+                         style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>
+                </section>
 
-<!--                    <div id="columnchart_values" style="width: 900px; height: 400px;"></div>-->
-<!--                </section>-->
-<!--                <section id="bar-charts">-->
-<!--                    <div id="barchart-div"-->
-<!--                         style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>-->
-<!--                </section>-->
+                <section id="table-charts">
+                    <table id="table-div" style="width : 2000px; height: 500px;"></table>
+                </section>
 
-<!--                <section id="table-charts">-->
-<!--                    <table id="table-div" style="width : 2000px; height: 500px;"></table>-->
-<!--                </section>-->
-
-<!--            </div>-->
-<!--    </div>-->
+            </div>
+    </div>
 
 
 <script type="text/javascript" src="src/webapp/mvc/entities/columnchart.js"></script>
+<script type="text/javascript" src="src/webapp/mvc/entities/barchart.js"></script>
+<script type="text/javascript" src="src/webapp/mvc/entities/table.js"></script>
+<script type="text/javascript" src="src/webapp/mvc/entities/map.js"></script>
+<script type="text/javascript" src="src/webapp/mvc/entities/pieChart.js"></script>
+
 </body>
 </html>

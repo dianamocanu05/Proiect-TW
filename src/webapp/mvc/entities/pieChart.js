@@ -3,10 +3,10 @@ google.charts.load('current', {
 });
 google.charts.setOnLoadCallback(run);
 
-let statesCount = [];
-let filterName;
+let statesdata = [];
+let filtername;
 let colors = [];
-const _url = "http://127.0.0.1:3000/api/getWhereCount";
+const urll = "http://127.0.0.1:3000/api/getWhereCount";
 function jsonConcat(json1, json2){
     for (let key in json2) {
         json1[key] = json2[key];
@@ -22,20 +22,20 @@ function run(states, criteria) {
     // criteria = {
     //
     // }
-     filterName = Object.keys(criteria).map(function (x){
+     filtername = Object.keys(criteria).map(function (x){
         return x.toString();
     }).join(", ");
-    if(filterName === ""){
-        filterName = "overall number of accidents";
+    if(filtername === ""){
+        filtername = "overall number of accidents";
     }
-    console.log(filterName);
+    console.log(filtername);
     for (let state of states) {
         getData(state, criteria);
     }
-    drawChart(statesCount);
+    drawChart(statesdata);
 }
 function collectData(state, count){
-    statesCount.push([state,parseInt(count)]);
+    statesdata.push([state,parseInt(count)]);
 }
 
 function getRandomColor() {
@@ -58,7 +58,7 @@ function getData(state, criteria) {
             collectData(state, count);
         }
     }
-    request.open("POST", _url, false);
+    request.open("POST", urll, false);
     request.send(JSON.stringify(data));
 }
 
@@ -85,7 +85,7 @@ function drawChart(input) {
     console.log(colors);
     var x = google.visualization.arrayToDataTable(data);
     var options = {
-        title: `Comparison by ${filterName}`,
+        title: `Comparison by ${filtername}`,
         titleTextStyle: {
             color: '#FFFFFF',
             fontName: 'Oxygen',

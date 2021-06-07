@@ -52,7 +52,7 @@ const states = [
     'WI',
     'WY']
 
-const _url = 'http://127.0.0.1:3000/api/getCount';
+const url = 'http://127.0.0.1:3000/api/getCount';
 const statesCounts = [];
 
 async function run() {
@@ -85,7 +85,7 @@ async function getData(state) {
             collectData(state, count);
         }
     }
-    request.open("POST", _url, false);
+    request.open("POST", url, false);
     request.send(JSON.stringify(data));
 }
 
