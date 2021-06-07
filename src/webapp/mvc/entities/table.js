@@ -1,6 +1,10 @@
 google.charts.load('current', {'packages':['table']});
-google.charts.setOnLoadCallback(fetch_and_draw_table);
-
+google.charts.setOnLoadCallback(run);
+async function run(){
+    let states = ["CA"];
+    let fields = ["ID","Severity","Side","Start_Time","End_Time","Start_Lat","End_Lat"];
+    await fetch_and_draw_table(states,fields);
+}
 function getRows(accidents){
     let rows = new Array(100);
     let count = 0;
@@ -26,8 +30,6 @@ async function fetch_and_draw_table(states, filters){
     // Object.keys(filters).forEach(function (key){
     //     input_data.push(key);
     // })
-
-
     for(let state of states) {
         let data = {
             "State" : state,
@@ -61,8 +63,9 @@ function draw_table(input) {
         data.addColumn('string',column);
     }
 
+    //has some null values for some reason
     for(let row of rows){
-        data.addRow(row);
+        data.addRow(row.slice(-columns.length));
     }
 
 
@@ -81,7 +84,7 @@ function draw_table(input) {
         showRowNumber: false,
         cssClassNames: cssClassNames
     };
-    var table = new google.visualization.Table(document.getElementById('table_div'));
+    var table = new google.visualization.Table(document.getElementById('table-div'));
 
     table.draw(data, options);
 }
