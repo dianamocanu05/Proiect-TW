@@ -18,7 +18,7 @@
      </script>
  </head>
 
- <body>
+ <body onload="initCountyDropdown()">
  <div class="wrapper">
      <div class="header">
          <h1 class="title">Data about accidents in USA between 2016-2020</h1>
@@ -47,15 +47,15 @@
 
 <!--         </div>-->
 
-<!--         <section id="donut-charts">-->
-<!--             <div id="donutchart" style="width: 200px; height: 500px;"></div>-->
+         <section id="donut-charts">
+             <div id="donutchart" style="width: 200px; height: 500px;"></div>
 
-<!--             <div id="columnchart_values" style="width: 900px; height: 400px;"></div>-->
-<!--         </section>-->
-
-<!--         <section id="bar-charts">-->
-<!--             <div id="barchart-div" style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>-->
-<!--         </section>-->
+             <div id="columnchart_values" style="width: 900px; height: 400px;"></div>
+         </section>
+        <select id="county-dropdown" onchange="onCountyChange()"></select>
+         <section id="bar-charts">
+             <div id="barchart-div" style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>
+         </section>
 
          <section id="table-charts">
              <table id="table-div" style="width : 2000px; height: 500px;"></table>
@@ -64,6 +64,7 @@
 
 </div>
  </div>
+ <script type="text/javascript" src="src/webapp/public/scripts/init.js"></script>
  <script type="text/javascript" src="src/webapp/mvc/entities/barchart.js"></script>
  <script type="text/javascript" src="src/webapp/mvc/entities/donutchart.js"></script>
  <script type="text/javascript" src="src/webapp/mvc/entities/table.js"></script>
