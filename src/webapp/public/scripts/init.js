@@ -2,9 +2,9 @@
 function onCountyChange(){
 
     const value = document.getElementById("county-dropdown").value
-    console.log(value)
+    console.log(`State ${value} was selected from dropdown`)
     fetch_and_draw_barchart(value)
-    // fetch_and_draw_donut(value)
+    fetch_and_draw_donut(value)
 }
 function initCountyDropdown() {
     console.log('fethcing county name list')
