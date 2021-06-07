@@ -2,8 +2,8 @@
 
 ## landing page (ana):
 
-    1. choose states (tags)
-    2. choose filters (scroller)
+    1. choose states (tags) DONE
+    2. choose filters (scroller) 
     3. choose visualization type(adaptable scroller)
     4. run()
 

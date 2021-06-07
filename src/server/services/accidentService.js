@@ -130,6 +130,21 @@ module.exports = class AccidentService {
         }
     }
 
+    static async getAccidentsWhereCount(options){
+        try{
+            return await Accident.count({
+                where: options,
+            })
+                .then(function (count){
+                    console.log(count);
+                    return count;
+
+                });
+        }catch (error){
+            console.log(`Accidents not found. ${error}`)
+        }
+    }
+
     static async updateAccident(fields){
         try{
             Accident.update({

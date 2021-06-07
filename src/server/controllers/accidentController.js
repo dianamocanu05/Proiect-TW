@@ -26,6 +26,20 @@ module.exports = class Accident {
         }
     }
 
+    static async apiGetAccidentsWhereCount(res,req){
+        const data = await req.on('data',function (data){
+            options = JSON.parse(data);
+        });
+        console.log(options);
+        try {
+            const accidents = await AccidentService.getAccidentsWhereCount(options);
+            res.write(JSON.stringify(accidents));
+        }catch (error){
+            console.log(`ERROR : ${error.message}`);
+            res.statusCode = 500;
+        }
+    }
+
     static async apiGetWeathers(res,req){
         try{
             const weathers = await AccidentService.getAllWeathers(res,req);
