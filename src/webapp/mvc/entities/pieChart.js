@@ -4,6 +4,8 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(run);
 
 let statesCount = [];
+let filterName;
+let colors = [];
 const _url = "http://127.0.0.1:3000/api/getWhereCount";
 function jsonConcat(json1, json2){
     for (let key in json2) {
@@ -13,19 +15,36 @@ function jsonConcat(json1, json2){
 }
 
 
-function run() {
+function run(states, criteria) {
     console.log("PIE CHART FETCH DATA STARTED");
-    let states = ["LA"];
-    let criteria = {
-        "Severity" : "2",
-        "Side" : "R"
+    // states = ["MI","NY"];
+    // colors = randomColors(states.length);
+    // criteria = {
+    //
+    // }
+     filterName = Object.keys(criteria).map(function (x){
+        return x.toString();
+    }).join(", ");
+    if(filterName === ""){
+        filterName = "overall number of accidents";
     }
+    console.log(filterName);
     for (let state of states) {
-        let accidents_count = getData(state, criteria);
+        getData(state, criteria);
     }
+    drawChart(statesCount);
 }
 function collectData(state, count){
-    statesCount.push([state,count]);
+    statesCount.push([state,parseInt(count)]);
+}
+
+function getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
 function getData(state, criteria) {
@@ -43,24 +62,42 @@ function getData(state, criteria) {
     request.send(JSON.stringify(data));
 }
 
+function randomColors(howMany){
+    let colors = [];
+    for(let i = 0 ; i< howMany ; i++){
+        let color = getRandomColor();
+        colors.push(color);
+    }
+    return colors;
+}
+
 function drawChart(input) {
 
-    var data = google.visualization.arrayToDataTable(input);
-
+    let header = ['State','Accidents'];
+    let data = [];
+    data[0] = header;
+    let count = 1;
+    for(let i of input){
+        data[count] = i;
+        count++;
+    }
+    console.log(data);
+    console.log(colors);
+    var x = google.visualization.arrayToDataTable(data);
     var options = {
         title: `Comparison by ${filterName}`,
         titleTextStyle: {
-            color: 'FFFFFF',
+            color: '#FFFFFF',
             fontName: 'Oxygen',
             fontSize: '25',
         },
-        colors: ['#6B6E70', '#FF7A00'],
+        colors: colors,
         backgroundColor: 'transparent',
         legendTextStyle: {color: 'white', fontSize: 12, fontName: 'Oxygen'}
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('chart_div_l'));
 
-    chart.draw(data, options);
+    chart.draw(x, options);
 }
 
