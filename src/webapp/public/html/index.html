@@ -40,6 +40,7 @@
     </section>
 </div>
 
+<<<<<<< HEAD
 <!--            <div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>-->
 <!--    <div class="container">-->
 <!--        Press enter after you typed.-->
@@ -89,5 +90,60 @@
 <!--    </script>-->
 <!--    <script type="text/javascript" src="src/webapp/public/views/accidentView.js"></script>-->
 <!--    <script type="text/javascript" src="src/webapp/public/views/tagView.js"></script>-->
+=======
+    <div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+    <!--     <div class="container">-->
+    <!--         Press enter after you typed.-->
+    <!--         <br />-->
+    <!--         <br />-->
+    <!--         <div class="tag-container">-->
+    <!--             <input  />-->
+
+    <!--         </div>-->
+    <div class="container">
+        Press enter after you typed.
+        <br/>
+        <br/>
+        <div class="tag-container">
+            <input/>
+            <select id="county-dropdown" onchange="onCountyChange()"></select>
+        </div>
+        <img id="plswork" style="display: none">
+        <canvas id="plsworkcanvas" style="display: none; width: 700px; height: 500px"></canvas>
+        <section id="donut-charts">
+            <button onclick="get_export('image/png', 700, 500, 'donut.png')">PNG</button>
+            <button onclick="get_export('image/webp', 700, 500, 'donut.webp')">WEBP</button>
+            <div id="donutchart" style="width: 700px; height: 500px;"></div>
+
+            <!--             <div id="columnchart_values" style="width: 900px; height: 400px;"></div>-->
+        </section>
+
+
+        <!--        <div id="columnchart_values" style="width: 900px; height: 400px;"></div>-->
+        <!--    </section>-->
+        <!--    <section id="bar-charts">-->
+        <!--        <div id="barchart-div" style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>-->
+        <!--    </section>-->
+
+        <!--    <section id="table-charts">-->
+        <!--        <table id="table-div" style="width : 2000px; height: 500px;"></table>-->
+        <!--    </section>-->
+
+
+    </div>
+</div>
+<script type="text/javascript" src="src/webapp/public/scripts/init.js"></script>
+<script type="text/javascript" src="src/webapp/mvc/entities/barchart.js"></script>
+<script type="text/javascript" src="src/webapp/mvc/entities/donutchart.js"></script>
+<script type="text/javascript" src="src/webapp/mvc/entities/table.js"></script>
+<script type="text/javascript" src="src/webapp/public/views/mapView.js"></script>
+<script type="text/javascript" src="src/webapp/public/views/tmp.js"></script>
+<script type="text/javascript" src="src/webapp/public/views/map.js"></script>
+<script type='text/javascript'>
+    let objects = [];
+</script>
+<script type="text/javascript" src="src/webapp/public/views/accidentView.js"></script>
+<script type="text/javascript" src="src/webapp/public/views/tagView.js"></script>
+>>>>>>> 2cbf285da359a10500a9027ee665bd2473f03025
 </body>
 </html>
