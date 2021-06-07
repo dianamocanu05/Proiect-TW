@@ -16,16 +16,19 @@ trebuie facute in .js separat. Tineti minte ca un astfel de json trebuie sa fie 
 2. Din punct de vedere arhitectural, recurgerea la [MVC (sau variantele)](https://herbertograca.com/2017/08/17/mvc-and-its-variants/) este **obligatorie** pentru proiectele de tip **M**.
 
 3. Pentru partea de client, interfaţa aplicaţiei/sitului Web va fi marcată **obligatoriu** în HTML5 – codul trebuind să fie [valid conform specificaţiilor Consorţiului Web](https://validator.w3.org/). Se vor utiliza [foi de stiluri CSS valide](https://jigsaw.w3.org/css-validator/) – pentru verificare, a se recurge şi la instrumentul [CSS Lint](http://csslint.net/) şi/sau [Stylelint](https://stylelint.io/). De asemenea, este obligatorie folosirea suitei de tehnologii Ajax.
+
 4. Pentru stocarea şi managementul datelor, se vor putea utiliza servere de baze de date relaţionale, interogate via SQL, eventual recurgându-se la servere de baze de date aliniate [paradigmei NoSQL](https://github.com/erictleung/awesome-nosql-guides).
+
 5. Respectarea cerinţelor de bază ale ingineriei software – *e.g.*, comentarea şi modularizarea codului-sursă, recurgerea la unităţi de testare şi altele – cu redactarea documentaţiilor aferente – precum manualul dezvoltatorului, în cazul dezvoltării unui API ori serviciu Web.
+
 6. Se vor folosi pe cât posibil machete (*template*-uri) de prezentare şi metode de configurare şi administrare a aplicaţiei.
+
 7. 
 
 - Adoptarea principiilor designului Web responsiv.
 - Import/export de date folosind formate deschise – minim, CSV.
 - Existenţa unui modul propriu de administrare a aplicaţiei Web.
 - Pentru proiecte de clasa **M**: abordare bazată pe (micro)servicii.
-
 
 
 8. Implementarea va recurge la tehnici de prevenire a atacurilor (precum *Cross Site Scripting* sau *SQL injection*).
@@ -71,21 +74,14 @@ req -> controller -> service -> repository -> model
 
 
 ### c.On the go observations:
-1. For creating database, used sqlite's utilitary mode .csv
+1. For creating database, used sqlite's util mode .csv
 2. For generating the Accident model, used sequelize-auto
 
 
-1. Map -> all states/ all accidents
-2. PieChart -> at least 2 states, comparison by numbers of accidents + filters
-3. LineChart -> 1 state, evolution of number of accidents + filters
-4. DonutChart -> 
-5. Tabel -> anything
-6. ColumnChart -> comprasion for multiple states, mutliple filters
+visualization type / compatibility
 
-wind chill,
-humidity,
-pressure,
-visibility
-wind_speed,
-precipitation,
-distance,
+piechart : at least 2 states, no. of accidents in context of filter
+linechart : one state only evolution of no. of accidents in context of filter
+donutchart : weathers types, temperature, etc.
+tabel : everything
+columnchart : multiple states: 2-3 filters max

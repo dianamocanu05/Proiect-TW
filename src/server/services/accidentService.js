@@ -148,6 +148,22 @@ module.exports = class AccidentService {
         }
     }
 
+    static async getAccidents(state, fields){
+        try {
+            return await Accident.findAll({
+                where: [{'State': state}],
+                attributes : fields,
+                limit : 100
+            })
+                .then(function (json) {
+                    console.log(json);
+                    return json;
+                });
+        }catch (error){
+            console.log(`Could not fetch accidents  ${error}`)
+        }
+    }
+
     static async deleteAccident(options) {
         options = JSON.parse(options);
         console.log(typeof options);

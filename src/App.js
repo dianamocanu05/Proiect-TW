@@ -34,6 +34,8 @@ const server = http.createServer(async (req, res) => {
         directHtml(res,"./src/webapp/public/html/adminPanel.html");
     }else if(path === '/api/adminPanel.html#update-accident'){
         directHtml(res,"./src/webapp/public/html/adminPanel.html#update-accident");
+    }else if(path === '/test'){
+        directHtml(res,'./src/webapp/public/html/test.html');
     }
     else if (path === '/styles/loginAdmin.css') {
         fs.readFile('./src/webapp/public/styles/loginAdmin.css', function (err, page) {
@@ -41,7 +43,15 @@ const server = http.createServer(async (req, res) => {
             res.write(page);
             res.end();
         });
-    }else if (path === '/styles/header.css') {
+    }
+    else if (path === '../mvc/exportService/exportWebP.js') {
+        fs.readFile('./src/webapp/mvc/exportService/exportWebP.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }
+    else if (path === '/styles/header.css') {
         fs.readFile('./src/webapp/public/styles/header.css', function (err, page) {
             res.writeHead(200, {'Content-Type': 'text/css'});
             res.write(page);
@@ -104,16 +114,23 @@ const server = http.createServer(async (req, res) => {
             res.write(page);
             res.end();
         });
-    }else if (path === '/src/webapp/public/scripts/barchart.js') {
+    }else if (path === '/src/webapp/mvc/entities/barchart.js') {
         console.log('05')
-        fs.readFile('./src/webapp/public/scripts/barchart.js', function (err, page) {
+        fs.readFile('./src/webapp/mvc/entities/barchart.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
         });
-    }else if (path === '/src/webapp/public/scripts/donutchart.js') {
+    }else if (path === '/src/webapp/mvc/entities/donutchart.js') {
         console.log('05')
-        fs.readFile('./src/webapp/public/scripts/donutchart.js', function (err, page) {
+        fs.readFile('./src/webapp/mvc/entities/donutchart.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/src/webapp/mvc/entities/table.js') {
+        console.log('05')
+        fs.readFile('./src/webapp/mvc/entities/table.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
@@ -159,6 +176,8 @@ function routing(path, res, req) {
             return AccidentController.apiGetStates(res,req);
         case '/api/getByTemp':
             return AccidentController.apiGetAccidentsByTemperature(res,req);
+        case  '/api/get':
+            return AccidentController.apiGetAccidents(res,req);
     }
     if (path.includes('/api/delete')) {
         return AccidentController.apiDeleteAccident(res, req);

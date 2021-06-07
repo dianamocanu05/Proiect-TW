@@ -115,6 +115,21 @@ static async apiUpdateAccident(res, req, next){
         }
     }
 
+    static async apiGetAccidents(res,req,next){
+        const data = await req.on('data',function (data){
+            options = JSON.parse(data);
+        });
+        let state = options.State;
+        let fields = options.Fields;
+        try{
+            const response = await AccidentService.getAccidents(state, fields);
+            console.log(response);
+            res.write(JSON.stringify(response));
+        }catch (error){
+            res.statusCode = 500;
+        }
+    }
+
     static async apiGetAccidentsCountInStatePerYear(res,req,next){
         const data = await req.on('data',function (data){
             options = JSON.parse(data);
