@@ -1,8 +1,8 @@
 google.charts.load('current', {'packages':['table']});
 google.charts.setOnLoadCallback(run);
 async function run(){
-    let states = ["CA"];
-    let fields = ["ID","Severity","Side","Start_Time","End_Time","Start_Lat","End_Lat"];
+    let states = ["CA","LA"];
+    let fields = ["State","Severity","Weather_Condition"];
     await fetch_and_draw_table(states,fields);
 }
 function getRows(accidents){
