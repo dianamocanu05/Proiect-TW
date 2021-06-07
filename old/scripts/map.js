@@ -3,7 +3,8 @@ google.charts.load('current', {
 });
 google.charts.setOnLoadCallback(drawRegionsMap);
 function drawRegionsMap() {
-    var data = google.visualization.arrayToDataTable([
+
+    let ff = [
         ['State', 'Accidents'],
         ['ALABAMA', 100],
         ['ALASKA', 2000],
@@ -55,7 +56,8 @@ function drawRegionsMap() {
         ['WEST VIRGINIA', 655],
         ['WISCONSIN', 367],
         ['WYOMING', 488]
-    ]);
+    ]
+    var data = google.visualization.arrayToDataTable(ff);
 
     var options = { colorAxis: {colors: ['#B5DE7D', '#FFA500', '#FF7A00']},
     width: 1000, height: 500, region: "US",backgroundColor: 'transparent', resolution: "provinces"};
