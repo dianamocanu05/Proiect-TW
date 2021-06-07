@@ -3,38 +3,60 @@ google.charts.load("current", {
 });
 google.charts.setOnLoadCallback(run);
 let filterName;
-let _url = "http://127.0.0.1/api/getByTemp";
+let _url = "http://127.0.0.1:3000/api/getByTemp";
 let statesCount = [];
-function run(state){
-    state =  "CA";
-
+let tempMilestones = ["0.0-20.0","21.0-40.0","41.0-60.0","61.0-80.0","80.0-104.0"];
+function run(state,criteria){
+    state =  "PA";
+    criteria = {
+        "Severity" : "2",
+        "Side" : "R"
+    };
+    for(let milestone of tempMilestones){
+        getData(state,criteria,milestone);
+    }
+    drawChart();
 }
 
 //0F = -17 C
 //0-20 20-40 40-60 60-80 80-104
 //104F = 104C
-
-function collectData(state, count){
-    statesCount.push(state,parseInt(count));
+function jsonConcat(json1, json2){
+    for (let key in json2) {
+        json1[key] = json2[key];
+    }
+    return json1;
 }
-function getData(state, tempRange){
+
+function collectData(tempRange, count){
+    statesCount.push([tempRange,parseInt(count)]);
+}
+function getData(state,criteria, tempRange){
     let data = {
-        "State" : tempRange,
+        "State" : state,
         "Temperature" : tempRange
     };
+    data = jsonConcat(data, criteria);
     console.log(data);
     console.log("fetching data...");
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             let count = request.responseText;
-            collectData(state, count);
+            collectData(tempRange, count);
         }
     }
     request.open("POST", _url, false);
     request.send(JSON.stringify(data));
 }
 function drawChart() {
+    let input = [];
+    let header = ["Weather", "Accidents in context of criteria"];
+    input.push(header);
+    for(let instance of statesCount){
+        input.push(instance);
+    }
+    console.log(input);
     var data = new google.visualization.arrayToDataTable(input);
     var options = {
         vAxis: {
@@ -44,7 +66,7 @@ function drawChart() {
             }
         },
         hAxis: {
-            title: filterName,
+            title: 'Temperature',
             textStyle: {
                 color: 'white'
             }
