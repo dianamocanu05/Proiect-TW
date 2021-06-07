@@ -135,6 +135,12 @@ const server = http.createServer(async (req, res) => {
             res.write(page);
             res.end();
         });
+    }else if (path === '/src/webapp/public/scripts/init.js') {
+        fs.readFile('./src/webapp/public/scripts/init.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
     }
 
     else {

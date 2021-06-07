@@ -4,20 +4,26 @@ google.charts.load('current', {
 });
 google.charts.setOnLoadCallback(fetch_and_draw_barchart);
 
-async function fetch_and_draw_barchart() {
-    console.log('fethcing data')
+function fetch_and_draw_barchart(state) {
+    console.log('draw barchart was called')
+
+    if (state === undefined){
+        state = 'CA'
+    }
+    console.log('fethcing barchart data')
     const _url = 'http://127.0.0.1:3000/api/getWhere'
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             let response = request.responseText;
-            console.log(JSON.parse(response));
+            let bar_chart_accidents = JSON.parse(response)
+            console.log(`fetched ${bar_chart_accidents.length} accidents for the barchart`);
             let input_data = [
                 ['Year', 'Number of accidents']
             ]
 
             let years = {}
-            for (let accident of JSON.parse(response)){
+            for (let accident of bar_chart_accidents){
                 let accidentYear = accident.Start_Time.split('-')[0]
                 if(years[accidentYear] === undefined){
                     years[accidentYear] = 0
@@ -31,7 +37,7 @@ async function fetch_and_draw_barchart() {
         }
     };
     request.open("POST", _url, false);
-    request.send(JSON.stringify({State: "LA"}));
+    request.send(JSON.stringify({State: state}));
 }
 
 function drawBarChart(input_data) {
@@ -84,3 +90,4 @@ function drawBarChart(input_data) {
     var chart = new google.visualization.LineChart(document.getElementById('barchart-div'));
     chart.draw(data, options);
 }
+
