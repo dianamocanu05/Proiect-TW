@@ -26,7 +26,7 @@ function run() {
 
 select.addEventListener("click", function () {
     select.options.length = 0;
-    run();
+    run1();
     for (var i = 0; i < possible_visualisations.length; i++) {
         var opt = possible_visualisations[i];
         var el = document.createElement("option");
@@ -40,7 +40,7 @@ select.addEventListener("click", function () {
  * Method centralizes data and deploys chart rendering
  * @returns {Promise<void>}
  */
-async function run() {
+async function run1() {
     states = tags;
     filters = tags1;
     visualisationAdapter();
@@ -208,53 +208,29 @@ function visualisationAdapter() {
  * @returns {Promise<void>}
  */
 async function showResult() {
-    if (previous_div !== "") {
-        const div = document.getElementById(previous_div);
-        div.style.display = "none";
-    }
+    // if (previous_div !== "") {
+    //     const div = document.getElementById(previous_div);
+    //     div.style.display = "none";
+    // }
     switch (visualisation) {
         case "Table":
-            await loadVisualisation("table-div", "../../mvc/entities/table.js");
+            await loadVisualisation("table-div", "../../app-logic/entities/table.js");
             break;
         case "Barchart" :
-            await loadVisualisation("barchart-div", "../../mvc/entities/barchart.js");
+            await loadVisualisation("barchart-div", "../../app-logic/entities/barchart.js");
             break;
         case "Columnchart" :
-            await loadVisualisation("columnchart_values", "../../mvc/entities/columnchart.js");
+            await loadVisualisation("columnchart_values", "../../app-logic/entities/columnchart.js");
             break;
         case "Donutchart" :
-            await loadVisualisation("donutchart", "../../mvc/entities/donutchart.js");
+            await loadVisualisation("donutchart", "../../app-logic/entities/donutchart.js");
             break;
         case "Map" :
-            await loadVisualisation("regions_div", "../../mvc/entities/map.js");
+            await loadVisualisation("regions_div", "../../app-logic/entities/map.js");
             break;
         case "Piechart" :
-            await loadVisualisation("chart_div_l", "../../mvc/entities/piechart.js");
+            await loadVisualisation("chart_div_l", "../../app-logic/entities/piechart.js");
             break;
-
-            if (previous_div !== "") {
-                document.getElementById(previous_div).style.display = "none";
-            }
-            switch (visualisation) {
-                case "Table":
-                    await loadVisualisation("table-div", "../../app-logic/entities/table.js");
-                    break;
-                case "Barchart" :
-                    await loadVisualisation("barchart-div", "../../app-logic/entities/barchart.js");
-                    break;
-                case "Columnchart" :
-                    await loadVisualisation("columnchart_values", "../../app-logic/entities/columnchart.js");
-                    break;
-                case "Donutchart" :
-                    await loadVisualisation("donutchart", "../../app-logic/entities/donutchart.js");
-                    break;
-                case "Map" :
-                    await loadVisualisation("regions_div", "../../app-logic/entities/map.js");
-                    break;
-                case "Piechart" :
-                    await loadVisualisation("chart_div_l", "../../app-logic/entities/piechart.js");
-                    break;
-            }
     }
 }
 
@@ -266,7 +242,7 @@ async function showResult() {
  */
 async function loadVisualisation(div_name, script_src) {
     let div = document.getElementById(div_name);
-    div.style.display = "block";
+    // div.style.display = "block";
     previous_div = div;
     const script = await import(script_src);
 }
