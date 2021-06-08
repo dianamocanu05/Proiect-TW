@@ -1,3 +1,6 @@
+/**
+ * Admin Model -> mapped to 'admins' table using Sequelizer
+ * */
 const sqlite3 = require('sqlite3');
 const Sequelize = require('sequelize');
 const db = require('../config/database.config');
@@ -16,6 +19,9 @@ const adminSchema = {
     }
 }
 
+/**
+ * OBS -> excluding auto-generated fields.
+ * */
 const AdminModel = db.define('admin',adminSchema,{
     timestamps : false,
     createdAt: false,

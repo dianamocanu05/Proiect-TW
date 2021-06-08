@@ -7,6 +7,9 @@ const AdminController = require("./server/controllers/adminController");
 const hostname = '127.0.0.1';
 const port = 3000;
 
+/*
+* Creating http server and routing
+* */
 const server = http.createServer(async (req, res) => {
 
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -44,8 +47,8 @@ const server = http.createServer(async (req, res) => {
             res.end();
         });
     }
-    else if (path === '../mvc/exportService/exportWebP.js') {
-        fs.readFile('./src/webapp/mvc/exportService/exportWebP.js', function (err, page) {
+    else if (path === '../app-logic/exportService/exportWebP.js') {
+        fs.readFile('./src/webapp/app-logic/exportService/exportWebP.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
@@ -71,7 +74,7 @@ const server = http.createServer(async (req, res) => {
             res.end();
         });
     }
-    else if (path === '../mvc/chartsService/controllers/mapController.js'){
+    else if (path === '../app-logic/chartsService/controllers/mapController.js'){
         fs.readFile('./src/webapp/public/views/loginAdminView.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
@@ -90,20 +93,20 @@ const server = http.createServer(async (req, res) => {
             res.end();
         });
     }
-    else if (path === '/src/webapp/mvc/entities/map.js') {
-        fs.readFile('./src/webapp/mvc/entities/map.js', function (err, page) {
+    else if (path === '/src/webapp/app-logic/entities/map.js') {
+        fs.readFile('./src/webapp/app-logic/entities/map.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
         });
-    }else if (path === '/src/webapp/mvc/entities/pieChart.js') {
-        fs.readFile('./src/webapp/mvc/entities/pieChart.js', function (err, page) {
+    }else if (path === '/src/webapp/app-logic/entities/pieChart.js') {
+        fs.readFile('./src/webapp/app-logic/entities/pieChart.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
         });
-    }else if (path === '/src/webapp/mvc/entities/columnchart.js') {
-        fs.readFile('./src/webapp/mvc/entities/columnchart.js', function (err, page) {
+    }else if (path === '/src/webapp/app-logic/entities/columnchart.js') {
+        fs.readFile('./src/webapp/app-logic/entities/columnchart.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
@@ -132,23 +135,23 @@ const server = http.createServer(async (req, res) => {
             res.write(page);
             res.end();
         });
-    }else if (path === '/src/webapp/mvc/entities/barchart.js') {
+    }else if (path === '/src/webapp/app-logic/entities/barchart.js') {
         console.log('05')
-        fs.readFile('./src/webapp/mvc/entities/barchart.js', function (err, page) {
+        fs.readFile('./src/webapp/app-logic/entities/barchart.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
         });
-    }else if (path === '/src/webapp/mvc/entities/donutchart.js') {
+    }else if (path === '/src/webapp/app-logic/entities/donutchart.js') {
         console.log('05')
-        fs.readFile('./src/webapp/mvc/entities/donutchart.js', function (err, page) {
+        fs.readFile('./src/webapp/app-logic/entities/donutchart.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
         });
-    }else if (path === '/src/webapp/mvc/entities/table.js') {
+    }else if (path === '/src/webapp/app-logic/entities/table.js') {
         console.log('05')
-        fs.readFile('./src/webapp/mvc/entities/table.js', function (err, page) {
+        fs.readFile('./src/webapp/app-logic/entities/table.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
@@ -186,6 +189,9 @@ function directHtml(res, path) {
     });
 }
 
+/**
+ * Routes for API
+ * */
 function routing(path, res, req) {
     switch (path) {
         case '/api/getAll':
@@ -221,6 +227,9 @@ function routing(path, res, req) {
     return "Invalid route!";
 }
 
+/*
+* Starting server
+* */
 server.listen(port, hostname, () => {
     console.log(`Server running on port ...${port}`);
 })

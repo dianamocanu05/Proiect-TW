@@ -1,3 +1,7 @@
+/**
+ * Accident Service -> interacts directly with the database, via the Sequelize operations (findAll, count, create, etc...)
+ * */
+
 const AccidentModel = require("../dtos/accident");
 const Sequelizer = require('sequelize');
 const Op = Sequelizer.Op;
@@ -6,6 +10,9 @@ const Accident = AccidentModel(db, Sequelizer);
 let parseTemperatureRange = require('../utils').parseTemperatureRange;
 
 module.exports = class AccidentService {
+    /**
+     * Getting number of accidents
+     * */
     static async getAllAccidents() {
         try {
             return await Accident.count();
@@ -13,6 +20,10 @@ module.exports = class AccidentService {
             console.log(`Could not fetch accidents ${error}`);
         }
     }
+
+    /**
+     * Getting number of accidents in given state
+     * */
     static async getAccidentsCount(state){
         try {
             return await Accident.count({
@@ -28,6 +39,9 @@ module.exports = class AccidentService {
         }
     }
 
+    /**
+     * Getting number of accidents in given state and given year
+     * */
     static async getAccidentsInStatePerYear(state, year){
         try{
             return await Accident.count({
@@ -46,6 +60,9 @@ module.exports = class AccidentService {
         }
     }
 
+    /**
+     * Creating and inserting new instance of accident
+     * */
     static async createAccident(data) {
         try {
             const newAccident ={
@@ -106,6 +123,9 @@ module.exports = class AccidentService {
         }
     }
 
+    /**
+     * Getting accidents by id
+     * */
     static async getAccidentbyId(id) {
         try {
             return await Accident.findByPk(id);
@@ -114,6 +134,9 @@ module.exports = class AccidentService {
         }
     }
 
+    /**
+     * Getting accidents where criteria
+     * */
     static async getAccidentsWhere(options){
         try{
             return await Accident.findAll({
@@ -130,6 +153,9 @@ module.exports = class AccidentService {
         }
     }
 
+    /**
+     * Getting number of accidents where criteria
+     * */
     static async getAccidentsWhereCount(options){
         try{
             return await Accident.count({
@@ -145,6 +171,9 @@ module.exports = class AccidentService {
         }
     }
 
+    /**
+     * Updating accident
+     * */
     static async updateAccident(fields){
         try{
             Accident.update({
@@ -163,6 +192,9 @@ module.exports = class AccidentService {
         }
     }
 
+    /**
+     * Getting accidents in state, where criteria
+     * */
     static async getAccidents(state, fields){
         try {
             return await Accident.findAll({
@@ -179,6 +211,9 @@ module.exports = class AccidentService {
         }
     }
 
+    /**
+     * Deleting accident
+     * */
     static async deleteAccident(options) {
         options = JSON.parse(options);
         console.log(typeof options);
@@ -192,6 +227,10 @@ module.exports = class AccidentService {
 
     }
 
+
+    /**
+     * Getting all types of accidents
+     * */
     static async getAllWeathers(){
         try{
             return await Accident.findAll({
@@ -208,6 +247,9 @@ module.exports = class AccidentService {
         }
     }
 
+    /**
+     * Getting all states
+     * */
     static async getAllStates(){
         try{
             return await Accident.findAll({
@@ -225,6 +267,9 @@ module.exports = class AccidentService {
     }
 
 
+    /**
+     * Getting number of accidents where criteria, in given temperature range (i.e. [20.0-35.0])
+     * */
     static async getAccidentsByTemperature(options){
         let temperatureRange = options.Temperature;
         let temps = parseTemperatureRange(temperatureRange);

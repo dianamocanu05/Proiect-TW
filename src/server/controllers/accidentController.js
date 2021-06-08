@@ -1,7 +1,13 @@
+/**
+ * Accident Controller -> fires various API operations
+ * */
 const AccidentService = require("../services/accidentService");
 const utils = require("../utils");
 let options;
 module.exports = class Accident {
+    /**
+     * Getting all accidents
+     * */
     static async apiGetAllAccidents(res,req,next){
         try {
             const accidents = await AccidentService.getAllAccidents();
@@ -12,6 +18,9 @@ module.exports = class Accident {
         }
     }
 
+    /**
+     * Getting all accidents where criteria
+     * */
     static async apiGetAccidentsWhere(res,req){
         const data = await req.on('data',function (data){
             options = JSON.parse(data);
@@ -26,6 +35,9 @@ module.exports = class Accident {
         }
     }
 
+    /**
+     * Getting how many accidents where criteria
+     * */
     static async apiGetAccidentsWhereCount(res,req){
         const data = await req.on('data',function (data){
             options = JSON.parse(data);
@@ -40,6 +52,9 @@ module.exports = class Accident {
         }
     }
 
+    /**
+     * Getting all types of weather
+     * */
     static async apiGetWeathers(res,req){
         try{
             const weathers = await AccidentService.getAllWeathers(res,req);
@@ -50,6 +65,9 @@ module.exports = class Accident {
         }
     }
 
+    /**
+     * Getting all states
+     * */
     static async apiGetStates(res,req){
         try{
             const states = await AccidentService.getAllStates(res,req);
@@ -60,6 +78,9 @@ module.exports = class Accident {
         }
     }
 
+    /**
+     * Getting all accidents where criteria, in given temperature range
+     * */
     static async apiGetAccidentsByTemperature(res,req){
         const data = await req.on('data',function (data){
             options = JSON.parse(data);
@@ -74,6 +95,9 @@ module.exports = class Accident {
     }
 
 
+    /**
+     * Getting  accident by given ID
+     * */
     static async apiGetAccidentById(res, req, next) {
         const data = await req.on('data',function (data){
             options = JSON.parse(data);
@@ -90,6 +114,9 @@ module.exports = class Accident {
         }
     }
 
+    /**
+     * Creating and inserting into db new accident instance
+     * */
     static async apiCreateAccident(res, req, next) {
         const data = await req.on('data',function (data){
             options = JSON.parse(data);
@@ -102,6 +129,9 @@ module.exports = class Accident {
         }
     }
 
+    /**
+     * Updating  accident
+     * */
 static async apiUpdateAccident(res, req, next){
     const data = await req.on('data',function (data){
         options = JSON.parse(data);
@@ -115,6 +145,9 @@ static async apiUpdateAccident(res, req, next){
         return "fail";
     }
 }
+    /**
+     * Getting number of accidents in state
+     * */
     static async apiGetAccidentsCount(res,req,next){
         const data = await req.on('data',function (data){
             options = JSON.parse(data);
@@ -129,6 +162,9 @@ static async apiUpdateAccident(res, req, next){
         }
     }
 
+    /**
+     * Getting accidents where criteria
+     * */
     static async apiGetAccidents(res,req,next){
         const data = await req.on('data',function (data){
             options = JSON.parse(data);
@@ -144,6 +180,9 @@ static async apiUpdateAccident(res, req, next){
         }
     }
 
+    /**
+     * Getting all accidents in given state and given year
+     * */
     static async apiGetAccidentsCountInStatePerYear(res,req,next){
         const data = await req.on('data',function (data){
             options = JSON.parse(data);
@@ -159,6 +198,9 @@ static async apiUpdateAccident(res, req, next){
         }
     }
 
+    /**
+     * Deleting  accident
+     * */
     static async apiDeleteAccident(res, req, next) {
         const data = await req.on('data',function (data){
             options = JSON.parse(data);

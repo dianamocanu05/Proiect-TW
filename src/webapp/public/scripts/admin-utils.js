@@ -1,3 +1,11 @@
+/*
+* Functions that manage admin panel
+* */
+
+
+/**
+ * Method retrieves admin input (json) and adds the corresponding accident in database
+ */
 function admin_add_accident() {
     let json = document.getElementsByName("add-accident")[0].value;
     let request = new XMLHttpRequest();
@@ -12,6 +20,9 @@ function admin_add_accident() {
     request.send(JSON.stringify(json));
 }
 
+/**
+ * Method retrieves admin input (json) and deletes the corresponding accident from database
+ */
 function admin_delete_accident() {
     let json = document.getElementsByName("delete-accident")[0].value;
     //console.log(json);
@@ -28,6 +39,9 @@ function admin_delete_accident() {
     request.send(JSON.stringify(json));
 }
 
+/**
+ * Method retrieves admin input (json) and updates the corresponding accident in database
+ */
 function admin_update_accident() {
     let json = document.getElementsByName("update-accident")[0].value;
     let request = new XMLHttpRequest();
@@ -42,6 +56,9 @@ function admin_update_accident() {
     request.send(JSON.stringify(json));
 }
 
+/**
+ * Method retrieves admin input (file) and imports database
+ */
 function admin_import() {
     let fileUpload = document.getElementById("fileupload");
     fileUpload.onchange = function (event) {
@@ -63,5 +80,4 @@ function admin_import() {
     reader.readAsBinaryString(db);
 }
 
-admin_import();
 
