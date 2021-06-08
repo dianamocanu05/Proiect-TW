@@ -167,9 +167,9 @@ function visualisationAdapter() {
  * @returns {Promise<void>}
  */
 async function showResult() {
-    if(previous_div !== "") {
-        document.getElementById(previous_div).style.display = "none";
-    }
+    // if(previous_div !== "") {
+    //     // document.getElementById(previous_div).style.display = "none";
+    // }
     switch (visualisation) {
         case "Table":
             await loadVisualisation("table-div","../../app-logic/entities/table.js"); break;
@@ -194,7 +194,7 @@ async function showResult() {
  */
 async function loadVisualisation(div_name, script_src) {
     let div = document.getElementById(div_name);
-    div.style.display = "block";
+    // div.style.display = "block";
     previous_div = div;
     const script = await import(script_src);
 }
