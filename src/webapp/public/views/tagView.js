@@ -2,6 +2,11 @@ const tagContainer = document.querySelector('.tag-container');
 const input = document.querySelector('.tag-container input');
 const tagContainer1 = document.querySelector('.tagC-containerC');
 const input1 = document.querySelector('.tagC-containerC input');
+let conditions = ["ID", "Severity", "Start_Time", "End_Time", "Start_Lat", "Start_Lng", "End_Lat", "End_Lng",
+    "Distance", "Description", "Number", "Street", "Side", "City", "County", "State", "Zipcode", "Country",
+    "Timezone", "Airport_Code", "Weather_Timestamp", "Temperature", "Wind_Chill", "Humidity", "Pressure",
+    "Visibility", "Wind_Direction", "Wind_Speed", "Precipitation", "Weather_Condition", "Amenity", "Bump", "Crossing", "Give_Way",
+    "Junction", "No_Exit", "Railway", "Roundabout", "Station", "Stop", "Traffic_Calming", "Traffic_Signal", "Turning_Loop", "Sunrise_Sunset", "Civil_Twilight", "Nautical_Twilight", "Astronomical_Twilight"];
 let tags = [];
 
 function createTag(label) {
@@ -35,8 +40,9 @@ input.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
         e.target.value.split(',').forEach(tag => {
             //
-            const exists = objects.includes(tag);
-            if (exists == true){
+            const exists1 = objects.includes(tag);
+            const exists2 = tags.includes(tag);
+            if (exists1 == true && exists2 == false){
                 tags.push(tag);
             }
         });
@@ -82,8 +88,9 @@ input1.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
         e.target.value.split(',').forEach(tagC => {
             //
-            const exists = objects.includes(tagC);
-            if (exists == true){
+            const exists1 = conditions.includes(tagC);
+            const exists2 = tags1.includes(tagC);
+            if (exists1 == true && exists2 == false){
                 tags1.push(tagC);
             }
         });
