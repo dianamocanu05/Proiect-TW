@@ -80,8 +80,8 @@ req -> controller -> service -> repository -> model
 
 visualization type / compatibility
 
-piechart : at least 2 states, no. of accidents in context of filter
-linechart : one state only evolution of no. of accidents in context of filter
-donutchart : weathers types, temperature, etc.
-tabel : everything
-columnchart : multiple states: 2-3 filters max
+piechart : at least 2 states, no. of accidents in context of filter DONE
+barchart : one state only evolution of no. of accidents in context of filter DONE
+donutchart : weathers types, temperature, etc. DONE
+tabel : everything DONE
+columnchart : multiple states: 2-3 filters max DONE

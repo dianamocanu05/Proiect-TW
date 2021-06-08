@@ -34,7 +34,7 @@ const states = [
     'OR',
     'MD',
     'MA',
-    'MY',
+    'MI',
     'MN',
     'MS',
     'MO',
@@ -70,7 +70,7 @@ function collectData(state, count) {
     console.log(state);
     let fullName = us_states_json[state];
     console.log(fullName,count);
-    statesCounts.push([fullName, count]);
+    statesCounts.push([fullName, parseInt(count)]);
 }
 
 async function getData(state) {
@@ -99,19 +99,17 @@ function draw_map(input) {
         data[count] = i;
         count++;
     }
-    console.log(data);
+    console.log(typeof data);
 
 
     let x = google.visualization.arrayToDataTable(data);
-
+    console.log(x);
     var options = {
         colorAxis: {colors: ['#B5DE7D', '#FFA500', '#FF7A00']},
         width: 1000, height: 500,
         region: "US",
         backgroundColor: 'transparent',
-        resolution: "provinces",
-        datalessRegionColor: '#f8bbd0',
-        defaultColor: '#f5f5f5',
+        resolution: "provinces"
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));

@@ -90,8 +90,20 @@ const server = http.createServer(async (req, res) => {
             res.end();
         });
     }
-    else if (path === '/src/webapp/public/views/map.js') {
-        fs.readFile('./src/webapp/public/views/map.js', function (err, page) {
+    else if (path === '/src/webapp/mvc/entities/map.js') {
+        fs.readFile('./src/webapp/mvc/entities/map.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/src/webapp/mvc/entities/pieChart.js') {
+        fs.readFile('./src/webapp/mvc/entities/pieChart.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/src/webapp/mvc/entities/columnchart.js') {
+        fs.readFile('./src/webapp/mvc/entities/columnchart.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
@@ -199,6 +211,8 @@ function routing(path, res, req) {
             return AccidentController.apiGetAccidentsByTemperature(res,req);
         case  '/api/get':
             return AccidentController.apiGetAccidents(res,req);
+        case  '/api/getWhereCount':
+            return AccidentController.apiGetAccidentsWhereCount(res,req);
     }
     if (path.includes('/api/delete')) {
         return AccidentController.apiDeleteAccident(res, req);

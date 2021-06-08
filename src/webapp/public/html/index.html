@@ -34,57 +34,61 @@
                 <li><a class="line" href="contact.html">Contact</a></li>
             </ul>
         </nav>
-    </div><!--to add vectorization to map, make it interactive-->
-    <!--<canvas id="canvas"></canvas>-->
-
-    <!--    <div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>-->
-    <!--     <div class="container">-->
-    <!--         Press enter after you typed.-->
-    <!--         <br />-->
-    <!--         <br />-->
-    <!--         <div class="tag-container">-->
-    <!--             <input  />-->
-
-    <!--         </div>-->
-    <div class="container">
-        Press enter after you typed.
-        <br/>
-        <br/>
-        <div class="tag-container">
-            <input/>
-
-        </div>
     </div>
-    <div class="containerC">
-        Press enter after you typed.
-        <br/>
-        <br/>
-        <div class="tagC-containerC">
-            <input/>
 
-        </div>
+</div>
+
+<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+<div class="container">
+    Press enter after you typed.
+    <br/>
+    <br/>
+    <div class="tag-container">
+        <input/>
+
     </div>
-    <select id="county-dropdown" onchange="onCountyChange()"></select>
-    <section id="donut-charts">
-        <div id="donutchart" style="width: 700px; height: 500px;"></div>
 
-        <div id="columnchart_values" style="width: 900px; height: 400px;"></div>
+</div>
+<div class="containerC">
+    Press enter after you typed.
+    <br/>
+    <br/>
+    <div class="tagC-containerC">
+        <input/>
+
+    </div>
+</div>
+
+<select id="county-dropdown" onchange="onCountyChange()"></select>
+<section id="donut-charts">
+    <div id="donutchart" style="width: 700px; height: 500px;"></div>
+    <section id="column-charts">
+        <div id="column_chart-div" style="width: 900px; height: 500px;"></div>
     </section>
-    <section id="bar-charts">
-        <div id="barchart-div" style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>
+    <section id="pie-charts">
+        <div id="chart_div_l" style="width: 900px; height: 500px;"></div>
     </section>
 
-    <section id="table-charts">
-        <table id="table-div" style="width : 2000px; height: 500px;"></table>
-    </section>
 
+    <div id="columnchart_values" style="width: 900px; height: 400px;"></div>
+</section>
+<section id="bar-charts">
+    <div id="barchart-div"
+         style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>
+</section>
+
+<section id="table-charts">
+    <table id="table-div" style="width : 2000px; height: 500px;"></table>
+</section>
 
 </div>
 </div>
-<script type="text/javascript" src="src/webapp/public/scripts/init.js"></script>
+
+
+<script type="text/javascript" src="src/webapp/mvc/entities/columnchart.js"></script>
 <script type="text/javascript" src="src/webapp/mvc/entities/barchart.js"></script>
-<script type="text/javascript" src="src/webapp/mvc/entities/donutchart.js"></script>
 <script type="text/javascript" src="src/webapp/mvc/entities/table.js"></script>
+
 <script type="text/javascript" src="src/webapp/public/views/mapView.js"></script>
 <script type="text/javascript" src="src/webapp/public/views/tmp.js"></script>
 <script type="text/javascript" src="src/webapp/public/views/map.js"></script>
@@ -94,5 +98,9 @@
 <script type="text/javascript" src="src/webapp/public/views/accidentView.js"></script>
 <script type="text/javascript" src="src/webapp/public/views/tagAccidentView.js"></script>
 <script type="text/javascript" src="src/webapp/public/views/tagView.js"></script>
+
+<script type="text/javascript" src="src/webapp/mvc/entities/map.js"></script>
+<script type="text/javascript" src="src/webapp/mvc/entities/pieChart.js"></script>
+
 </body>
 </html>
