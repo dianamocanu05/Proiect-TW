@@ -18,7 +18,8 @@
     </script>
 </head>
 
-<body onload="initCountyDropdown()">
+<!--<body onload="initCountyDropdown()">-->
+<body>
 <div class="wrapper">
     <div class="header">
         <h1 class="title">Data about accidents in USA between 2016-2020</h1>
@@ -38,7 +39,7 @@
 
 </div>
 
-<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+<!--STATES-->
 <div class="container">
     Press enter after you typed.
     <br/>
@@ -49,6 +50,8 @@
     </div>
 
 </div>
+
+<!--FILTERS-->
 <div class="containerC">
     Press enter after you typed.
     <br/>
@@ -59,7 +62,11 @@
     </div>
 </div>
 
-<select id="county-dropdown" onchange="onCountyChange()"></select>
+<button type="button" onclick="run()">PLA</button>
+
+<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+
+<!--<select id="county-dropdown" onchange="onCountyChange()"></select>-->
 <section id="donut-charts">
     <div id="donutchart" style="width: 700px; height: 500px;"></div>
     <section id="column-charts">
@@ -96,7 +103,7 @@
 </script>
 <script type="text/javascript" src="src/webapp/public/views/accidentView.js"></script>
 <script type="text/javascript" src="src/webapp/public/views/tagView.js"></script>
-
+<script type="text/javascript" src="src/webapp/public/scripts/inputManager.js"></script>
 <!--<script type="text/javascript" src="src/webapp/mvc/entities/map.js"></script>-->
 <!--<script type="text/javascript" src="src/webapp/mvc/entities/pieChart.js"></script>-->
 
