@@ -1,9 +1,9 @@
-body{
-    font-family: "Oxygen", "sans-serif";
-    justify-content: center;
-  align-items: center;
-  position: relative;
-}
+/*body{*/
+/*    font-family: "Oxygen", "sans-serif";*/
+/*    justify-content: center;*/
+/*  align-items: center;*/
+/*  position: relative;*/
+/*}*/
 
 /*.page    { display: none; padding: 0 0.5em; }*/
 
@@ -20,10 +20,10 @@ body{
 /*    background-position: center;*/
 /*}*/
 
-.wrapper{
-    width: min(1200px,100%);
-    margin: auto;
-}
+/*.wrapper{*/
+/*    width: min(1200px,100%);*/
+/*    margin: auto;*/
+/*}*/
 
 .contact{
     font-family: "Oxygen", "sans-serif";

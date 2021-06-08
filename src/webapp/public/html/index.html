@@ -3,11 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../styles/layout.css">
     <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
-    <link rel="stylesheet" type="text/css" href="../styles/header.css">
+    <link rel="stylesheet" type="text/css" href="src/webapp/public/styles/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/map.css">
     <link rel="stylesheet" type="text/css" href="../styles/tags.css">
     <link rel="stylesheet" type="text/css" href="../styles/table.css">
@@ -23,21 +22,18 @@
 <div class="wrapper">
     <div class="header">
         <h1 class="title">Data about accidents in USA between 2016-2020</h1>
-
-        <nav>
-            <ul>
-                <li class="active"><a class="line" href="./index.html">Home</a></li>
-
-                <li><a class="line" href="report.html">Report</a></li>
-
-                <li><a class="line" href="export.html">Export</a></li>
-
-                <li><a class="line" href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </div>
-
 </div>
+<nav>
+    <ul>
+        <li class="active"><a class="line" href="./index.html">Home</a></li>
+
+        <li><a class="line" href="report.html">Report</a></li>
+
+        <li><a class="line" href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
 
 <!--STATES-->
 <div class="container">
@@ -63,14 +59,14 @@
 </div>
 
 <div class="containerC">
-<select id="selectVisualisation">
-    <option selected>Choose a visualisation</option>
-</select>
+    <select id="selectVisualisation">
+        <option selected>Choose a visualisation</option>
+    </select>
 </div>
 
 <button type="button" onclick="run()">PLA</button>
 
-<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+<div id="regions_div" style="width: 900px; height: 500px;margin: 0;"></div>
 
 <!--<select id="county-dropdown" onchange="onCountyChange()"></select>-->
 <section id="donut-charts">
