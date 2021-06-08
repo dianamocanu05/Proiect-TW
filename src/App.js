@@ -162,14 +162,6 @@ const server = http.createServer(async (req, res) => {
             res.end();
         });
     }
-    else if (path === '/src/webapp/public/views/tagAccidentView.js') {
-        // console.log('05')
-        fs.readFile('./src/webapp/public/views/tagAccidentView.js', function (err, page) {
-            res.writeHead(200, {'Content-Type': 'text/javascript'});
-            res.write(page);
-            res.end();
-        });
-    }
     else {
         res.setHeader('Content-Type', 'application/json');
         await routing(path, res, req);
