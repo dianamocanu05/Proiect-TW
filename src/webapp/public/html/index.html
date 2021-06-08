@@ -18,8 +18,7 @@
     </script>
 </head>
 
-<!--<body onload="initCountyDropdown()">-->
-<body>
+<body onload="initCountyDropdown()">
 <div class="wrapper">
     <div class="header">
         <h1 class="title">Data about accidents in USA between 2016-2020</h1>
@@ -30,63 +29,76 @@
 
                 <li><a class="line" href="report.html">Report</a></li>
 
+                <li><a class="line" href="export.html">Export</a></li>
+
                 <li><a class="line" href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </div>
 
 </div>
-<h3 >Select the states you want to see statistics about</h3>
-<button type="button" onclick="submitStates();" >OK</button>
-<h3 >Select the filters you want to apply to the statistics</h3>
-<button type="button" onclick="submitFilters();" >OK</button>
-<h3 >Select the visualization mode that you want to see</h3>
-<button type="button" onclick="submitVisualisation();">OK</button>
-<br>
-<button type="button" onclick="showResult();">Submit</button>
-    <div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
-    <div class="container">
-        Press enter after you typed.
-        <br/>
-        <br/>
-        <div class="tag-container">
-            <input/>
 
-        </div>
-        <div class="container">
-            Press enter after you typed.
-            <br/>
-            <br/>
-            <div class="tag-container">
-                <input/>
-            </div>
-        </div>
-                <select id="county-dropdown" onchange="onCountyChange()"></select>
-                <section id="donut-charts">
-                    <div id="donutchart" style="width: 700px; height: 500px;"></div>
-                    <section id="column-charts">
-                        <div id="column_chart-div" style="width: 900px; height: 500px;"></div>
-                    </section>
-                    <section id="pie-charts">
-                        <div id="chart_div_l" style="width: 900px; height: 500px;"></div>
-                    </section>
+<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+<div class="container">
+    Press enter after you typed.
+    <br/>
+    <br/>
+    <div class="tag-container">
+        <input/>
 
-                    <div id="columnchart_values" style="width: 900px; height: 400px;"></div>
-                </section>
-                <section id="bar-charts">
-                    <div id="barchart-div"
-                         style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>
-                </section>
-
-                <section id="table-charts">
-                    <table id="table-div" style="width : 2000px; height: 500px;"></table>
-                </section>
-
-            </div>
     </div>
 
-<script type="text/javascript" src="src/webapp/public/scripts/inputManager.js"></script>
+</div>
+<div class="containerC">
+    Press enter after you typed.
+    <br/>
+    <br/>
+    <div class="tagC-containerC">
+        <input/>
 
+    </div>
+</div>
+
+<select id="county-dropdown" onchange="onCountyChange()"></select>
+<section id="donut-charts">
+    <div id="donutchart" style="width: 700px; height: 500px;"></div>
+    <section id="column-charts">
+        <div id="column_chart-div" style="width: 900px; height: 500px;"></div>
+    </section>
+    <section id="pie-charts">
+        <div id="chart_div_l" style="width: 900px; height: 500px;"></div>
+    </section>
+
+
+    <div id="columnchart_values" style="width: 900px; height: 400px;"></div>
+</section>
+<section id="bar-charts">
+    <div id="barchart-div"
+         style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>
+</section>
+
+<section id="table-charts">
+    <table id="table-div" style="width : 2000px; height: 500px;"></table>
+</section>
+
+
+<!--<script type="text/javascript" src="src/webapp/mvc/entities/columnchart.js"></script>-->
+<!--<script type="text/javascript" src="src/webapp/mvc/entities/barchart.js"></script>-->
+<!--<script type="text/javascript" src="src/webapp/mvc/entities/table.js"></script>-->
+
+<!--<script type="text/javascript" src="src/webapp/public/views/mapView.js"></script>-->
+<!--<script type="text/javascript" src="src/webapp/public/views/tmp.js"></script>-->
+<!--<script type="text/javascript" src="src/webapp/public/views/map.js"></script>-->
+<script type='text/javascript'>
+    let objects = [];
+    let tags = [];
+    let tags1 = [];
+</script>
+<script type="text/javascript" src="src/webapp/public/views/accidentView.js"></script>
+<script type="text/javascript" src="src/webapp/public/views/tagView.js"></script>
+
+<!--<script type="text/javascript" src="src/webapp/mvc/entities/map.js"></script>-->
+<!--<script type="text/javascript" src="src/webapp/mvc/entities/pieChart.js"></script>-->
 
 </body>
 </html>

@@ -168,7 +168,6 @@ const server = http.createServer(async (req, res) => {
             res.end();
         });
     }
-
     else {
         res.setHeader('Content-Type', 'application/json');
         await routing(path, res, req);
