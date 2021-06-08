@@ -6,164 +6,120 @@
     <link rel="stylesheet" type="text/css" href="../styles/report.css">
 
 </head>
-<body>
+<body prefix="schema: https://schema.org">
 <header>
-    <h1>Scholarly Report - AcS</h1>
+    <div class="banner">
+        <img src="../images/scholarly-html.svg" alt="Scholarly logo" style="width:227px;height:50px;">
+        <div class="status">AcS project</div>
+    </div>
+    <h1>USA Accidents Smart Visualizer</h1>
 </header>
 
-<div role="contentinfo">
-    <dl>
-        <dt>Licence</dt>
-        <dd>
-            <a href="../media-utill/mit.txt">MIT License</a>
-        </dd>
-    </dl>
+<div role="contentinfo"><ol role="directory">
+    <li><a href="#abstract"><span>1. </span>Descrierea proiectului</a></li>
+    <li><a href="#introduction"><span>2. </span>Introducere</a></li>
+    <li><a href="#structure"><span>3. </span>Structura</a><ol role="directory">
+        <li><a href="#Tehnologii%20utilizate"><span>3.1 </span>Tehnologii utilizate</a></li>
+        <li><a href="#Pagini"><span>3.2 </span>Pagini</a>
+    </ol></li><li><a href="#functionalitate"><span>4. </span>Funcționalități</a></li>
+    <li><a href="#backend"><span>5. </span>Noțiuni speciale</a></li>
+    <li><a href="#diagrame"><span>6. </span>Diagrame</a></li>
+    <li><a href="#autori"><span>7. </span>Autori</a></li>
+    <li><a href="#github"><span>8. </span>Link GitHub</a></li>
+    <li><a href="#resurse"><span>9. </span>Resurse</a></li>
+
 </div>
-<section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+<!-- <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
     <h2>Project description</h2>
     <p>
         AcS(USA Accidents Smart Visualizer) is a Web tool for visualizing data about
         accidents in USA between 2016-2020.
     </p>
+</section> -->
+<section id="abstract">
+    <h2><span>1. </span>Descrierea proiectului</h2>
+    <p>
+        AcS (USA Accidents Smart Visualizer) este o aplicație web care permite utilizatorilor să vizualizeze date despre accidentele din USA din perioada 2016-2020.
+    </p>
+</section>
+<section id="introduction" role="doc-introduction">
+    <h2><span>2. </span>Introducere</h2>
+    <p>
+        Proiectul este o aplicație web ce constă în gestionarea și afișarea datelor în diferite tipuri de formate (diferite diagrame, tabel, hartă interactivă).
+    </p>
 </section>
 <section id="structure">
-    <h2>Structure</h2>
-    <p>
-        The projects consists of managing and displaying data in different types of visual
-        formats (pie charts, line charts, table, interactive map).
-    </p>
-    <h2>Technologies</h2>
-    <section>
-
-        <h3>Python</h3>
-        <p>
-            Python is used for processing the data from the given dataset (a .csv file).
-        </p>
-
-    </section>
-    <section id="inline">
-        <h3>Sqlite</h3>
-        <p>
-            A Sqlite database is used for storing and extracting data.
-        </p>
-    </section>
-    <section id="Root">
-        <h3>JavaScript</h3>
-        <p>
-            JavaScript is used for creating charts (using Google Charts), and establishing connection
-            and communication between the application and the database.
-        </p>
-    </section>
-    <section id="references">
-
-        <h3>HTML & CSS</h3>
-        <p>
-            HTML & CSS are used for creating the interface of the application.
-        </p>
+    <h2><span>3. </span>Structură</h2>
+    <section id="Tehnologii utilizate">
+        <h3><span>3.1 </span>Tehnologii utilizate</h3>
+        <section id="html_css">
+            <h4><span>3.1.1 </span>HTML & CSS</h4>
+            <p>
+                Pentru a crea interfața aplicației am folosit HTML și CSS.
+            </p>
+        </section>
+        <section id="javascript">
+            <h4><span>3.1.2 </span>Javascript</h4>
+            <p>
+                JavaScript este utilizat pentru a crea diagrame (folosind Google Charts) și pentru a stabili conexiunea
+                și comunicarea între aplicație și baza de date.
+            </p>
+        </section>
+        <section id="sqlite">
+            <h4><span>3.1.3 </span>Sqlite</h4>
+            <p>
+                Pentru stocarea și extragerea datelor este utilizată o bază de date Sqlite.
+            </p>
+        </section>
 
     </section>
-
-    <section>
-
-        <h3>Heroku</h3>
-        <p>
-            Heroku is a service that can host our application on cloud, deploying the latest version we have
-            on our git repository.
-        </p>
-
+    </section>
+    <section id="Pagini">
+        <h3><span>3.2 </span>Pagini</h3>
+        <section id="home">
+            <h4>Site-ul este compus din 4 pagini, iar navigarea între ele se poate face folosind bara de navigare.</h4>
+            <ul>
+                <li>Home</li>
+                <li>Report</li>
+                <li>Export</li>
+                <li>Contact</li>
+            </ul>
+        </section>
     </section>
 </section>
-
-<section id="semantics">
-    <h2>Functionality</h2>
-
-    <section id="person-org">
-        <h3>Visualize data about accidents in USA between 2016-2020</h3>
-    </section>
-
-    <section>
-        <h3>The user can interact with the elements by selecting a data subcategory</h3>
-        <p>Data about accidents regarding: </p>
-        <ul>
-            <li>City</li>
-            <li>State</li>
-            <li>Weather Condition</li>
-            <li>Date</li>
-            <li>Severity</li>
-            <li>Street</li>
-        </ul>
-    </section>
-    <section>
-        <h3>The user can export data</h3>
-        <p>Data can be exported as :</p>
-        <ul>
-            <li>SVG</li>
-            <li>WebP</li>
-            <li>CSV</li>
-        </ul>
-    </section>
-    <section>
-        <h3>The application consists of four pages. Browsing between them can be done using the navigation bar.</h3>
-    </section>
+<section id="functionalitate">
+    <h2><span>4. </span>Funcționalitate</h2>
+    <ol>
+        <li>Utilizatorul își alege tipul de date pe care dorește să îl vizualizeze și modul de vizualizare. În funcție de alegerile făcute, i se vor afișa datele cerute sau va primi o eroare deoarece datele introduse nu sunt corecte. </li>
+        <li>De asemenea, utilizatorul poate salva statisticile și vizualizările într-un format ales de acesta (CSV, WebP, SVG)</li>
+    </ol>
 </section>
 
-<section id="diagram">
-
-    <h2>User guide</h2>
-    <p>
-        Hover over the map to see number of accidents in every state.
-    </p>
-    <p>
-        Hover over the pie charts to see the number of accidents in two states comparatively.
-    </p>
-    <p>
-        Hover over the line chart to see the evolution of the number of accidents in the defined period.
-    </p>
-
-    <p>
-        In the navigation bar, click 'Export' to be redirected to the exports page. Choose the desired format.
-    </p>
-    <p>
-        In the navigation bar, click 'Report' to be redirected to the report page.
-    </p>
-    <p>
-        In the navigation bar, click 'Contact' to be redirected to the contact page.
-    </p>
-    <p>
-        In the navigation bar, click 'Home' to be redirected to the home page.
-    </p>
-
+<section id="backend">
+    <h2><span>5. </span>Noțiuni speciale</h2>
+    <ol>
+        <li> </li>
+        <li></li>
+    </ol>
 </section>
-
-<section id="figure">
-
-    <h2>App diagram</h2>
+<section id="diagrame">
+    <h2><span>6. </span>Diagrama aplicației</h2>
     <img src = "../media-util/diagram.png">
-
 </section>
-
-
-
-<section id="scholarly-article">
-
-    <h2>Authors</h2>
-    <p>
+<section id="autori">
+    <h2><span>7. </span>Autori</h2>
     <ul>
         <li>Mocanu Diana - database, heroku hosting, line chart, application layout & architecture</li>
         <li>Pricop Ana - pie chart, donut chart, column chart, navigation bar, application layout</li>
         <li>Olaru Andreea - map, table, bar chart, application layout</li>
     </ul>
-    </p>
-    <p class="issue">
-        Github repository:
-        <a href="https://github.com/dianamocanu05/Proiect-TW">Click</a>
-    </p>
-
 </section>
-
-<section id="ref">
-    <h2> References </h2>
-
+<section id="github">
+    <h2><span>8. </span>GitHub Repository</h2>
+    <a href="https://github.com/dianamocanu05/Proiect-TW">Click</a>
+</section>
+<section id="resurse">
+    <h2><span>9. </span>Resurse</h2>
     <p class="issue">
         <a href=https://developers.google.com/chart>Google Charts documentation</a>
     </p>
@@ -176,10 +132,14 @@
     <p class="issue">
         <a href="https://www.sqlitetutorial.net/sqlite-nodejs/query/">Querying database</a>
     </p>
+    <p class="issue">
+        <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-film.html">Cursuri Tehnologii Web</a>
     </p>
     <p class="issue">
         <a href=https://w3c.github.io/scholarly-html/#semantics>Template Scholarly</a>
     </p>
 </section>
+
+
 </body>
 </html>

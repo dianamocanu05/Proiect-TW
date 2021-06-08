@@ -73,6 +73,12 @@ const server = http.createServer(async (req, res) => {
             res.write(page);
             res.end();
         });
+    }else if (path === '/styles/layout.css') {
+        fs.readFile('./src/webapp/public/styles/layout.css', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'text/css'});
+            res.write(page);
+            res.end();
+        });
     }
     else if (path === '../app-logic/chartsService/controllers/mapController.js'){
         fs.readFile('./src/webapp/public/views/loginAdminView.js', function (err, page) {
