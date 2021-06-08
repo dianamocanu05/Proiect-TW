@@ -2,6 +2,7 @@ const tagContainer = document.querySelector('.tag-container');
 const input = document.querySelector('.tag-container input');
 const tagContainer1 = document.querySelector('.tagC-containerC');
 const input1 = document.querySelector('.tagC-containerC input');
+const select = document.getElementById("selectVisualisation");
 let conditions = ["ID", "Severity", "Start_Time", "End_Time", "Start_Lat", "Start_Lng", "End_Lat", "End_Lng",
     "Distance", "Description", "Number", "Street", "Side", "City", "County", "State", "Zipcode", "Country",
     "Timezone", "Airport_Code", "Weather_Timestamp", "Temperature", "Wind_Chill", "Humidity", "Pressure",
@@ -13,13 +14,23 @@ let visualisation;
 let previous_div = "";
 let possible_visualisations = [];
 
-function run(){
+function run() {
     states = tags;
     filters = tags1;
     visualisationAdapter();
-    alert(possible_visualisations);
 }
 
+select.addEventListener("click", function () {
+    select.options.length = 0;
+    run();
+    for (var i = 0; i < possible_visualisations.length; i++) {
+        var opt = possible_visualisations[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+    }
+})
 
 function createTag(label) {
     const div = document.createElement('div');
@@ -45,16 +56,16 @@ function addTags() {
     clearTags();
     tags.slice().reverse().forEach(tag => {
         tagContainer.prepend(createTag(tag));
-        //localStorage.setItem('h', JSON.stringify(tag));
     });
 }
+
 input.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
         e.target.value.split(',').forEach(tag => {
             //
             const exists1 = objects.includes(tag);
             const exists2 = tags.includes(tag);
-            if (exists1 == true && exists2 == false){
+            if (exists1 == true && exists2 == false) {
                 tags.push(tag);
             }
         });
@@ -63,11 +74,19 @@ input.addEventListener('keyup', (e) => {
         input.value = '';
     }
 });
+tagContainer.addEventListener('click', (e) => {
+    console.log(e.target.tagName);
+    if (e.target.tagName === 'I') {
+        const tagLabel = e.target.getAttribute('data-item');
+        const index = tags.indexOf(tagLabel);
+        tags.splice(index, 1);
+        addTags();
+    }
+})
+
 
 console.log(tags);
 input.focus();
-
-//let tags1 = [];
 
 function createTag1(label) {
     const div1 = document.createElement('div1');
@@ -95,13 +114,14 @@ function addTags1() {
         tagContainer1.prepend(createTag1(tagC));
     });
 }
+
 input1.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
         e.target.value.split(',').forEach(tagC => {
             //
             const exists1 = conditions.includes(tagC);
             const exists2 = tags1.includes(tagC);
-            if (exists1 === true && exists2 === false){
+            if (exists1 === true && exists2 === false) {
                 tags1.push(tagC);
             }
         });
@@ -110,6 +130,15 @@ input1.addEventListener('keyup', (e) => {
         input1.value = '';
     }
 });
+tagContainer1.addEventListener('click', (e) => {
+    console.log(e.target.tagName);
+    if (e.target.tagName === 'I') {
+        const tagLabel = e.target.getAttribute('data-item2');
+        const index = tags1.indexOf(tagLabel);
+        tags1.splice(index, 1);
+        addTags1();
+    }
+})
 
 console.log(tags1);
 input1.focus();
@@ -132,23 +161,29 @@ function visualisationAdapter() {
 }
 
 async function showResult() {
-    if(previous_div !== "") {
+    if (previous_div !== "") {
         const div = document.getElementById(previous_div);
         div.style.display = "none";
     }
     switch (visualisation) {
         case "Table":
-            await loadVisualisation("table-div","../../mvc/entities/table.js"); break;
+            await loadVisualisation("table-div", "../../mvc/entities/table.js");
+            break;
         case "Barchart" :
-            await loadVisualisation("barchart-div", "../../mvc/entities/barchart.js"); break;
+            await loadVisualisation("barchart-div", "../../mvc/entities/barchart.js");
+            break;
         case "Columnchart" :
-            await loadVisualisation("columnchart_values", "../../mvc/entities/columnchart.js"); break;
+            await loadVisualisation("columnchart_values", "../../mvc/entities/columnchart.js");
+            break;
         case "Donutchart" :
-            await loadVisualisation("donutchart", "../../mvc/entities/donutchart.js"); break;
+            await loadVisualisation("donutchart", "../../mvc/entities/donutchart.js");
+            break;
         case "Map" :
-            await loadVisualisation("regions_div", "../../mvc/entities/map.js"); break;
+            await loadVisualisation("regions_div", "../../mvc/entities/map.js");
+            break;
         case "Piechart" :
-            await loadVisualisation("chart_div_l","../../mvc/entities/piechart.js"); break;
+            await loadVisualisation("chart_div_l", "../../mvc/entities/piechart.js");
+            break;
     }
 }
 
@@ -158,3 +193,4 @@ async function loadVisualisation(div_name, script_src) {
     previous_div = div;
     const script = await import(script_src);
 }
+
