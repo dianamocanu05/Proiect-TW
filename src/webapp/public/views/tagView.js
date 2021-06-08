@@ -7,7 +7,7 @@ let conditions = ["ID", "Severity", "Start_Time", "End_Time", "Start_Lat", "Star
     "Timezone", "Airport_Code", "Weather_Timestamp", "Temperature", "Wind_Chill", "Humidity", "Pressure",
     "Visibility", "Wind_Direction", "Wind_Speed", "Precipitation", "Weather_Condition", "Amenity", "Bump", "Crossing", "Give_Way",
     "Junction", "No_Exit", "Railway", "Roundabout", "Station", "Stop", "Traffic_Calming", "Traffic_Signal", "Turning_Loop", "Sunrise_Sunset", "Civil_Twilight", "Nautical_Twilight", "Astronomical_Twilight"];
-let tags = [];
+//let tags = [];
 
 function createTag(label) {
     const div = document.createElement('div');
@@ -55,7 +55,7 @@ input.addEventListener('keyup', (e) => {
 console.log(tags);
 input.focus();
 
-let tags1 = [];
+//let tags1 = [];
 
 function createTag1(label) {
     const div1 = document.createElement('div1');
