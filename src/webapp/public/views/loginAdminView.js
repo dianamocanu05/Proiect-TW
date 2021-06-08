@@ -1,4 +1,7 @@
-
+/**
+ * Method takes the username and password provided by the user
+ * and checks the validity by requesting the API
+ * */
 function sendCredentials(form){
         let username = form.userid.value;
         let password = form.pswrd.value;

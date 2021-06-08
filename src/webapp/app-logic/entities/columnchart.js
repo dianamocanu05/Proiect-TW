@@ -1,3 +1,6 @@
+/**
+ * Columnchart construction and drawing
+ */
 google.charts.load("current", {
     packages: ['bar']
 });

@@ -1,6 +1,8 @@
-//pentru lista de state si de tipuri de temperatura
-//let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-
+/**
+ * Method parses json and formats data
+ * @param json
+ * @returns {[]}
+ */
 function prettyFormat(json){ //json parse
     //let objects = [];
     json = JSON.parse(json);
@@ -13,6 +15,12 @@ function prettyFormat(json){ //json parse
     });
     return objects;
 }
+
+/**
+ * Method makes a request for the api
+ * @param callback
+ * @param url
+ */
 function getData(callback,url) { //request
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -28,7 +36,7 @@ function getData(callback,url) { //request
 
 
 let url = "http://127.0.0.1:3000/api/states";
-//let objects = []; //aici sunt obiectele
+
 getData(function (result){
     objects = prettyFormat(result);
 },url);

@@ -1,9 +1,10 @@
+/**
+ * Table construction and drawing
+ */
 google.charts.load('current', {'packages':['table']});
 google.charts.setOnLoadCallback(run);
 async function run(){
-    let states = ["CA"];
-    let fields = ["ID"];
-    await fetch_and_draw_table(states,fields);
+    await fetch_and_draw_table(states,filters);
 }
 function getRows(accidents){
     let rows = new Array(100);

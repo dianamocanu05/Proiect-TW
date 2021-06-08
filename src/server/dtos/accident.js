@@ -1,6 +1,10 @@
+/**
+ * Accident Model -> using Sequelizer, it is mapped to the 'accidents' table in db
+ * */
 const sqlite3 = require('sqlite3');
 const Sequelize = require('sequelize');
 const db = require('../config/database.config');
+
 
 const accidentSchema = {
     ID: {
@@ -194,6 +198,10 @@ const accidentSchema = {
     }
 };
 
+/**
+ * Mapping to table 'Accidents'
+ * OBS.: excluding auto-generated fields : timestamps, createdAt, updatedAt
+ * */
 const AccidentModel = db.define('accident',accidentSchema,{
     timestamps : false,
     createdAt: false,

@@ -1,7 +1,16 @@
+/**
+ * Admin controller -> performs API operations
+ *
+ * */
 const AdminService = require("../services/adminService");
 const utils = require("../utils");
 let credentials;
-module.exports = class Accident {
+module.exports = class Admin {
+    /**
+     * Method tries to authenticate admin
+     * on success -> "Logged in successfully"
+     * on fail -> "Bad credentials"
+     * */
     static async apiLoginAdmin(res, req, next) {
         try {
             const data = await req.on('data',function (data){

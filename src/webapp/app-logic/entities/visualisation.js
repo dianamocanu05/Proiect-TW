@@ -1,3 +1,6 @@
+/**
+ * Generic Visualisation Type
+ */
 class Visualisation{
     constructor(data, title, div_id) {
         this.data = data;

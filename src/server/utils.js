@@ -1,3 +1,8 @@
+/**
+ * UTIL FUNCTIONS
+ * */
+
+
 module.exports.parseForId = function (req){
     let fields = req.url.toString().split('/');
     return fields[fields.length-1];
