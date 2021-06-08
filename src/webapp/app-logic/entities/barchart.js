@@ -4,13 +4,15 @@
 google.charts.load('current', {
     'packages': ['corechart'],
 });
-google.charts.setOnLoadCallback(fetch_and_draw_barchart);
+// google.charts.setOnLoadCallback(fetch_and_draw_barchart);
 
-function fetch_and_draw_barchart(state) {
+function fetch_and_draw_barchart() {
     console.log('draw barchart was called')
-
-    if (state === undefined){
+    let state;
+    if (states === undefined){
         state = 'CA'
+    }else{
+        state = states[0];
     }
     console.log('fethcing barchart data')
     const _url = 'http://127.0.0.1:3000/api/getWhere'

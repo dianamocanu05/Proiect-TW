@@ -4,12 +4,12 @@
 google.charts.load("current", {
     packages: ['bar']
 });
-google.charts.setOnLoadCallback(run);
+// google.charts.setOnLoadCallback(run);
 let filterName;
 let _url = "http://127.0.0.1:3000/api/getByTemp";
 let statesCount = [];
 let tempMilestones = ["0.0-20.0","21.0-40.0","41.0-60.0","61.0-80.0","80.0-104.0"];
-function run(state,criteria){
+function runColumnchart(state,criteria){
     state =  "PA";
     criteria = {
         "Severity" : "2",

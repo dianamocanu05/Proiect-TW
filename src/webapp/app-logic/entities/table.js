@@ -2,8 +2,8 @@
  * Table construction and drawing
  */
 google.charts.load('current', {'packages':['table']});
-google.charts.setOnLoadCallback(run);
-async function run(){
+//google.charts.setOnLoadCallback(runTable);
+async function runTable(){
     await fetch_and_draw_table(states,filters);
 }
 function getRows(accidents){
@@ -53,6 +53,7 @@ async function fetch_and_draw_table(states, filters){
 
 }
 function draw_table(input) {
+    console.log("DRAW TABLE WAS CALLED");
     //input contains {columns, rows}
     console.log(input);
     let columns = input[0];

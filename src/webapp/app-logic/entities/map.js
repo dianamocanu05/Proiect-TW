@@ -2,7 +2,7 @@
  * Map construction and drawing
  */
 google.charts.load('current', {'packages': ['geochart']});
-google.charts.setOnLoadCallback(run);
+google.charts.setOnLoadCallback(runMap);
 const states = [
     'AL',
     'AK',
@@ -58,7 +58,7 @@ const states = [
 const url = 'http://127.0.0.1:3000/api/getCount';
 const statesCounts = [];
 
-async function run() {
+async function runMap() {
     await fetch_and_draw_map();
 }
 

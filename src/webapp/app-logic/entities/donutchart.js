@@ -4,12 +4,15 @@
 google.charts.load("current", {
     packages: ["corechart"]
 });
-google.charts.setOnLoadCallback(fetch_and_draw_donut);
+// google.charts.setOnLoadCallback(fetch_and_draw_donut);
 
-function fetch_and_draw_donut(state) {
+function fetch_and_draw_donut() {
+    let state;
     console.log('fetch_and_draw_donut was called')
-    if (state === undefined) {
+    if (states === undefined) {
         state = 'CA'
+    }else{
+        state = states[0];
     }
     console.log('fethcing donut data')
     const _url = 'http://127.0.0.1:3000/api/getWhere'
