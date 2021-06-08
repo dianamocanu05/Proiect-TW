@@ -263,52 +263,77 @@ let checkbox_filters = ['Sunrise_Sunset','Civil_Twilight',
 let boolean_filters = ['Sunrise_Sunset','Civil_Twilight',
                         'Nautical_Twilight','Astronomical_Twilight'];
 
-
+let count = 0;
+let input_fields = [];
 function addFilter(filter){
     let form = document.getElementById("adv-filters");
-    let input, check1, check2;
+    let input, check1, check2, label1, label2;
 
     if(checkbox_filters.includes(filter)) {
         if(boolean_filters.includes(filter)) { //True/False
+            label1 = document.createElement("label");
             check1 = document.createElement("input");
+            check1.name = filter + count;
             check1.type = "checkbox";
-            check1.name = filter + "True : ";
+            label1.innerText = filter + " True : ";
+            form.appendChild(label1);
             form.appendChild(check1);
 
+            label2 = document.createElement("label");
             check2 = document.createElement("input");
             check2.type = "checkbox";
-            check2.name = "False : ";
+            check2.name = filter + count;
+            label2.innerText = "False : ";
+            form.append(label2);
             form.appendChild(check2);
+
         }else{
             if(filter !== 'Side'){ //L/R
+                label1 = document.createElement("label");
                 check1 = document.createElement("input");
                 check1.type = "checkbox";
-                check1.name = filter + "Left : ";
+                check1.name = filter + count;
+                label1.innerText = filter + " Left : ";
+                form.append(label1);
                 form.appendChild(check1);
 
+                label2 = document.createElement("label");
                 check2 = document.createElement("input");
                 check2.type = "checkbox";
-                check2.name = "Right : ";
+                check2.name = filter + count;
+                label2.innerText = "Right : ";
+                form.append(label2);
                 form.appendChild(check2);
 
             }else{ //Day/Night
+                label1 = document.createElement("label");
                 check1 = document.createElement("input");
                 check1.type = "checkbox";
-                check1.name = filter + "Day : ";
+                check2.name = filter + count;
+                label1.innerText = filter + "  Day : ";
+                form.appendChild(label1);
                 form.appendChild(check1);
 
+                label2 = document.createElement("label");
                 check2 = document.createElement("input");
                 check2.type = "checkbox";
-                check2.name = "Night : ";
+                check2.name = filter + count;
+                label2.innerText = "Night : ";
+                form.appendChild(label2);
                 form.appendChild(check2);
             }
         }
-
+        input_fields.push(check1.name);
+        input_fields.push(check2.name);
     }else{
+        label1 = document.createElement("label");
         input = document.createElement("input");
         input.type = "text";
-        input.name = filter + " : ";
+        input.name = filter + count;
+        label1.innerText = filter + " : ";
+        form.append(label1);
         form.appendChild(input);
+        input_fields.push(input.name);
     }
 
 
