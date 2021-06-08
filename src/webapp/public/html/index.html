@@ -18,7 +18,8 @@
     </script>
 </head>
 
-<body onload="initCountyDropdown()">
+<!--<body onload="initCountyDropdown()">-->
+<body>
 <div class="wrapper">
     <div class="header">
         <h1 class="title">Data about accidents in USA between 2016-2020</h1>
@@ -29,15 +30,20 @@
 
                 <li><a class="line" href="report.html">Report</a></li>
 
-                <li><a class="line" href="export.html">Export</a></li>
-
                 <li><a class="line" href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </div>
 
 </div>
-
+<h3 >Select the states you want to see statistics about</h3>
+<button type="button" onclick="submitStates();" >OK</button>
+<h3 >Select the filters you want to apply to the statistics</h3>
+<button type="button" onclick="submitFilters();" >OK</button>
+<h3 >Select the visualization mode that you want to see</h3>
+<button type="button" onclick="submitVisualisation();">OK</button>
+<br>
+<button type="button" onclick="showResult();">Submit</button>
     <div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
     <div class="container">
         Press enter after you typed.
@@ -79,12 +85,8 @@
             </div>
     </div>
 
+<script type="text/javascript" src="src/webapp/public/scripts/inputManager.js"></script>
 
-<script type="text/javascript" src="src/webapp/mvc/entities/columnchart.js"></script>
-<script type="text/javascript" src="src/webapp/mvc/entities/barchart.js"></script>
-<script type="text/javascript" src="src/webapp/mvc/entities/table.js"></script>
-<script type="text/javascript" src="src/webapp/mvc/entities/map.js"></script>
-<script type="text/javascript" src="src/webapp/mvc/entities/pieChart.js"></script>
 
 </body>
 </html>

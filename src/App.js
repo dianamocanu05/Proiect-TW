@@ -108,6 +108,12 @@ const server = http.createServer(async (req, res) => {
             res.write(page);
             res.end();
         });
+    }else if (path === '/src/webapp/public/scripts/inputManager.js') {
+        fs.readFile('./src/webapp/public/scripts/inputManager.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
     }else if (path === '/views/loginAdminView.js') {
         fs.readFile('./src/webapp/public/views/loginAdminView.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});

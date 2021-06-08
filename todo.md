@@ -2,14 +2,11 @@
 
 ## landing page (ana):
 
-    1. choose states (tags) DONE
-    2. choose filters (scroller) 
-    3. choose visualization type(adaptable scroller)
-    4. run()
+    1. choose filters (textfield tags) 
+    2. choose visualization type(adaptable scroller)
 
 ## next page (andreea??):
     
-    1. show visualization (table, piechart,...) DONE
     2. export as webp, svg, pdf
 
 ## admin panel (diana):
@@ -18,4 +15,5 @@
 ## api (diana) : DONE
 
 ## documentation
+## comment code
 ## presentation clip
