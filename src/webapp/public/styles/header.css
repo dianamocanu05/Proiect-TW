@@ -17,71 +17,11 @@ body {
     overflow-x: hidden;
 }
 
-@media only screen and (max-width: 1300px) {
-
-    .title {
-        width: 100%;
-        text-align: center;
-        color: white;
-        font-size: 60px;
-    }
-
-    h1 {
-        font-size: 60px;
-    }
-
-}
-
-@media only screen and (max-width: 1000px) {
-
-    .title {
-        width: 100%;
-        text-align: center;
-        color: white;
-        font-size: 40px;
-    }
-
-    h1 {
-        font-size: 40px;
-    }
-
-}
-
-@media only screen and (max-width: 800px) {
-
-    .title {
-        width: 100%;
-        text-align: center;
-        color: white;
-        font-size: 30px;
-    }
-
-    h1 {
-        font-size: 30px;
-    }
-
-}
-
-@media only screen and (max-width: 400px) {
-    /* Styles for screen with max width of 320px */
-    .title {
-        width: 100%;
-        text-align: center;
-        color: white;
-        font-size: 20px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-}
-
-
 h1 {
     color: white;
     /*text-shadow: -1px 0 #FF7A00, 0 2px #FF7A00, 2px 0 #FF7A00, 0 -1px #FF7A00;*/
     text-align: center;
-    font-size: 60px;
+    font-size: calc(20px + 50 * ((100vw - 150px) / (1600 - 150)));
     /*width: 100%;*/
 }
 
