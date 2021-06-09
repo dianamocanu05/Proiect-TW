@@ -99,6 +99,6 @@ function drawChartColumn() {
         },
 
     };
-    var chart = new google.charts.Bar(document.getElementById('column_chart-div'));
+    var chart = new google.charts.Bar(document.getElementById('columnchart_values'));
     chart.draw(data, google.charts.Bar.convertOptions(options));
 }

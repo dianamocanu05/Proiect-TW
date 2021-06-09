@@ -110,24 +110,24 @@ console.log(tags);
 input.focus();
 
 
-
-let checkbox_filters = ['Sunrise_Sunset','Civil_Twilight',
-                        'Nautical_Twilight','Astronomical_Twilight',
-                        'Side','Bump','Crossing','Give_Way','Junction',
-                        'No_Exit','Railway','Roundabout','Station','Stop',
-                        'Traffic_Calming','Traffic_Signal','Amenity','Turning_Loop'
-                        ];
-let boolean_filters = ['Sunrise_Sunset','Civil_Twilight',
-                        'Nautical_Twilight','Astronomical_Twilight'];
+let checkbox_filters = ['Sunrise_Sunset', 'Civil_Twilight',
+    'Nautical_Twilight', 'Astronomical_Twilight',
+    'Side', 'Bump', 'Crossing', 'Give_Way', 'Junction',
+    'No_Exit', 'Railway', 'Roundabout', 'Station', 'Stop',
+    'Traffic_Calming', 'Traffic_Signal', 'Amenity', 'Turning_Loop'
+];
+let boolean_filters = ['Sunrise_Sunset', 'Civil_Twilight',
+    'Nautical_Twilight', 'Astronomical_Twilight'];
 
 let count = 0;
 let input_fields = [];
 let selected_fields = [];
-for(let fi of input_fields){
-    selected_fields.push(fi.slice(0,-1));
+for (let fi of input_fields) {
+    selected_fields.push(fi.slice(0, -1));
 }
-function addFilter(filter){
-    if(!selected_fields.includes(filter)) {
+
+function addFilter(filter) {
+    if (!selected_fields.includes(filter)) {
         let form = document.getElementById("adv-filters");
         let input, check1, check2, label1, label2;
 
@@ -212,9 +212,9 @@ function addFilter(filter){
 }
 
 
-function generateStatistics(){
-    for(let input of input_fields){
-        let criteria = input.slice(0,-1);
+function generateStatistics() {
+    for (let input of input_fields) {
+        let criteria = input.slice(0, -1);
         let value = document.getElementsByName(input)[0].value;
         filters[criteria] = value;
     }
@@ -234,7 +234,7 @@ function visualisationAdapter() {
         possible_visualisations.push("Barchart");
         possible_visualisations.push("Columnchart");
     }
-    if(states.includes("ALL")){
+    if (states.includes("ALL")) {
         possible_visualisations = ["Map"];
     }
     console.log(possible_visualisations);
@@ -245,28 +245,29 @@ function visualisationAdapter() {
  * @returns {Promise<void>}
  */
 async function showResult() {
-    let divs = ["table-div","barchart-div","columnchart_values","donutchart","regions_div","chart_div_l"];
-    for(let div of divs){
+    let divs = ["table-div", "barchart-div", "columnchart_values", "donutchart", "regions_div", "chart_div_l"];
+    for (let div of divs) {
         document.getElementById(div).style.display = "none";
+        displayHideButtons(div,"hide");
     }
     switch (visualisation) {
         case "Table":
-            await loadVisualisation("table-div", "../../app-logic/entities/table.js",runTable);
+            await loadVisualisation("table-div", "../../app-logic/entities/table.js", runTable);
             break;
         case "Barchart" :
-            await loadVisualisation("barchart-div", "../../app-logic/entities/barchart.js",fetch_and_draw_barchart);
+            await loadVisualisation("barchart-div", "../../app-logic/entities/barchart.js", fetch_and_draw_barchart);
             break;
         case "Columnchart" :
-            await loadVisualisation("columnchart_values", "../../app-logic/entities/columnchart.js",runColumnchart);
+            await loadVisualisation("columnchart_values", "../../app-logic/entities/columnchart.js", runColumnchart);
             break;
         case "Donutchart" :
-            await loadVisualisation("donutchart", "../../app-logic/entities/donutchart.js",fetch_and_draw_donut);
+            await loadVisualisation("donutchart", "../../app-logic/entities/donutchart.js", fetch_and_draw_donut);
             break;
         case "Map" :
-            await loadVisualisation("regions_div", "../../app-logic/entities/map.js",runMap);
+            await loadVisualisation("regions_div", "../../app-logic/entities/map.js", runMap);
             break;
         case "Piechart" :
-            await loadVisualisation("chart_div_l", "../../app-logic/entities/piechart.js",runPiechart);
+            await loadVisualisation("chart_div_l", "../../app-logic/entities/piechart.js", runPiechart);
             break;
     }
 }
@@ -278,13 +279,50 @@ async function showResult() {
  * @param fct
  * @returns {Promise<void>}
  */
-async function loadVisualisation(div_name, script_src,fct) {
+async function loadVisualisation(div_name, script_src, fct) {
+
     let div = document.getElementById(div_name);
     div.style.display = "block";
+    displayHideButtons(div_name,"display");
     previous_div = div;
     await fct();
     //const script = await import(script_src);
     //console.log(script);
+}
+
+function displayHideButtons(div_name, action) {
+    let style;
+    if (action === "hide") style = "none";
+    if (action === "display") style = "block";
+    /* make appear/hide export buttons*/
+    if (div_name === "table-div") {
+        document.getElementById("csv-table-button").style.display = style;
+    } else {
+        let export_types = ["webp", "png", "svg"];
+        for (let x of export_types) {
+            let button_name = x + "-" + getDivName(div_name) + "-button";
+            console.log(button_name);
+            document.getElementById(button_name).style.display = style;
+        }
+    }
+}
+
+function getDivName(div_name) {
+    console.log(div_name);
+    switch (div_name) {
+        case "regions_div" :
+            return "map";
+        case "chart_div_l" :
+            return "pie";
+        case "donutchart" :
+            return "donut";
+        case "columnchart_values" :
+            return "column";
+        case "barchart-div" :
+            return "barchart";
+        case  "table-div":
+            return "table";
+    }
 }
 
 

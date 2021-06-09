@@ -47,8 +47,21 @@ const server = http.createServer(async (req, res) => {
             res.end();
         });
     }
-    else if (path === '../app-logic/exportService/exportWebP.js') {
+    else if (path === '/src/webapp/app-logic/exportService/exportWebP.js') {
         fs.readFile('./src/webapp/app-logic/exportService/exportWebP.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }
+    else if (path === '/src/webapp/app-logic/exportService/exportSVG.js') {
+        fs.readFile('./src/webapp/app-logic/exportService/exportSVG.js', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/src/webapp/app-logic/exportService/exportCSV.js') {
+        fs.readFile('./src/webapp/app-logic/exportService/exportCSV.js', function (err, page) {
             res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.write(page);
             res.end();
