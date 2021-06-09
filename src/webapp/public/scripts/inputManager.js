@@ -25,6 +25,7 @@ select.addEventListener("mouseover", function () {
     //states = tags;
     filters = tags1;
     // run();
+    states = tags;
     visualisationAdapter();
     for (var i = 0; i < possible_visualisations.length; i++) {
         var opt = possible_visualisations[i];
@@ -252,8 +253,6 @@ async function loadVisualisation(div_name, script_src,fct) {
     //console.log(script);
 }
 
-
-
 let checkbox_filters = ['Sunrise_Sunset','Civil_Twilight',
                         'Nautical_Twilight','Astronomical_Twilight',
                         'Side','Bump','Crossing','Give_Way','Junction',
@@ -265,51 +264,23 @@ let boolean_filters = ['Sunrise_Sunset','Civil_Twilight',
 
 let count = 0;
 let input_fields = [];
+let selected_fields = [];
+for(let fi of input_fields){
+    selected_fields.push(fi.slice(0,-1));
+}
 function addFilter(filter){
-    let form = document.getElementById("adv-filters");
-    let input, check1, check2, label1, label2;
+    if(!selected_fields.includes(filter)) {
+        let form = document.getElementById("adv-filters");
+        let input, check1, check2, label1, label2;
 
-    if(checkbox_filters.includes(filter)) {
-        if(boolean_filters.includes(filter)) { //True/False
-            label1 = document.createElement("label");
-            check1 = document.createElement("input");
-            check1.name = filter + count;
-            check1.type = "checkbox";
-            label1.innerText = filter + " True : ";
-            form.appendChild(label1);
-            form.appendChild(check1);
+        if (checkbox_filters.includes(filter)) {
+            if (boolean_filters.includes(filter)) { //Day/Night
 
-            label2 = document.createElement("label");
-            check2 = document.createElement("input");
-            check2.type = "checkbox";
-            check2.name = filter + count;
-            label2.innerText = "False : ";
-            form.append(label2);
-            form.appendChild(check2);
-
-        }else{
-            if(filter !== 'Side'){ //L/R
                 label1 = document.createElement("label");
                 check1 = document.createElement("input");
                 check1.type = "checkbox";
                 check1.name = filter + count;
-                label1.innerText = filter + " Left : ";
-                form.append(label1);
-                form.appendChild(check1);
-
-                label2 = document.createElement("label");
-                check2 = document.createElement("input");
-                check2.type = "checkbox";
-                check2.name = filter + count;
-                label2.innerText = "Right : ";
-                form.append(label2);
-                form.appendChild(check2);
-
-            }else{ //Day/Night
-                label1 = document.createElement("label");
-                check1 = document.createElement("input");
-                check1.type = "checkbox";
-                check2.name = filter + count;
+                check1.value = "Day";
                 label1.innerText = filter + "  Day : ";
                 form.appendChild(label1);
                 form.appendChild(check1);
@@ -318,25 +289,145 @@ function addFilter(filter){
                 check2 = document.createElement("input");
                 check2.type = "checkbox";
                 check2.name = filter + count;
+                check2.value = "Night";
                 label2.innerText = "Night : ";
                 form.appendChild(label2);
                 form.appendChild(check2);
+
+            } else {
+                if (filter === 'Side') { //L/R
+                    label1 = document.createElement("label");
+                    check1 = document.createElement("input");
+                    check1.type = "checkbox";
+                    check1.value = "L";
+                    check1.name = filter + count;
+                    label1.innerText = filter + " Left : ";
+                    form.append(label1);
+                    form.appendChild(check1);
+
+                    label2 = document.createElement("label");
+                    check2 = document.createElement("input");
+                    check2.type = "checkbox";
+                    check2.value = "R";
+                    check2.name = filter + count;
+                    label2.innerText = "Right : ";
+                    form.append(label2);
+                    form.appendChild(check2);
+
+                } else { //T/F
+                    label1 = document.createElement("label");
+                    check1 = document.createElement("input");
+                    check1.name = filter + count;
+                    check1.value = "True";
+                    check1.type = "checkbox";
+                    label1.innerText = filter + " True : ";
+                    form.appendChild(label1);
+                    form.appendChild(check1);
+
+                    label2 = document.createElement("label");
+                    check2 = document.createElement("input");
+                    check2.type = "checkbox";
+                    check2.value = "False";
+                    check2.name = filter + count;
+                    label2.innerText = "False : ";
+                    form.append(label2);
+                    form.appendChild(check2);
+
+                }
             }
+            input_fields.push(check1.name);
+            input_fields.push(check2.name);
+        } else {
+            label1 = document.createElement("label");
+            input = document.createElement("input");
+            input.type = "text";
+            input.name = filter + count;
+            label1.innerText = filter + " : ";
+            form.append(label1);
+            form.appendChild(input);
+            input_fields.push(input.name);
         }
-        input_fields.push(check1.name);
-        input_fields.push(check2.name);
-    }else{
-        label1 = document.createElement("label");
-        input = document.createElement("input");
-        input.type = "text";
-        input.name = filter + count;
-        label1.innerText = filter + " : ";
-        form.append(label1);
-        form.appendChild(input);
-        input_fields.push(input.name);
+
+
+        form.appendChild(document.createElement("br"));
     }
-
-
-    form.appendChild(document.createElement("br"));
 }
+
+
+function generateStatistics(){
+    for(let input of input_fields){
+        let criteria = input.slice(0,-1);
+        let value = document.getElementsByName(input)[0].value;
+        filters[criteria] = value;
+    }
+}
+
+/**
+ * Method decides what charts are available based on user input
+ */
+function visualisationAdapter() {
+    possible_visualisations = ["Table"]; //works for any type of input
+
+    if (states.length >= 2) {
+        possible_visualisations.push("Piechart"); //for 2 (or more) states min
+    }
+    if (states.length === 1) {
+        possible_visualisations.push("Donutchart");
+        possible_visualisations.push("Barchart");
+        possible_visualisations.push("Columnchart");
+    }
+    if(states.includes("ALL")){
+        possible_visualisations.push("Map");
+    }
+    console.log(possible_visualisations);
+}
+
+/**
+ * Method deploys corresponding action
+ * @returns {Promise<void>}
+ */
+async function showResult() {
+    let divs = ["table-div","barchart-div","columnchart_values","donutchart","regions_div","chart_div_l"];
+    for(let div of divs){
+        document.getElementById(div).style.display = "none";
+    }
+    switch (visualisation) {
+        case "Table":
+            await loadVisualisation("table-div", "../../app-logic/entities/table.js",runTable);
+            break;
+        case "Barchart" :
+            await loadVisualisation("barchart-div", "../../app-logic/entities/barchart.js",fetch_and_draw_barchart);
+            break;
+        case "Columnchart" :
+            await loadVisualisation("columnchart_values", "../../app-logic/entities/columnchart.js",runColumnchart);
+            break;
+        case "Donutchart" :
+            await loadVisualisation("donutchart", "../../app-logic/entities/donutchart.js",fetch_and_draw_donut);
+            break;
+        case "Map" :
+            await loadVisualisation("regions_div", "../../app-logic/entities/map.js",runMap);
+            break;
+        case "Piechart" :
+            await loadVisualisation("chart_div_l", "../../app-logic/entities/piechart.js",runPiechart);
+            break;
+    }
+}
+
+/**
+ * Method loads chart-creating script for specific chart type
+ * @param div_name
+ * @param script_src
+ * @param fct
+ * @returns {Promise<void>}
+ */
+async function loadVisualisation(div_name, script_src,fct) {
+    let div = document.getElementById(div_name);
+    div.style.display = "block";
+    previous_div = div;
+    await fct();
+    //const script = await import(script_src);
+    //console.log(script);
+}
+
+
 
