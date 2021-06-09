@@ -1,9 +1,9 @@
 data
 node_modules
-/old
-./.env
-./accident
-./Procfile
-./REGULATIONS.md
-./test.png
+old
+.env
+accident
+Procfile
+REGULATIONS.md
+test.png
 
