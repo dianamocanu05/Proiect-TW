@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>USA Accidents Smart Visualizer (AcS)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" type="text/css" href="../styles/layout.css">
     <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
     <link rel="stylesheet" type="text/css" href="../styles/header.css">
@@ -20,7 +20,6 @@
     </script>
 </head>
 
-<!--<body onload="initCountyDropdown()">-->
 <body>
 <div class="wrapper">
     <div class="header">
@@ -31,8 +30,6 @@
                 <li class="active"><a class="line" href="./index.html">Home</a></li>
 
                 <li><a class="line" href="report.html">Report</a></li>
-
-                <li><a class="line" href="export.html">Export</a></li>
 
                 <li><a class="line" href="contact.html">Contact</a></li>
             </ul>
@@ -137,43 +134,105 @@
         </div>
     </div>
 </div>
+
 <div id="adv-filters">
 
 </div>
 
 <div class="container1">
     <div class="dropdown1">
-        <select class = "sel1" id="selectVisualisation">
+        <select class="sel1" id="selectVisualisation">
             <option selected>Choose a visualisation</option>
         </select>
 
     </div>
 
-<button class = "btn1" type="button" onclick="generateStatistics();run();">View chart</button>
+    <button class="btn1" type="button" onclick="generateStatistics();run();">View chart</button>
 </div>
 
-<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+<!--<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>-->
 
-<!--<select id="county-dropdown" onchange="onCountyChange()"></select>-->
-<section id="donut-charts">
-    <div id="donutchart" style="width: 700px; height: 500px;"></div>
-    <section id="column-charts">
-        <div id="column_chart-div" style="width: 900px; height: 500px;"></div>
-    </section>
-    <section id="pie-charts">
-        <div id="chart_div_l" style="width: 900px; height: 500px;"></div>
-    </section>
-
-
-    <div id="columnchart_values" style="width: 900px; height: 400px;"></div>
+<!--MAP-->
+<img id="map-img" style="display: none">
+<canvas id="map-canvas" style="display: none; width: 900px; height: 500px"></canvas>
+<section id="maps">
+    <button id="png-map-button" onclick="get_export_webp('image/png', 'map-img', 'map-canvas',0,'map.png')"
+            style="display:none">PNG
+    </button>
+    <button id="webp-map-button" onclick="get_export_webp('image/webp', 'map-img','map-canvas',0,'map.webp')"
+            style="display:none">WEBP
+    </button>
+    <div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
 </section>
+<button id="svg-map-button" type="button" onclick="get_export_svg('regions_div');" style="display:none">SVG</button>
+
+<!--DONUTCHART-->
+<img id="donut-img" style="display: none">
+<canvas id="donut-canvas" style="display: none; width: 700px; height: 500px"></canvas>
+<section id="donut-charts">
+    <button id="png-donut-button" onclick="get_export_webp('image/png','donut-img', 'donut-canvas',0,'donut.png')"
+            style="display:none">PNG
+    </button>
+    <button id="webp-donut-button" onclick="get_export_webp('image/png','donut-img', 'donut-canvas',0,'donut.webp')"
+            style="display:none">WEBP
+    </button>
+    <div id="donutchart" style="width: 700px; height: 500px;"></div>
+</section>
+<button id="svg-donut-button" type="button" onclick="get_export_svg('donutchart');" style="display:none">SVG</button>
+
+<!--PIECHART-->
+<img id="pie-img" style="display: none">
+<canvas id="pie-canvas" style="display: none; width: 700px; height: 500px"></canvas>
+<section id="pie-charts">
+    <button id="png-pie-button" onclick="get_export_webp('image/png','pie-img', 'pie-canvas',0,'pie.png')"
+            style="display:none">PNG
+    </button>
+    <button id="webp-pie-button" onclick="get_export_webp('image/png','pie-img', 'pie-canvas',0,'pie.webp')"
+            style="display:none">WEBP
+    </button>
+
+    <div id="chart_div_l" style="width: 900px; height: 500px;"></div>
+    <button id="svg-pie-button" type="button" onclick="get_export_svg('chart_div_l');" style="display:none">SVG</button>
+</section>
+
+<!--COLUMN-CHART-->
+<img id="column-img" style="display: none">
+<canvas id="column-canvas" style="display: none; width: 700px; height: 500px"></canvas>
+<div id="columnchart_values" style="width: 900px; height: 400px;"></div>
+<button id="png-column-button" onclick="get_export_webp('image/png','column-img', 'column-canvas',0,'column.png')"
+        style="display:none">PNG
+</button>
+<button id="webp-column-button" onclick="get_export_webp('image/png','column-img', 'column-canvas',0,'column.webp')"
+        style="display:none">WEBP
+</button>
+<button id="svg-column-button" type="button" onclick="get_export_svg('columnchart-values');" style="display:none">SVG
+</button>
+
+
+<!--BARCHART-->
+<img id="barchart-img" style="display: none">
+<canvas id="barchart-canvas" style="display: none; width: 700px; height: 500px"></canvas>
 <section id="bar-charts">
     <div id="barchart-div"
          style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>
-</section>
 
+    <button id="png-barchart-button"
+            onclick="get_export_webp('image/png','barchart-img', 'barchart-canvas',0,'barchart.png')"
+            style="display:none">PNG
+    </button>
+    <button id="webp-barchart-button"
+            onclick="get_export_webp('image/png','barchart-img', 'barchart-canvas',0,'barchart.webp')"
+            style="display:none">WEBP
+    </button>
+
+    <button id="svg-barchart-button" type="button" onclick="get_export_svg('barchart-div');" style="display:none">SVG
+    </button>
+
+</section>
+<!--TABLE-->
 <section id="table-charts">
     <table id="table-div" style="width : 2000px; height: 500px;"></table>
+    <button id="csv-table-button" type="button" onclick="exportTableCSV();" style="display:none">CSV</button>
 </section>
 
 
@@ -192,6 +251,9 @@
 <script type="text/javascript" src="src/webapp/app-logic/entities/barchart.js"></script>
 <script type="text/javascript" src="src/webapp/app-logic/entities/table.js"></script>
 <script type="text/javascript" src="src/webapp/public/scripts/inputManager.js"></script>
+<script type="text/javascript" src="src/webapp/app-logic/exportService/exportWebP.js"></script>
+<script type="text/javascript" src="src/webapp/app-logic/exportService/exportCSV.js"></script>
+<script type="text/javascript" src="src/webapp/app-logic/exportService/exportSVG.js"></script>
 
 
 </body>

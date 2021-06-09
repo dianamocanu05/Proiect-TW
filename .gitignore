@@ -2,4 +2,8 @@ data
 node_modules
 old
 .env
+accident
+Procfile
+REGULATIONS.md
+test.png
 

@@ -62,22 +62,21 @@ function admin_update_accident() {
 function admin_import() {
     let fileUpload = document.getElementById("fileupload");
     fileUpload.onchange = function (event) {
-        console.log("HEREEEEE!!!");
-        alert("HELLO DARKNESS MY OLD FRIEND!");
+
+
+        let
+            db = fileUpload.files[0],
+            fileName = db.name,
+            fileSize = db.size;
+
+        let reader = new FileReader(),
+            binary, base64;
+        reader.addEventListener('loadend', function () {
+            binary = reader.result; // binary data (stored as string), unsafe for most actions
+            base64 = btoa(binary); // base64 data, safer but takes up more memory
+        }, false);
+        reader.readAsBinaryString(db);
     }
-
-    let
-        db = fileUpload.files[0],
-        fileName = db.name,
-        fileSize = db.size;
-
-    let reader = new FileReader(),
-        binary, base64;
-    reader.addEventListener('loadend', function () {
-        binary = reader.result; // binary data (stored as string), unsafe for most actions
-        base64 = btoa(binary); // base64 data, safer but takes up more memory
-    }, false);
-    reader.readAsBinaryString(db);
 }
 
 

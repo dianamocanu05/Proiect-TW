@@ -1,3 +1,8 @@
+/**
+ * Script retrieves user input (states, criteria and visualisation mode) and
+ * deploys desired action
+ * */
+
 const tagContainer = document.querySelector('.tag-container');
 const input = document.querySelector('.tag-container input');
 const select = document.getElementById("selectVisualisation");
@@ -263,6 +268,7 @@ async function showResult() {
     let divs = ["table-div", "barchart-div", "columnchart_values", "donutchart", "regions_div", "chart_div_l"];
     for (let div of divs) {
         document.getElementById(div).style.display = "none";
+        displayHideButtons(div,"hide");
     }
     switch (visualisation) {
         case "Table":
@@ -294,10 +300,50 @@ async function showResult() {
  * @returns {Promise<void>}
  */
 async function loadVisualisation(div_name, script_src, fct) {
+
     let div = document.getElementById(div_name);
     div.style.display = "block";
+    displayHideButtons(div_name,"display");
     previous_div = div;
     await fct();
     //const script = await import(script_src);
     //console.log(script);
 }
+
+function displayHideButtons(div_name, action) {
+    let style;
+    if (action === "hide") style = "none";
+    if (action === "display") style = "block";
+    /* make appear/hide export buttons*/
+    if (div_name === "table-div") {
+        document.getElementById("csv-table-button").style.display = style;
+    } else {
+        let export_types = ["webp", "png", "svg"];
+        for (let x of export_types) {
+            let button_name = x + "-" + getDivName(div_name) + "-button";
+            console.log(button_name);
+            document.getElementById(button_name).style.display = style;
+        }
+    }
+}
+
+function getDivName(div_name) {
+    console.log(div_name);
+    switch (div_name) {
+        case "regions_div" :
+            return "map";
+        case "chart_div_l" :
+            return "pie";
+        case "donutchart" :
+            return "donut";
+        case "columnchart_values" :
+            return "column";
+        case "barchart-div" :
+            return "barchart";
+        case  "table-div":
+            return "table";
+    }
+}
+
+
+
