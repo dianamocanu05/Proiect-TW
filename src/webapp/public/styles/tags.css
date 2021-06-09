@@ -1,11 +1,12 @@
 .container {
     width: 40%;
     margin: 30px auto;
+    display: block;
+    height: 70px;
+    font-size: 36px;
+    color: #fff;
 }
-.containerC {
-    width: 40%;
-    margin: 30px auto;
-}
+
 .tag-container {
     border: 2px solid #ccc;
     border-radius: 3px;
@@ -14,66 +15,31 @@
     flex-wrap: wrap;
     align-content: flex-start;
     padding: 6px;
-    overflow-x: scroll;
 }
+
 .tag-container .tag {
     height: 30px;
     margin: 5px;
     padding: 5px 6px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    background: #eee;
+    background: rgba(255, 122, 0, 0.16);
     display: flex;
     align-items: center;
     color: #333;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 1px 1px #fff;
+    box-shadow: 0 1px 1px rgb(255, 122, 0), inset 0 1px 3px #ff7a00;
     cursor: default;
 }
+
 .tag i {
     font-size: 16px;
     color: #666;
     margin-left: 5px;
 }
+
 .tag-container input {
     padding: 5px;
-    font-size: 16px;
-    border: 0;
-    outline: none;
-    font-family: 'Rubik';
-    color: #333;
-    flex: 1;
-}
-.tagC-containerC {
-    border: 2px solid #ccc;
-    border-radius: 3px;
-    background: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    padding: 6px;
-    overflow-x: scroll;
-}
-.tagC-containerC .tagC {
-    height: 30px;
-    margin: 5px;
-    padding: 5px 6px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background: #eee;
-    display: flex;
-    align-items: center;
-    color: #333;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 1px 1px #fff;
-    cursor: default;
-}
-.tagC i {
-    font-size: 16px;
-    color: #666;
-    margin-left: 5px;
-}
-.tagC-containerC input {
-    padding: 5px;
-    font-size: 16px;
+    font-size: calc(8px + 23 * ((100vw - 150px) / (1600 - 150)));
     border: 0;
     outline: none;
     font-family: 'Rubik';
