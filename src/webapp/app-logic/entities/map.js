@@ -2,8 +2,8 @@
  * Map construction and drawing
  */
 google.charts.load('current', {'packages': ['geochart']});
-google.charts.setOnLoadCallback(runMap);
-const states = [
+// google.charts.setOnLoadCallback(runMap);
+const allStates = [
     'AL',
     'AK',
     'AZ',
@@ -55,25 +55,25 @@ const states = [
     'WI',
     'WY']
 
-const url = 'http://127.0.0.1:3000/api/getCount';
-const statesCounts = [];
+const _url_ = 'http://127.0.0.1:3000/api/getCount';
+const allStatesCounts = [];
 
 async function runMap() {
     await fetch_and_draw_map();
 }
 
 async function fetch_and_draw_map() {
-    for (let state of states) {
+    for (let state of allStates) {
         await getData(state);
     }
-    draw_map(statesCounts);
+    draw_map(allStatesCounts);
 }
 
 function collectData(state, count) {
     console.log(state);
-    let fullName = us_states_json[state];
+    let fullName = us_allStates_json[state];
     console.log(fullName,count);
-    statesCounts.push([fullName, parseInt(count)]);
+    allStatesCounts.push([fullName, parseInt(count)]);
 }
 
 async function getData(state) {
@@ -88,7 +88,7 @@ async function getData(state) {
             collectData(state, count);
         }
     }
-    request.open("POST", url, false);
+    request.open("POST", _url_, false);
     request.send(JSON.stringify(data));
 }
 
@@ -120,7 +120,7 @@ function draw_map(input) {
 }
 
 
-const us_states_json = {
+const us_allStates_json = {
     "AL": "ALABAMA",
     "AK": "ALASKA",
     "AZ": "ARIZONA",

@@ -9,16 +9,12 @@ let filterName;
 let _url = "http://127.0.0.1:3000/api/getByTemp";
 let statesCount = [];
 let tempMilestones = ["0.0-20.0","21.0-40.0","41.0-60.0","61.0-80.0","80.0-104.0"];
-function runColumnchart(state,criteria){
-    state =  "PA";
-    criteria = {
-        "Severity" : "2",
-        "Side" : "R"
-    };
+function runColumnchart(){
+
     for(let milestone of tempMilestones){
-        getData(state,criteria,milestone);
+        getDataColumn(states[0],filters,milestone);
     }
-    drawChart();
+    drawChartColumn();
 }
 
 //0F = -17 C
@@ -31,10 +27,10 @@ function jsonConcat(json1, json2){
     return json1;
 }
 
-function collectData(tempRange, count){
+function collectDataColumn(tempRange, count){
     statesCount.push([tempRange,parseInt(count)]);
 }
-function getData(state,criteria, tempRange){
+function getDataColumn(state,criteria, tempRange){
     let data = {
         "State" : state,
         "Temperature" : tempRange
@@ -46,13 +42,13 @@ function getData(state,criteria, tempRange){
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             let count = request.responseText;
-            collectData(tempRange, count);
+            collectDataColumn(tempRange, count);
         }
     }
     request.open("POST", _url, false);
     request.send(JSON.stringify(data));
 }
-function drawChart() {
+function drawChartColumn() {
     let input = [];
     let header = ["Weather", "Accidents in context of criteria"];
     input.push(header);

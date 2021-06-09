@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="../styles/layout.css">
     <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
     <link rel="stylesheet" type="text/css" href="src/webapp/public/styles/header.css">
@@ -22,18 +23,21 @@
 <div class="wrapper">
     <div class="header">
         <h1 class="title">Data about accidents in USA between 2016-2020</h1>
+
+        <nav>
+            <ul>
+                <li class="active"><a class="line" href="./index.html">Home</a></li>
+
+                <li><a class="line" href="report.html">Report</a></li>
+
+                <li><a class="line" href="export.html">Export</a></li>
+
+                <li><a class="line" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </div>
+
 </div>
-<nav>
-    <ul>
-        <li class="active"><a class="line" href="./index.html">Home</a></li>
-
-        <li><a class="line" href="report.html">Report</a></li>
-
-        <li><a class="line" href="contact.html">Contact</a></li>
-    </ul>
-</nav>
-
 
 <div class="dropdown">
     <button class="dropbtn">Dropdown</button>
@@ -43,7 +47,7 @@
             <div class="dropdown-content">
 
                 <a href="#" onclick="addFilter('Severity');">Severity</a>
-                <a href="#" onclick="addFilter('Distance');">Distance</a>
+                <a href="#" onclick="addFilter('Distance(mi)');">Distance</a>
                 <a href="#" onclick="addFilter('Description');">Description</a>
                 <a href="#" onclick="addFilter('Number');">Number</a>
             </div>
@@ -104,14 +108,14 @@
             <div class="dropdown-content">
 
                 <a href="#" onclick="addFilter('Weather_Timestamp');">Weather_Timestamp</a>
-                <a href="#" onclick="addFilter('Temperature');">Temperature</a>
+                <a href="#" onclick="addFilter('Temperature(F)');">Temperature</a>
                 <a href="#" onclick="addFilter('Wind_Chill(F)');">Wind_Chill(F)</a>
                 <a href="#" onclick="addFilter('Humidity(%)');">Humidity(%)</a>
                 <a href="#" onclick="addFilter('Pressure(in)');">Pressure(in)</a>
                 <a href="#" onclick="addFilter('Visibility(mi)');">Visibility(mi)</a>
                 <a href="#" onclick="addFilter('Wind_Direction');">Wind_Direction</a>
-                <a href="#" onclick="addFilter('Wind_Speed');">Wind_Speed</a>
-                <a href="#" onclick="addFilter('Precipitation');">Precipitation</a>
+                <a href="#" onclick="addFilter('Wind_Speed(mph)');">Wind_Speed</a>
+                <a href="#" onclick="addFilter('Precipitation(in)');">Precipitation</a>
                 <a href="#" onclick="addFilter('Weather_Condition');">Weather_Condition</a>
 
             </div>
@@ -119,16 +123,39 @@
     </div>
 </div>
 
+<div id="adv-filters"></div>
 
-<div class="containerC">
-    <select id="selectVisualisation">
-        <option selected>Choose a visualisation</option>
-    </select>
+<!--STATES-->
+<div class="container">
+    Press enter after you typed.
+    <br/>
+    <br/>
+    <div class="tag-container">
+        <input/>
+
+    </div>
+
 </div>
 
-<button type="button" onclick="run()">PLA</button>
+<!--&lt;!&ndash;FILTERS&ndash;&gt;-->
+<!--<div class="containerC">-->
+<!--    Press enter after you typed.-->
+<!--    <br/>-->
+<!--    <br/>-->
+<!--    <div class="tagC-containerC">-->
+<!--        <input/>-->
 
-<div id="regions_div" style="width: 900px; height: 500px;margin: 0;"></div>
+<!--    </div>-->
+<!--</div>-->
+
+<div class="containerC">
+<select id="selectVisualisation">
+    <option selected>Choose a visualisation</option>
+</select>
+</div>
+
+<button type="button" onclick="generateStatistics();run();">View chart</button>
+<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
 
 <!--<select id="county-dropdown" onchange="onCountyChange()"></select>-->
 <section id="donut-charts">
@@ -153,99 +180,24 @@
 </section>
 
 
-<script type="text/javascript" src="src/webapp/app-logic/entities/columnchart.js"></script>
-<script type="text/javascript" src="src/webapp/app-logic/entities/barchart.js"></script>
-<script type="text/javascript" src="src/webapp/app-logic/entities/table.js"></script>
+
 
 <!--<script type="text/javascript" src="src/webapp/public/views/mapView.js"></script>-->
 <script type='text/javascript'>
     let objects = [];
     let tags = [];
-    let tags1 = [];
     let states = [];
-    let filters = [];
+    let filters = {};
 </script>
 <script type="text/javascript" src="src/webapp/app-logic/entities/donutchart.js"></script>
 <script type="text/javascript" src="src/webapp/public/views/accidentView.js"></script>
 <script type="text/javascript" src="src/webapp/app-logic/entities/map.js"></script>
 <script type="text/javascript" src="src/webapp/app-logic/entities/pieChart.js"></script>
-
-<div id="adv-filters"></div>
-
-<!--&lt;!&ndash;STATES&ndash;&gt;-->
-<!--<div class="container">-->
-<!--    Press enter after you typed.-->
-<!--    <br/>-->
-<!--    <br/>-->
-<!--    <div class="tag-container">-->
-<!--        <input/>-->
-
-<!--    </div>-->
-
-<!--</div>-->
-
-<!--&lt;!&ndash;FILTERS&ndash;&gt;-->
-<!--<div class="containerC">-->
-<!--    Press enter after you typed.-->
-<!--    <br/>-->
-<!--    <br/>-->
-<!--    <div class="tagC-containerC">-->
-<!--        <input/>-->
-
-<!--    </div>-->
-<!--</div>-->
-
-<!--<div class="containerC">-->
-<!--<select id="selectVisualisation">-->
-<!--    <option selected>Choose a visualisation</option>-->
-<!--</select>-->
-<!--</div>-->
-
-<!--<button type="button" onclick="run()">PLA</button>-->
-
-<!--<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>-->
-
-<!--&lt;!&ndash;<select id="county-dropdown" onchange="onCountyChange()"></select>&ndash;&gt;-->
-<!--<section id="donut-charts">-->
-<!--    <div id="donutchart" style="width: 700px; height: 500px;"></div>-->
-<!--    <section id="column-charts">-->
-<!--        <div id="column_chart-div" style="width: 900px; height: 500px;"></div>-->
-<!--    </section>-->
-<!--    <section id="pie-charts">-->
-<!--        <div id="chart_div_l" style="width: 900px; height: 500px;"></div>-->
-<!--    </section>-->
-
-
-<!--    <div id="columnchart_values" style="width: 900px; height: 400px;"></div>-->
-<!--</section>-->
-<!--<section id="bar-charts">-->
-<!--    <div id="barchart-div"-->
-<!--         style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>-->
-<!--</section>-->
-
-<!--<section id="table-charts">-->
-<!--    <table id="table-div" style="width : 2000px; height: 500px;"></table>-->
-<!--</section>-->
-
-
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/columnchart.js"></script>-->
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/barchart.js"></script>-->
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/table.js"></script>-->
-
-<!--&lt;!&ndash;<script type="text/javascript" src="src/webapp/public/views/mapView.js"></script>&ndash;&gt;-->
-<!--<script type='text/javascript'>-->
-<!--    let objects = [];-->
-<!--    let tags = [];-->
-<!--    let tags1 = [];-->
-<!--    let states = [];-->
-<!--    let filters = [];-->
-<!--</script>-->
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/donutchart.js"></script>-->
-<!--<script type="text/javascript" src="src/webapp/public/views/accidentView.js"></script>-->
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/map.js"></script>-->
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/pieChart.js"></script>-->
-
+<script type="text/javascript" src="src/webapp/app-logic/entities/columnchart.js"></script>
+<script type="text/javascript" src="src/webapp/app-logic/entities/barchart.js"></script>
+<script type="text/javascript" src="src/webapp/app-logic/entities/table.js"></script>
 <script type="text/javascript" src="src/webapp/public/scripts/inputManager.js"></script>
+
 
 
 </body>

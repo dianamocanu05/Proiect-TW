@@ -12,6 +12,7 @@ let previous_div = "";
 let possible_visualisations = [];
 let selectedVisualisation;
 
+objects.push("ALL");
 
 select.addEventListener("mouseover", function () {
     select.options.length = 1;
@@ -27,7 +28,6 @@ select.addEventListener("mouseover", function () {
 })
 
 select.addEventListener("change", function () {
-    alert(select.value);
     selectedVisualisation = select.value;
 })
 
@@ -235,7 +235,7 @@ function visualisationAdapter() {
         possible_visualisations.push("Columnchart");
     }
     if(states.includes("ALL")){
-        possible_visualisations.push("Map");
+        possible_visualisations = ["Map"];
     }
     console.log(possible_visualisations);
 }
