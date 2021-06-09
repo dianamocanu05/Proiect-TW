@@ -21,10 +21,15 @@ function getRows(accidents){
 
 }
 function parseResponse(accidents){
+    if(accidents === undefined || accidents === null){
+        alert("0 accidents with these criteria found!");
+    }
     let columns = Object.keys(accidents[0]); //any instance will do
     let rows = getRows(accidents);
     return [columns,rows];
 }
+
+
 async function fetch_and_draw_table(states, filters){
 
     // let input_data = ['State'];
@@ -34,15 +39,16 @@ async function fetch_and_draw_table(states, filters){
     for(let state of states) {
         let data = {
             "State" : state,
-            "Fields" : filters
-        }
+        };
+        jsonConcat(data, filters);
         console.log(data);
         console.log("fetching data...");
-        const _url = 'http://127.0.0.1:3000/api/get';
+        const _url = 'http://127.0.0.1:3000/api/getWhere';
         let request = new XMLHttpRequest();
         request.onreadystatechange = function () {
             if (request.readyState === 4 && request.status === 200) {
                 let response = request.responseText;
+
                 let input  = parseResponse(JSON.parse(response));
                 draw_table(input);
             }
@@ -67,7 +73,11 @@ function draw_table(input) {
 
     //has some null values for some reason
     for(let row of rows){
-        data.addRow(row.slice(-columns.length));
+        if(row !== undefined) {
+            console.log(row);
+
+            data.addRow(row.slice(-columns.length));
+        }
     }
 
 

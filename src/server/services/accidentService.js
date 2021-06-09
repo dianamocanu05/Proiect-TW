@@ -141,7 +141,7 @@ module.exports = class AccidentService {
         try{
             return await Accident.findAll({
                 where: options,
-                limit: 10000
+                limit: 100
             })
                 .then(function (count){
                     console.log(count);

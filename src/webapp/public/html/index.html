@@ -39,6 +39,18 @@
 
 </div>
 
+<!--STATES-->
+<div class="container">
+    Press enter after you typed.
+    <br/>
+    <br/>
+    <div class="tag-container">
+        <input/>
+
+    </div>
+
+</div>
+
 <div class="dropdown">
     <button class="dropbtn">Dropdown</button>
     <div class="dropdown-content">
@@ -47,7 +59,7 @@
             <div class="dropdown-content">
 
                 <a href="#" onclick="addFilter('Severity');">Severity</a>
-                <a href="#" onclick="addFilter('Distance');">Distance</a>
+                <a href="#" onclick="addFilter('Distance(mi)');">Distance</a>
                 <a href="#" onclick="addFilter('Description');">Description</a>
                 <a href="#" onclick="addFilter('Number');">Number</a>
             </div>
@@ -76,7 +88,6 @@
                 <a href="#" onclick="addFilter('Street');">Street</a>
                 <a href="#" onclick="addFilter('City');">City</a>
                 <a href="#" onclick="addFilter('County');">County</a>
-                <a href="#" onclick="addFilter('State');">State</a>
                 <a href="#" onclick="addFilter('Zipcode');" >Zipcode</a>
                 <a href="#" onclick="addFilter('Airport_Code');">Airport_Code</a>
 
@@ -108,14 +119,14 @@
             <div class="dropdown-content">
 
                 <a href="#" onclick="addFilter('Weather_Timestamp');">Weather_Timestamp</a>
-                <a href="#" onclick="addFilter('Temperature');">Temperature</a>
+                <a href="#" onclick="addFilter('Temperature(F)');">Temperature</a>
                 <a href="#" onclick="addFilter('Wind_Chill(F)');">Wind_Chill(F)</a>
                 <a href="#" onclick="addFilter('Humidity(%)');">Humidity(%)</a>
                 <a href="#" onclick="addFilter('Pressure(in)');">Pressure(in)</a>
                 <a href="#" onclick="addFilter('Visibility(mi)');">Visibility(mi)</a>
                 <a href="#" onclick="addFilter('Wind_Direction');">Wind_Direction</a>
-                <a href="#" onclick="addFilter('Wind_Speed');">Wind_Speed</a>
-                <a href="#" onclick="addFilter('Precipitation');">Precipitation</a>
+                <a href="#" onclick="addFilter('Wind_Speed(mph)');">Wind_Speed</a>
+                <a href="#" onclick="addFilter('Precipitation(in)');">Precipitation</a>
                 <a href="#" onclick="addFilter('Weather_Condition');">Weather_Condition</a>
 
             </div>
@@ -125,78 +136,64 @@
 
 <div id="adv-filters"></div>
 
-<!--&lt;!&ndash;STATES&ndash;&gt;-->
-<!--<div class="container">-->
-<!--    Press enter after you typed.-->
-<!--    <br/>-->
-<!--    <br/>-->
-<!--    <div class="tag-container">-->
-<!--        <input/>-->
-
-<!--    </div>-->
-
-<!--</div>-->
-
-<!--&lt;!&ndash;FILTERS&ndash;&gt;-->
-<!--<div class="containerC">-->
-<!--    Press enter after you typed.-->
-<!--    <br/>-->
-<!--    <br/>-->
-<!--    <div class="tagC-containerC">-->
-<!--        <input/>-->
-
-<!--    </div>-->
-<!--</div>-->
-
-<!--<div class="containerC">-->
-<!--<select id="selectVisualisation">-->
-<!--    <option selected>Choose a visualisation</option>-->
-<!--</select>-->
-<!--</div>-->
-
-<!--<button type="button" onclick="run()">PLA</button>-->
-
-<!--<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>-->
-
-<!--&lt;!&ndash;<select id="county-dropdown" onchange="onCountyChange()"></select>&ndash;&gt;-->
-<!--<section id="donut-charts">-->
-<!--    <div id="donutchart" style="width: 700px; height: 500px;"></div>-->
-<!--    <section id="column-charts">-->
-<!--        <div id="column_chart-div" style="width: 900px; height: 500px;"></div>-->
-<!--    </section>-->
-<!--    <section id="pie-charts">-->
-<!--        <div id="chart_div_l" style="width: 900px; height: 500px;"></div>-->
-<!--    </section>-->
+<!--<button type="button" name="submit" onclick="generateStatistics();"></button>-->
 
 
-<!--    <div id="columnchart_values" style="width: 900px; height: 400px;"></div>-->
-<!--</section>-->
-<!--<section id="bar-charts">-->
-<!--    <div id="barchart-div"-->
-<!--         style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>-->
-<!--</section>-->
+<div class="containerC">
+<select id="selectVisualisation">
+    <option selected>Choose a visualisation</option>
+</select>
+</div>
 
-<!--<section id="table-charts">-->
-<!--    <table id="table-div" style="width : 2000px; height: 500px;"></table>-->
-<!--</section>-->
+<button type="button" onclick="generateStatistics();run();">View chart</button>
+
+<div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
+
+<!--<select id="county-dropdown" onchange="onCountyChange()"></select>-->
+<section id="donut-charts">
+    <div id="donutchart" style="width: 700px; height: 500px;"></div>
+    <section id="column-charts">
+        <div id="column_chart-div" style="width: 900px; height: 500px;"></div>
+    </section>
+    <section id="pie-charts">
+        <div id="chart_div_l" style="width: 900px; height: 500px;"></div>
+    </section>
 
 
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/columnchart.js"></script>-->
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/barchart.js"></script>-->
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/table.js"></script>-->
+    <div id="columnchart_values" style="width: 900px; height: 400px;"></div>
+</section>
+<section id="bar-charts">
+    <div id="barchart-div"
+         style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>
+</section>
 
-<!--&lt;!&ndash;<script type="text/javascript" src="src/webapp/public/views/mapView.js"></script>&ndash;&gt;-->
-<!--<script type='text/javascript'>-->
-<!--    let objects = [];-->
-<!--    let tags = [];-->
-<!--    let tags1 = [];-->
-<!--    let states = [];-->
-<!--    let filters = [];-->
-<!--</script>-->
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/donutchart.js"></script>-->
-<!--<script type="text/javascript" src="src/webapp/public/views/accidentView.js"></script>-->
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/map.js"></script>-->
-<!--<script type="text/javascript" src="src/webapp/app-logic/entities/pieChart.js"></script>-->
+<section id="table-charts">
+    <table id="table-div" style="width : 2000px; height: 500px;"></table>
+</section>
+
+
+
+
+<!--<script type="text/javascript" src="src/webapp/public/views/mapView.js"></script>-->
+<script type='text/javascript'>
+    let objects = [];
+    let tags = [];
+    let states = [];
+    let filters = {};
+    function appendJsons(json1, json2) {
+        for (let key of json2) {
+            json1[key] = json2[key];
+        }
+        return json1;
+    }
+</script>
+<script type="text/javascript" src="src/webapp/app-logic/entities/columnchart.js"></script>
+<script type="text/javascript" src="src/webapp/app-logic/entities/barchart.js"></script>
+<script type="text/javascript" src="src/webapp/app-logic/entities/table.js"></script>
+<script type="text/javascript" src="src/webapp/app-logic/entities/donutchart.js"></script>
+<script type="text/javascript" src="src/webapp/public/views/accidentView.js"></script>
+<script type="text/javascript" src="src/webapp/app-logic/entities/map.js"></script>
+<script type="text/javascript" src="src/webapp/app-logic/entities/pieChart.js"></script>
 <script type="text/javascript" src="src/webapp/public/scripts/inputManager.js"></script>
 
 

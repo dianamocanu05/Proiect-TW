@@ -11,13 +11,6 @@ let filtername;
 let colors = [];
 const urll = "http://127.0.0.1:3000/api/getWhereCount";
 
-function jsonConcat(json1, json2) {
-    for (let key of json2) {
-        json1[key] = json2[key];
-    }
-    return json1;
-}
-
 
 function runPiechart() {
     console.log("PIE CHART FETCH DATA STARTED");
