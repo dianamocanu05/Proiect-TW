@@ -23,19 +23,13 @@
         <li><a href="#Pagini"><span>3.2 </span>Pagini</a>
     </ol></li><li><a href="#functionalitate"><span>4. </span>Funcționalități</a></li>
     <li><a href="#backend"><span>5. </span>Noțiuni speciale</a></li>
-    <li><a href="#diagrame"><span>6. </span>Diagrame</a></li>
-    <li><a href="#autori"><span>7. </span>Autori</a></li>
-    <li><a href="#github"><span>8. </span>Link GitHub</a></li>
-    <li><a href="#resurse"><span>9. </span>Resurse</a></li>
-
+    <li><a href="#user"><span>6. </span>Experiența utilizatorului</a></li>
+    <li><a href="#diagrame"><span>7. </span>Diagrame</a></li>
+    <li><a href="#autori"><span>8. </span>Autori</a></li>
+    <li><a href="#github"><span>9. </span>Link GitHub</a></li>
+    <li><a href="#resurse"><span>10. </span>Resurse</a></li>
+</ol>
 </div>
-<!-- <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
-    <h2>Project description</h2>
-    <p>
-        AcS(USA Accidents Smart Visualizer) is a Web tool for visualizing data about
-        accidents in USA between 2016-2020.
-    </p>
-</section> -->
 <section id="abstract">
     <h2><span>1. </span>Descrierea proiectului</h2>
     <p>
@@ -45,7 +39,8 @@
 <section id="introduction" role="doc-introduction">
     <h2><span>2. </span>Introducere</h2>
     <p>
-        Proiectul este o aplicație web ce constă în gestionarea și afișarea datelor în diferite tipuri de formate (diferite diagrame, tabel, hartă interactivă).
+        Proiectul este un instrument Web de vizualizare flexibilă a datelor vizând accidentele din USA în perioada 2016-2020. Statisticile și vizualizările generate – în 5 maniere (donut chart, pie chart, bar chart, column chart, tabel) + redări cartografice pe baza unor servicii Web de profil – pot fi exportate în formatele CSV, WebP si SVG. Sistemul  oferă suport și pentru căutarea multi-criterială de incidente raportate.
+        Datele utilizate se pot găsi la adresa <a href="https://www.kaggle.com/sobhanmoosavi/us-accidents">https://www.kaggle.com/sobhanmoosavi/us-accidents</a>.
     </p>
 </section>
 <section id="structure">
@@ -79,10 +74,10 @@
         <section id="home">
             <h4>Site-ul este compus din 4 pagini, iar navigarea între ele se poate face folosind bara de navigare.</h4>
             <ul>
-                <li>Home</li>
-                <li>Report</li>
-                <li>Export</li>
-                <li>Contact</li>
+                <li><a href="index.html">Home (pagina principală, în care utilizatorul introduce preferințele de vizualizare a datelor)</a></li>
+                <li><a href="report.html">Report (raportul)</a></li>
+                <li><a href="export.html">Export (pagină ce permite salvarea diagramelor în diferite formate)</a></li>
+                <li><a href="contact.html">Contact (pagină ce permite vizualizarea datelor de contact ale autorilor)</a></li>
             </ul>
         </section>
     </section>
@@ -90,36 +85,64 @@
 <section id="functionalitate">
     <h2><span>4. </span>Funcționalitate</h2>
     <ol>
-        <li>Utilizatorul își alege tipul de date pe care dorește să îl vizualizeze și modul de vizualizare. În funcție de alegerile făcute, i se vor afișa datele cerute sau va primi o eroare deoarece datele introduse nu sunt corecte. </li>
-        <li>De asemenea, utilizatorul poate salva statisticile și vizualizările într-un format ales de acesta (CSV, WebP, SVG)</li>
+        <li>Aplicația rulează la 127.0.0.1:3000. Utilizatorul își poate alege tipul de date pe care dorește să îl vizualizeze și modul de vizualizare. În funcție de alegerile făcute, i se vor afișa datele cerute sau va primi o eroare deoarece datele introduse nu sunt corecte. </li>
+        <li>De asemenea, utilizatorul poate salva statisticile și vizualizările într-un format ales de acesta (CSV, WebP, SVG), poate vizualiza raportul paginii web și pagina de contact.</li>
+        <li>Panoul de administrare rulează la 127.0.0.1:3000/api/loginAdmin. După ce intră în cont, un administrator poate să adauge, să șteargă sau să modifice un accident, sau să importeze o bază de date.</li>
+        <li>Maniere de vizualizare a datelor:</li>
+           <ul>
+               <li>Piechart: afișează numărul de accidente după anumite criterii, pentru minimum 2 state</li>
+               <li>Barchart: afișează numărul de accidente după anumite criterii, pentru un singur stat</li>
+               <li>Columnchart: afișează numărul de accidente după maxim 2-3 criterii</li>
+               <li>Donutchart: afișează numărul de accidente după anumite criterii, pentru minimum 2 state</li>
+               <li>Tabel: afișează orice fel de date, pentru oricâte state</li>
+               <li>Hartă: afișează numărul de accidente pentru fiecare stat</li>
+           </ul>
     </ol>
 </section>
 
 <section id="backend">
     <h2><span>5. </span>Noțiuni speciale</h2>
     <ol>
-        <li> </li>
-        <li></li>
+        <li>A fost abordata o arhitectură bazată pe (micro)servicii. </li>
+        <li>Codul sursă este structurat conform arhitecturii MVC.</li>
+        <li>Pentru crearea diagramelor grafice din informațiile furnizate de utilizator a fost utilizat Google Charts. </li>
+        <li>Backendul aplicației a fost realizat în Node.js. </li>
+        <li>Am folosit GitHub ca sistem de stocare şi management online al codului-sursă.</li>
+
+
+    </ol>
+</section>
+<section id="user">
+    <h2><span>6. </span>Experiența utilizatorului</h2>
+    <ol>
+        <li>Site-ul are un design minimalist, ceea ce îl face ușor de folosit de un utilizator. </li>
+        <li>Structura site-ului este una simplă și intuitivă. Pe pagina de landing, utilizatorul are acces la toate funcționalitățile site-ului. </li>
+        <li>Utilizatorul poate naviga între paginile site-ului foarte ușor, folosind bara de navigare. </li>
+        <li>Pentru a vizualiza diagramele, tabelele și harta nu este nevoie de crearea unui cont. De asemenea, acestea pot fi salvate în diferite formate pentru ca utilizatorul să le poată distribui mai departe sau pentru a putea fi vizualizate mai târziu fără să trebuiască să introducă din nou filtrele.</li>
     </ol>
 </section>
 <section id="diagrame">
-    <h2><span>6. </span>Diagrama aplicației</h2>
-    <img src = "../media-util/diagram.png">
+    <h2><span>7. </span>Diagrame</h2>
+    <img src = "../images/diagram.png">
+    <h3>Admin</h3>
+    <img src = "../images/admin.png" style="width:600px;height:500px;">
+    <h3>Utilizator</h3>
+    <img src = "../images/user.png" style="width:800px;height:500px;">
 </section>
 <section id="autori">
-    <h2><span>7. </span>Autori</h2>
+    <h2><span>8. </span>Autori</h2>
     <ul>
-        <li>Mocanu Diana - database, heroku hosting, line chart, application layout & architecture</li>
-        <li>Pricop Ana - pie chart, donut chart, column chart, navigation bar, application layout</li>
-        <li>Olaru Andreea - map, table, bar chart, application layout</li>
+        <li>Mocanu Diana - database, admin panel, map, table, pie chart, api, application layout & architecture</li>
+        <li>Pricop Ana - tags, landing page, column chart, navigation bar, application layout</li>
+        <li>Olaru Andreea - donut chart, bar chart, report page, application layout</li>
     </ul>
 </section>
 <section id="github">
-    <h2><span>8. </span>GitHub Repository</h2>
+    <h2><span>9. </span>GitHub Repository</h2>
     <a href="https://github.com/dianamocanu05/Proiect-TW">Click</a>
 </section>
 <section id="resurse">
-    <h2><span>9. </span>Resurse</h2>
+    <h2><span>10. </span>Resurse</h2>
     <p class="issue">
         <a href=https://developers.google.com/chart>Google Charts documentation</a>
     </p>
