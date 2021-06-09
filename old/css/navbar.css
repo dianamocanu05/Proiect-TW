@@ -4,7 +4,8 @@ nav{
   justify-content: center;
   align-items: center;
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 2px;
+    font-size: 30px;
 }
 ul{
     padding: 0;
@@ -13,7 +14,7 @@ ul{
     display: flex;
 }
 li{
-    margin: 0 40px 0 0;
+    margin: 0 20px 0 0;
       opacity: .4;
       transition: all 0.4s ease;
 }
@@ -30,7 +31,7 @@ a{
         display: block;
         font-weight: 800;
         letter-spacing: .2em;
-        font-size: 14px;
+        /*font-size: 100px;*/
 }
 a.line {
     display: inline-block;

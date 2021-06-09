@@ -1,11 +1,4 @@
-body{
-    font-family: "Oxygen", "sans-serif";
-    justify-content: center;
-  align-items: center;
-  position: relative;
-}
 
-/*.page    { display: none; padding: 0 0.5em; }*/
 .dropbtn {
     background-color: #4CAF50;
     color: white;
@@ -46,6 +39,12 @@ body{
     display: block;
 }
 
+
+/*.wrapper{*/
+/*    width: min(1200px,100%);*/
+/*    margin: auto;*/
+/*}*/
+
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
@@ -53,6 +52,7 @@ body{
     width: min(1200px,100%);
     margin: auto;
 }
+
 
 
 .contact{

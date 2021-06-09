@@ -1,18 +1,100 @@
 html {
     max-width: 100%;
-    margin: auto;
+    margin: 0;
+    padding: 0;
     background: #222629;
     font-family: "Oxygen", "sans-serif";
+    overflow: hidden;
 }
 
-.header{
+body {
+    display: block;
+    position: relative;
+    font-family: "Oxygen", "sans-serif";
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 1300px) {
+
+    .title {
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-size: 60px;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .title {
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-size: 40px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+    .title {
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+    /* Styles for screen with max width of 320px */
+    .title {
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+
+h1 {
+    color: white;
+    /*text-shadow: -1px 0 #FF7A00, 0 2px #FF7A00, 2px 0 #FF7A00, 0 -1px #FF7A00;*/
+    text-align: center;
+    font-size: 60px;
+    /*width: 100%;*/
+}
+
+.header {
     display: inline-block;
+    overflow: hidden;
+    width: 100%;
 }
 
-.title{
+.title {
+    width: 100%;
     text-align: center;
     color: white;
-    font-size:4vw;
 }
 
 
