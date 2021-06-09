@@ -96,3 +96,16 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+ .tooltip-content {
+    display: none;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    background-color: #fff;
+    padding: .5em;
+}
+#bulb:hover .tooltip-content {
+    display: block;
+}

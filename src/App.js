@@ -23,6 +23,45 @@ const server = http.createServer(async (req, res) => {
         directHtml(res,"./src/webapp/public/html/index.html");
     }else if(path === '/favicon.ico'){
 
+    }else if(path === '/report.html'){
+        directHtml(res,"./src/webapp/public/html/report.html");
+    }else if(path === '/contact.html') {
+        directHtml(res, "./src/webapp/public/html/contact.html");
+
+    }else if(path === 'src/webapp/public/img/lightbulb.png'){
+        fs.readFile("./src/webapp/public/img/lightbulb.png", function (err, page) {
+            res.writeHead(200, {'Content-Type': 'image/png'});
+            res.write(Buffer.from(page).toString('base64'));
+            res.end();
+        });
+    }
+    else if(path === 'src/webapp/public/img/admin.png'){
+        fs.readFile("./src/webapp/public/img/admin.png", function (err, page) {
+            res.writeHead(200, {'Content-Type': 'image/png'});
+            res.write(page);
+            res.end();
+        });
+    }
+    else if(path === 'src/webapp/public/img/diagram.png'){
+        fs.readFile("./src/webapp/public/img/diagram.png", function (err, page) {
+            res.writeHead(200, {'Content-Type': 'image/png'});
+            res.write(page);
+            res.end();
+        });
+    }
+    else if(path === 'src/webapp/public/img/user.png'){
+        fs.readFile("./src/webapp/public/img/user.png", function (err, page) {
+            res.writeHead(200, {'Content-Type': 'image/png'});
+            res.write(page);
+            res.end();
+        });
+    }
+    else if(path === 'src/webapp/public/img/scholarly-html.svg'){
+        fs.readFile("./src/webapp/public/img/scholarly-html.svg", function (err, page) {
+            res.writeHead(200, {'Content-Type': 'image/svg+xml'});
+            res.write(page);
+            res.end();
+        });
     }
     else if(path === '/styles/loader.css'){
         fs.readFile('./src/webapp/public/styles/loader.css', function (err, page) {
@@ -31,9 +70,16 @@ const server = http.createServer(async (req, res) => {
             res.end();
         });
     }
-    else if (path === '/api/loginAdmin') {
+    else if(path === '/styles/report.css'){
+        fs.readFile('./src/webapp/public/styles/report.css', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'text/css'});
+            res.write(page);
+            res.end();
+        });
+    }
+    else if (path === '/api/loginAdmin' || path === '/loginAdmin.html') {
         directHtml(res, "./src/webapp/public/html/loginAdmin.html");
-    }else if(path === '/api/adminPanel'){
+    }else if(path === '/api/adminPanel' || path === './adminPanel.html'){
         directHtml(res,"./src/webapp/public/html/adminPanel.html");
     }else if(path === '/api/adminPanel.html#update-accident'){
         directHtml(res,"./src/webapp/public/html/adminPanel.html#update-accident");

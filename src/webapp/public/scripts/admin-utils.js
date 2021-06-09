@@ -62,13 +62,12 @@ function admin_update_accident() {
 function admin_import() {
     let fileUpload = document.getElementById("fileupload");
     fileUpload.onchange = function (event) {
-
-
         let
             db = fileUpload.files[0],
             fileName = db.name,
             fileSize = db.size;
-
+        console.log(fileName, fileSize);
+        alert(`${fileName} has a way too big size: ${fileSize}`);
         let reader = new FileReader(),
             binary, base64;
         reader.addEventListener('loadend', function () {
@@ -78,5 +77,7 @@ function admin_import() {
         reader.readAsBinaryString(db);
     }
 }
+
+admin_import();
 
 
