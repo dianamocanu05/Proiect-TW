@@ -58,6 +58,7 @@ function drawChartDonut(input_data) {
         title: 'Weather condition for most accidents',
         pieHole: 0.4,
         backgroundColor: 'transparent',
+        alignment: 'center',
         legendTextStyle: {
             color: 'white',
             fontSize: 12,

@@ -2,7 +2,7 @@
     /*text-align: center;*/
     /*position: relative;*/
     width: 40%;
-    margin: 30px auto;
+    margin: 50px auto;
     /*display: block;*/
     /*height: 60px;*/
     font-size: calc(4px + 26 * ((100vw - 150px) / (1600 - 150)));
@@ -56,12 +56,6 @@
 .dropdown:hover > .dropdown-content {
     display: block;
 }
-
-
-/*.wrapper{*/
-/*    width: min(1200px,100%);*/
-/*    margin: auto;*/
-/*}*/
 
 .dropdown .dropbtn:hover {
     background-color: #222629;

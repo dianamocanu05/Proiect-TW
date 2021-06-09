@@ -303,6 +303,7 @@ async function loadVisualisation(div_name, script_src, fct) {
 
     let div = document.getElementById(div_name);
     div.style.display = "block";
+    div.style.cssText = 'width:100%;flex: 1; display: flex;align-items: center;min-height: 550px; text-align:center;justify-content: center;position: absolute;';
     displayHideButtons(div_name,"display");
     previous_div = div;
     await fct();
