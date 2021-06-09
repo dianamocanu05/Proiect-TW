@@ -4,7 +4,7 @@ html {
     padding: 0;
     background: #222629;
     font-family: "Oxygen", "sans-serif";
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     max-width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 h1 {
