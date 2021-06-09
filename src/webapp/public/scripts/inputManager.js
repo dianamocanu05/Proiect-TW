@@ -347,4 +347,10 @@ function getDivName(div_name) {
 }
 
 
+function onClick(){
+
+}
+
+
+
 

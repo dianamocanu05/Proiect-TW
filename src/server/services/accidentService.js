@@ -52,9 +52,9 @@ module.exports = class AccidentService {
                 distinct: 'accident.ID'
             })
                 .then(function (count){
-                console.log(count);
-                return count;
-            });
+                    console.log(count);
+                    return count;
+                });
         }catch (error){
             console.log(`Could not fetch accidents count ${error}`)
         }
@@ -177,15 +177,15 @@ module.exports = class AccidentService {
     static async updateAccident(fields){
         try{
             Accident.update({
-                fields
-            },
+                    fields
+                },
                 {
                     where : {
                         "ID" : fields.ID
                     }
                 }).then(function (result){
-                    console.log("success");
-                    return result;
+                console.log("success");
+                return result;
             });
         }catch (error){
             console.log(`Error updating object ${error}`);
@@ -241,7 +241,7 @@ module.exports = class AccidentService {
                 .then(function (list){
                     console.log(list);
                     return list;
-            });
+                });
         }catch (error){
             console.log(`Could not get weathers ${error}`);
         }

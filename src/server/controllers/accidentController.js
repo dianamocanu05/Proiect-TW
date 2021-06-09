@@ -9,13 +9,15 @@ module.exports = class Accident {
      * Getting all accidents
      * */
     static async apiGetAllAccidents(res,req,next){
-        try {
-            const accidents = await AccidentService.getAllAccidents();
-            res.write(JSON.stringify(accidents));
-        }catch (error){
-            console.log(`ERROR : ${error.message}`);
-            res.statusCode = 500;
-        }
+        // try {
+        //     const accidents = await AccidentService.getAllAccidents();
+        //     res.write(JSON.stringify(accidents));
+        // }catch (error){
+        //     console.log(`ERROR : ${error.message}`);
+        //     res.statusCode = 500;
+        // }
+        const result = AccidentService.getAllAccidents();
+        res.write(result);
     }
 
     /**
