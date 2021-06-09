@@ -20,19 +20,19 @@ function runPiechart() {
     //
     // }
     console.log(filters);
-    filtername = filters.map(function (x) {
+    filtername = Object.keys(filters).map(function (x) {
         return x.toString();
     }).join(", ");
     if (filtername === "") {
         filtername = "overall number of accidents";
     }
     for (let state of states) {
-        getData(state, filters);
+        getDataPie(state, filters);
     }
-    drawChart(statesdata);
+    drawChartPie(statesdata);
 }
 
-function collectData(state, count) {
+function collectDataPie(state, count) {
     statesdata.push([state, parseInt(count)]);
 }
 
@@ -45,7 +45,7 @@ function getRandomColor() {
     return color;
 }
 
-    function getData(state, filters) {
+    function getDataPie(state, filters) {
         let data = jsonConcat({"State": state}, filters);
         console.log(data);
         console.log("fetching data...");
@@ -53,7 +53,7 @@ function getRandomColor() {
         request.onreadystatechange = function () {
             if (request.readyState === 4 && request.status === 200) {
                 let count = request.responseText;
-                collectData(state, count);
+                collectDataPie(state, count);
             }
         }
         request.open("POST", urll, false);
@@ -69,7 +69,7 @@ function getRandomColor() {
         return colors;
     }
 
-    function drawChart(input) {
+    function drawChartPie(input) {
 
         let header = ['State', 'Accidents'];
         let data = [];

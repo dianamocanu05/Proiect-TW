@@ -1,31 +1,24 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!DOCTYPE html>
 
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles/layout.css">
+    <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
+    <link rel="stylesheet" type="text/css" href="src/webapp/public/styles/header.css">
+    <link rel="stylesheet" type="text/css" href="../styles/map.css">
+    <link rel="stylesheet" type="text/css" href="../styles/tags.css">
+    <link rel="stylesheet" type="text/css" href="../styles/table.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi">
+    </script>
+    <script type="text/javascript">
+        google.load('visualization', '1.0', {'packages': ['corechart']});
+    </script>
+</head>
 
-        <link rel="stylesheet" type="text/css" href="../styles/layout.css">
-        <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
-        <link rel="stylesheet" type="text/css" href="src/webapp/public/styles/header.css">
-        <link rel="stylesheet" type="text/css" href="../styles/map.css">
-        <link rel="stylesheet" type="text/css" href="../styles/tags.css">
-        <link rel="stylesheet" type="text/css" href="../styles/table.css">
-        <script type="text/javascript" src="https://www.google.com/jsapi">
-        </script>
-        <script type="text/javascript">
-            google.load('visualization', '1.0', {'packages': ['corechart']});
-        </script>
-    </head>
-
-    <!--<body onload="initCountyDropdown()">-->
+<!--<body onload="initCountyDropdown()">-->
 <body>
 <div class="wrapper">
     <div class="header">
@@ -54,7 +47,7 @@
             <div class="dropdown-content">
 
                 <a href="#" onclick="addFilter('Severity');">Severity</a>
-                <a href="#" onclick="addFilter('Distance');">Distance</a>
+                <a href="#" onclick="addFilter('Distance(mi)');">Distance</a>
                 <a href="#" onclick="addFilter('Description');">Description</a>
                 <a href="#" onclick="addFilter('Number');">Number</a>
             </div>
@@ -115,14 +108,14 @@
             <div class="dropdown-content">
 
                 <a href="#" onclick="addFilter('Weather_Timestamp');">Weather_Timestamp</a>
-                <a href="#" onclick="addFilter('Temperature');">Temperature</a>
+                <a href="#" onclick="addFilter('Temperature(F)');">Temperature</a>
                 <a href="#" onclick="addFilter('Wind_Chill(F)');">Wind_Chill(F)</a>
                 <a href="#" onclick="addFilter('Humidity(%)');">Humidity(%)</a>
                 <a href="#" onclick="addFilter('Pressure(in)');">Pressure(in)</a>
                 <a href="#" onclick="addFilter('Visibility(mi)');">Visibility(mi)</a>
                 <a href="#" onclick="addFilter('Wind_Direction');">Wind_Direction</a>
-                <a href="#" onclick="addFilter('Wind_Speed');">Wind_Speed</a>
-                <a href="#" onclick="addFilter('Precipitation');">Precipitation</a>
+                <a href="#" onclick="addFilter('Wind_Speed(mph)');">Wind_Speed</a>
+                <a href="#" onclick="addFilter('Precipitation(in)');">Precipitation</a>
                 <a href="#" onclick="addFilter('Weather_Condition');">Weather_Condition</a>
 
             </div>

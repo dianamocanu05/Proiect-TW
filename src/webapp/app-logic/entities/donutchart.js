@@ -14,13 +14,15 @@ function fetch_and_draw_donut() {
     }else{
         state = states[0];
     }
-    console.log('fethcing donut data')
+    let data = jsonConcat({"State" : state},filters);
+    console.log(data);
+    console.log('fethcing donut data');
     const _url = 'http://127.0.0.1:3000/api/getWhere'
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             let response = request.responseText;
-            let pie_accidents = JSON.parse(response)
+            let pie_accidents = JSON.parse(response);
             console.log(`fetched ${pie_accidents.length} accidents for the piechart`);
             let input_data = [
                 ["Weather", "Number of accidents"]
@@ -41,15 +43,15 @@ function fetch_and_draw_donut() {
             for (const [key, value] of Object.entries(weathers)) {
                 input_data.push([key, value])
             }
-            drawChartPiechart(input_data)
+            drawChartDonut(input_data)
         }
     };
     request.open("POST", _url, false);
-    request.send(JSON.stringify({State: state}));
+    request.send(JSON.stringify(data));
 }
 
 
-function drawChartPiechart(input_data) {
+function drawChartDonut(input_data) {
     var data = google.visualization.arrayToDataTable(input_data);
 
     var options = {
