@@ -18,7 +18,6 @@
     </script>
 </head>
 
-<!--<body onload="initCountyDropdown()">-->
 <body>
 <div class="wrapper">
     <div class="header">
@@ -29,8 +28,6 @@
                 <li class="active"><a class="line" href="./index.html">Home</a></li>
 
                 <li><a class="line" href="report.html">Report</a></li>
-
-                <li><a class="line" href="export.html">Export</a></li>
 
                 <li><a class="line" href="contact.html">Contact</a></li>
             </ul>
@@ -137,20 +134,10 @@
 
 </div>
 
-<!--&lt;!&ndash;FILTERS&ndash;&gt;-->
-<!--<div class="containerC">-->
-<!--    Press enter after you typed.-->
-<!--    <br/>-->
-<!--    <br/>-->
-<!--    <div class="tagC-containerC">-->
-<!--        <input/>-->
-
-<!--    </div>-->
-<!--</div>-->
 
 <div class="containerC">
     <select id="selectVisualisation">
-        <option selected>Choose a visualisation</option>
+        <option selected>Choose a visualisation type</option>
     </select>
 </div>
 
@@ -179,13 +166,13 @@
 <!--PIECHART-->
 <img id="pie-img" style="display: none">
 <canvas id="pie-canvas" style="display: none; width: 700px; height: 500px"></canvas>
-    <section id="pie-charts">
-        <button id="png-pie-button" onclick="get_export_webp('image/png','pie-img', 'pie-canvas',0,'pie.png')" style="display:none">PNG</button>
-        <button id="webp-pie-button" onclick="get_export_webp('image/png','pie-img', 'pie-canvas',0,'pie.webp')" style="display:none">WEBP</button>
+<section id="pie-charts">
+    <button id="png-pie-button" onclick="get_export_webp('image/png','pie-img', 'pie-canvas',0,'pie.png')" style="display:none">PNG</button>
+    <button id="webp-pie-button" onclick="get_export_webp('image/png','pie-img', 'pie-canvas',0,'pie.webp')" style="display:none">WEBP</button>
 
-        <div id="chart_div_l" style="width: 900px; height: 500px;"></div>
-        <button id="svg-pie-button" type="button" onclick="get_export_svg('chart_div_l');" style="display:none">SVG</button>
-    </section>
+    <div id="chart_div_l" style="width: 900px; height: 500px;"></div>
+    <button id="svg-pie-button" type="button" onclick="get_export_svg('chart_div_l');" style="display:none">SVG</button>
+</section>
 
 <!--COLUMN-CHART-->
 <img id="column-img" style="display: none">
@@ -205,7 +192,7 @@
          style="width : 700px; height: 600px; justify-content: center; align-items: center; text-align: center;"></div>
 
     <button id="png-barchart-button" onclick="get_export_webp('image/png','barchart-img', 'barchart-canvas',0,'barchart.png')" style="display:none">PNG</button>
-    <button id="webp-barchart-button"onclick="get_export_webp('image/png','barchart-img', 'barchart-canvas',0,'barchart.webp')" style="display:none">WEBP</button>
+    <button id="webp-barchart-button" onclick="get_export_webp('image/png','barchart-img', 'barchart-canvas',0,'barchart.webp')" style="display:none">WEBP</button>
 
     <button id="svg-barchart-button" type="button" onclick="get_export_svg('barchart-div');" style="display:none">SVG</button>
 

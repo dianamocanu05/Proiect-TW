@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <title>USA Accidents Smart Visualizer (AcS)</title>
@@ -19,7 +19,7 @@
     <li><a href="#abstract"><span>1. </span>Descrierea proiectului</a></li>
     <li><a href="#introduction"><span>2. </span>Introducere</a></li>
     <li><a href="#structure"><span>3. </span>Structura</a><ol role="directory">
-        <li><a href="#Tehnologii%20utilizate"><span>3.1 </span>Tehnologii utilizate</a></li>
+        <li><a href="#TehnologiiUtilizate"><span>3.1 </span>Tehnologii utilizate</a></li>
         <li><a href="#Pagini"><span>3.2 </span>Pagini</a>
     </ol></li><li><a href="#functionalitate"><span>4. </span>Funcționalități</a></li>
     <li><a href="#backend"><span>5. </span>Noțiuni speciale</a></li>
@@ -61,39 +61,28 @@
             </p>
         </section>
         <section id="sqlite">
-            <h4><span>3.1.3 </span>Sqlite</h4>
+            <h4><span>3.1.3 </span>Sqlite & Sequelizer ORM</h4>
             <p>
                 Pentru stocarea și extragerea datelor este utilizată o bază de date Sqlite.
             </p>
         </section>
-
+        <section id="HTTP">
+            <h4><span>3.1.3 </span>HTTP</h4>
+            <p>
+                Pentru crearea serverului
+            </p>
+        </section>
     </section>
-<<<<<<< HEAD
 </section>
 <section id="Pagini">
     <h3><span>3.2 </span>Pagini</h3>
     <section id="home">
         <h4>Site-ul este compus din 4 pagini, iar navigarea între ele se poate face folosind bara de navigare.</h4>
         <ul>
-            <li><a href="index.html">Home (pagina principală, în care utilizatorul introduce preferințele de vizualizare a datelor)</a></li>
+            <li><a href="index.html">Home (pagina principala a aplicatiei)</a></li>
             <li><a href="report.html">Report (raportul)</a></li>
-            <li><a href="export.html">Export (pagină ce permite salvarea diagramelor în diferite formate)</a></li>
             <li><a href="contact.html">Contact (pagină ce permite vizualizarea datelor de contact ale autorilor)</a></li>
         </ul>
-=======
-    </section>
-    <section id="Pagini">
-        <h3><span>3.2 </span>Pagini</h3>
-        <section id="home">
-            <h4>Site-ul este compus din 4 pagini, iar navigarea între ele se poate face folosind bara de navigare.</h4>
-            <ul>
-                <li><a href="index.html">Home (pagina principală, în care utilizatorul introduce preferințele de vizualizare a datelor)</a></li>
-                <li><a href="report.html">Report (raportul)</a></li>
-                <li><a href="export.html">Export (pagină ce permite salvarea diagramelor în diferite formate)</a></li>
-                <li><a href="contact.html">Contact (pagină ce permite vizualizarea datelor de contact ale autorilor)</a></li>
-            </ul>
-        </section>
->>>>>>> 3982b51bea3d122f65a38d25f3e0ba91ec75f3ae
     </section>
 </section>
 </section>
@@ -104,7 +93,6 @@
         <li>De asemenea, utilizatorul poate salva statisticile și vizualizările într-un format ales de acesta (CSV, WebP, SVG), poate vizualiza raportul paginii web și pagina de contact.</li>
         <li>Panoul de administrare rulează la 127.0.0.1:3000/api/loginAdmin. După ce intră în cont, un administrator poate să adauge, să șteargă sau să modifice un accident, sau să importeze o bază de date.</li>
         <li>Maniere de vizualizare a datelor:</li>
-<<<<<<< HEAD
         <ul>
             <li>Piechart: afișează numărul de accidente după anumite criterii, pentru minimum 2 state</li>
             <li>Barchart: afișează numărul de accidente după anumite criterii, pentru un singur stat</li>
@@ -113,21 +101,11 @@
             <li>Tabel: afișează orice fel de date, pentru oricâte state</li>
             <li>Hartă: afișează numărul de accidente pentru fiecare stat</li>
         </ul>
-=======
-           <ul>
-               <li>Piechart: afișează numărul de accidente după anumite criterii, pentru minimum 2 state</li>
-               <li>Barchart: afișează numărul de accidente după anumite criterii, pentru un singur stat</li>
-               <li>Columnchart: afișează numărul de accidente după maxim 2-3 criterii</li>
-               <li>Donutchart: afișează numărul de accidente după anumite criterii, pentru minimum 2 state</li>
-               <li>Tabel: afișează orice fel de date, pentru oricâte state</li>
-               <li>Hartă: afișează numărul de accidente pentru fiecare stat</li>
-           </ul>
->>>>>>> 3982b51bea3d122f65a38d25f3e0ba91ec75f3ae
     </ol>
 </section>
 
 <section id="backend">
-    <h2><span>5. </span>Noțiuni speciale</h2>
+    <h2><span>5. </span>Arhitectura si procesul de construire al aplicatiei</h2>
     <ol>
         <li>A fost abordata o arhitectură bazată pe (micro)servicii. </li>
         <li>Codul sursă este structurat conform arhitecturii MVC.</li>
@@ -135,32 +113,172 @@
         <li>Backendul aplicației a fost realizat în Node.js. </li>
         <li>Am folosit GitHub ca sistem de stocare şi management online al codului-sursă.</li>
 
-
     </ol>
+    <h3><span> 5.1 </span> Backend - API & Admin Panel</h3>
+    Pentru realizarea CRUD API-ului, am recurs la Sequelizer, un ORM (Object Relation Model) care mapeaza tabelele existente in baza de date(accidents, admins) pe
+    modelele descrise in /src/server/dtos/ . Am folosit paradigma MCV (Model, View, Controller) pentru proiectarea API-ului.
+    <ol>
+        <li> Model : Admin si Accident sunt descrierea schemei tabelelor aferente. </li>
+        <li> Service : AdminService si AccidentService realizeaza operatiile pe baza de date, oferite de Sequelizer (findAll, count, save, update, destroy, etc..)</li>
+        <li> Controller : Primeste ca parametru un request (pe care il parseaza), realizeaza interogarile necesare si trimite raspunsul inapoi.</li>
+    </ol>
+    Pentru request-uri, am folost XMLHttpRequest. Rutele folosite in comunicarea cu API-ul sunt dupa cum urmeaza:
+
+    <table class="table table-bordered table-hover table-condensed">
+        <thead><tr><th title="Field #1">ROUTE</th>
+            <th title="Field #2">METHOD</th>
+            <th title="Field #3">ACCESS</th>
+            <th title="Field #4">ACTION</th>
+            <th title="Field #5">JSON FORMAT</th>
+        </tr></thead>
+        <tbody><tr>
+            <td>127.0.0.1:3000/api/getAll</td>
+            <td>GET</td>
+            <td>user</td>
+            <td>get all accidents</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>127.0.0.1:3000/api/add</td>
+            <td>POST</td>
+            <td>ADMIN</td>
+            <td>add accident</td>
+            <td>see accident.json</td>
+        </tr>
+        <tr>
+            <td>127.0.0.1:3000/api/delete</td>
+            <td>GET</td>
+            <td>ADMIN</td>
+            <td>delete accident whose id=:id</td>
+            <td> {&quot;id&quot; : id}</td>
+        </tr>
+        <tr>
+            <td>127.0.0.1:3000/api/get</td>
+            <td>POST</td>
+            <td>update</td>
+            <td>get accident whose id=:id</td>
+            <td> {&quot;id&quot; : id}</td>
+        </tr>
+        <tr>
+            <td>127.0.0.1:3000/api/update</td>
+            <td>POST</td>
+            <td>ADMIN</td>
+            <td>update accident</td>
+            <td> {&quot;id&quot; : id}</td>
+        </tr>
+        <tr>
+            <td>127.0.0.1:3000/api/getWhere</td>
+            <td> POST</td>
+            <td> ADMIN</td>
+            <td> get all accidents where condition</td>
+            <td> {&quot;Severity&quot; : 2 &quot;Side&quot; : R ...}</td>
+        </tr>
+        <tr>
+            <td>127.0.0.1:3000/api/getCount</td>
+            <td>POST</td>
+            <td>user</td>
+            <td> get number of accidents in specific state</td>
+            <td> {&quot;State&quot; : &quot;CA&quot;}</td>
+        </tr>
+        <tr>
+            <td>127.0.0.1:3000/api/getCountYear</td>
+            <td>POST</td>
+            <td>user</td>
+            <td> get number of accidents in specific state in specific year</td>
+            <td> {&quot;State&quot; : &quot;CA&quot; &quot;Year&quot; : &quot;2019&quot;}</td>
+        </tr>
+        <tr>
+            <td>127.0.0.1:3000/api/getByTemp</td>
+            <td> POST</td>
+            <td>user</td>
+            <td> get number of accidents with specific filters and temperature in range</td>
+            <td>{filters Temperature:&quot;75.5-76.0&quot;}</td>
+        </tr>
+        <tr>
+            <td>127.0.0.1:3000/api/weather</td>
+            <td>GET</td>
+            <td>user</td>
+            <td>get all weather types</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>127.0.0.1:3000/api/states</td>
+            <td>GET</td>
+            <td>user</td>
+            <td>get all states</td>
+            <td> none</td>
+        </tr>
+        </tbody></table>
+
+    Aplicatia cuprinde si un admin panel, care poate fi accesat la: 127.0.0.1:3000/api/loginAdmin. Este necesara autentificarea unui admin ale carui credentiale
+    exista in tabela admins din baza de date. Adminul poate introduce json-urile necesare pentru a adauga, sterge, modifica o instanta din tabelul accidente, si poate exporta datele
+    (ca baza de date sau csv).
+
+    <h3><span> 5.2 </span> Charts</h3>
+    Aplicatia permite vizualizarea a 6 tipuri de reprezentari grafice (realizate prin intermediul Google Charts):
+    <ol>
+        <li>Map</li>
+        <li>Table</li>
+        <li>Bar Chart</li>
+        <li>Column Chart</li>
+        <li>Donut Chart</li>
+        <li>Pie chart</li>
+    </ol>
+    Utilizatorul va primi o lista adaptata inputului sau (state si criterii). I.e., harta USA va fi disponibila doar pentru tagul ALL (in cadrul tagurilor de state);
+    Reprezentarile grafice se randeaza si afiseaza in timp real (prin requesturi la API si parsarea datelor coresppunzatoare). Orice modificari vor fi afisate fara a fi necesara
+    reincarcarea paginii.
+    In aceeasi maniera adaptiva, fiecare reprezentare grafica poate fi exportata. (i.e. un tabel va putea fi exportat doar in format csv). Formatele disponibile sunt:
+    <ol>
+        <li>CSV : se realizeaza prin manipularea informatiilor din tabel si inserarea de virgula</li>
+        <li>PNG : se realizeaza prin capturarea canvas-ului pe care a fost "desenata" reprezentarea</li>
+        <li>WEBP: idem</li>
+        <li>SVG : se realizeaza prin serializarea si transformarea in xml a reprezentarii (vectorizare)</li>
+    </ol>
+    <h3><span> 5.3 </span> Manipularea inputului de la user</h3>
+    In cadrul aplicatiei, utilizatorul se poate decide asupra 3 campuri:
+    <ol>
+        <li> Statele referitor la care doreste sa vada informatii</li>
+        <li> Criteriile pe care vrea sa le aplice acestor informatii</li>
+        <li> Modul de vizualizare (sugerat)</li>
+    </ol>
+    1. Preluarea statelor dorite se realizeaza in cadrul unui textbox, care o data ce este introdus un acronim de stat (i.e. NY), il va valida si il va retine
+    sub forma unui tag (care poate fi sters ulterior).
+    2. Preluarea criteriilor se realizeaza prin intermediul unui "nested dropdown". Acesta contine toate criteriile puse la dispozitie userului, grupate dupa
+    o oarecare familie logica. In momentul in care userul alege un astfel de criteriu, va fi afisat un camp in care utilizatorul este solicitat sa introduca
+    valoarea acestui criteriu. (i.e Street : Liberty Street, Give_Way : False).
+    3. Lista de modalitati de vizionare se adapteaza conform inputului de la pasii 1. si 2. Userul va putea alege una dintrea acestea; pentru a vizualiza rezultatul,
+    va apasa pe butonul "View chart";
+
+    <h3><span> 5.4 </span> Frontend and design</h3>
+    Pentru realizarea designului aplicatiei, am folosit HTML5, CSS si Javascript. Designul este simplu si potrivit pentru functionalitatea aplicatiei.
+
+
 </section>
 <section id="user">
     <h2><span>6. </span>Experiența utilizatorului</h2>
     <ol>
-        <li>Site-ul are un design minimalist, ceea ce îl face ușor de folosit de un utilizator. </li>
+        <li>Site-ul are un design minimalist, ceea ce îl face ușor de folosit de catre un utilizator. </li>
         <li>Structura site-ului este una simplă și intuitivă. Pe pagina de landing, utilizatorul are acces la toate funcționalitățile site-ului. </li>
+        <li>Utilizatorul alege statele pentru care doreste sa vada informatiile, filtrele pe care vrea sa le aplice si formatul in care vrea sa vada datele.</li>
+        <li>Utilizatorul va primi reprezentarea grafica dorita, si va avea obtiunile de export : webp, csv, png, svg</li>
         <li>Utilizatorul poate naviga între paginile site-ului foarte ușor, folosind bara de navigare. </li>
         <li>Pentru a vizualiza diagramele, tabelele și harta nu este nevoie de crearea unui cont. De asemenea, acestea pot fi salvate în diferite formate pentru ca utilizatorul să le poată distribui mai departe sau pentru a putea fi vizualizate mai târziu fără să trebuiască să introducă din nou filtrele.</li>
     </ol>
 </section>
 <section id="diagrame">
     <h2><span>7. </span>Diagrame</h2>
-    <img src = "../images/diagram.png">
+    <img alt="diagram" src = "../images/diagram.png">
     <h3>Admin</h3>
-    <img src = "../images/admin.png" style="width:600px;height:500px;">
+    <img alt="admin" src = "../images/admin.png" style="width:600px;height:500px;">
     <h3>Utilizator</h3>
-    <img src = "../images/user.png" style="width:800px;height:500px;">
+    <img alt="user" src = "../images/user.png" style="width:800px;height:500px;">
 </section>
 <section id="autori">
     <h2><span>8. </span>Autori</h2>
     <ul>
-        <li>Mocanu Diana - database, admin panel, map, table, pie chart, api, application layout & architecture</li>
-        <li>Pricop Ana - tags, landing page, column chart, navigation bar, application layout</li>
-        <li>Olaru Andreea - donut chart, bar chart, report page, application layout</li>
+        <li>Mocanu Diana - API, admin panel, charts, application layout & architecture, report page, exports</li>
+        <li>Pricop Ana - tags, column chart,user input manipulation, navigation bar, application layout</li>
+        <li>Olaru Andreea - donut chart, bar chart, exports, report page, application layout</li>
     </ul>
 </section>
 <section id="github">
