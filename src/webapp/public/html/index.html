@@ -7,7 +7,9 @@
 
     <link rel="stylesheet" type="text/css" href="../styles/layout.css">
     <link rel="stylesheet" type="text/css" href="../styles/navbar.css">
-    <link rel="stylesheet" type="text/css" href="src/webapp/public/styles/header.css">
+    <link rel="stylesheet" type="text/css" href="../styles/header.css">
+    <link rel="stylesheet" type="text/css" href="../styles/select.css">
+    <link rel="stylesheet" type="text/css" href="../styles/filters.css">
     <link rel="stylesheet" type="text/css" href="../styles/map.css">
     <link rel="stylesheet" type="text/css" href="../styles/tags.css">
     <link rel="stylesheet" type="text/css" href="../styles/table.css">
@@ -39,122 +41,117 @@
 
 </div>
 
-<div class="dropdown">
-    <button class="dropbtn">Dropdown</button>
-    <div class="dropdown-content">
-        <div class="dropdown">
-            <button class="dropbtn">Accident details</button>
-            <div class="dropdown-content">
-
-                <a href="#" onclick="addFilter('Severity');">Severity</a>
-                <a href="#" onclick="addFilter('Distance(mi)');">Distance</a>
-                <a href="#" onclick="addFilter('Description');">Description</a>
-                <a href="#" onclick="addFilter('Number');">Number</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Time of accident related details</button>
-            <div class="dropdown-content">
-
-                <a href="#" onclick="addFilter('Start_Time');">Start_Time</a>
-                <a href="#" onclick="addFilter('End_Time');">End_Time</a>
-                <a href="#" onclick="addFilter('Timezone');">Timezone</a>
-                <a href="#" onclick="addFilter('Sunrise_Sunset');">Sunrise_Sunset</a>
-                <a href="#" onclick="addFilter('Civil_Twilight');">Civil_Twilight</a>
-                <a href="#" onclick="addFilter('Nautical_Twilight');" >Nautical_Twilight</a>
-                <a href="#" onclick="addFilter('Astronomical_Twilight');">Astronomical_Twilight</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Locational details</button>
-            <div class="dropdown-content">
-
-                <a href="#" onclick="addFilter('Start_Lat');">Start_Lat</a>
-                <a href="#" onclick="addFilter('Start_Lng');">Start_Lng</a>
-                <a href="#" onclick="addFilter('End_Lat');">End_Lat</a>
-                <a href="#" onclick="addFilter('End_Lng');">End_Lng</a>
-                <a href="#" onclick="addFilter('Street');">Street</a>
-                <a href="#" onclick="addFilter('City');">City</a>
-                <a href="#" onclick="addFilter('County');">County</a>
-                <a href="#" onclick="addFilter('State');">State</a>
-                <a href="#" onclick="addFilter('Zipcode');" >Zipcode</a>
-                <a href="#" onclick="addFilter('Airport_Code');">Airport_Code</a>
-
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Infrastructure details</button>
-            <div class="dropdown-content">
-
-                <a href="#" onclick="addFilter('Side');">Side</a>
-                <a href="#" onclick="addFilter('Bump');">Bump</a>
-                <a href="#" onclick="addFilter('Crossing');">Crossing</a>
-                <a href="#" onclick="addFilter('Give_Way');">Give_Way</a>
-                <a href="#" onclick="addFilter('Junction');">Junction</a>
-                <a href="#" onclick="addFilter('No_Exit');">No_Exit</a>
-                <a href="#" onclick="addFilter('Railway');">Railway</a>
-                <a href="#" onclick="addFilter('Roundabout');">Roundabout</a>
-                <a href="#" onclick="addFilter('Station');">Station</a>
-                <a href="#" onclick="addFilter('Stop');">Stop</a>
-                <a href="#" onclick="addFilter('Traffic_Calming');">Traffic_Calming</a>
-                <a href="#" onclick="addFilter('Traffic_Signal');">Traffic_Signal</a>
-                <a href="#" onclick="addFilter('Amenity');">Amenity</a>
-                <a href="#" onclick="addFilter('Turning_Loop');">Turning_Loop</a>
-
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Weather-related details</button>
-            <div class="dropdown-content">
-
-                <a href="#" onclick="addFilter('Weather_Timestamp');">Weather_Timestamp</a>
-                <a href="#" onclick="addFilter('Temperature(F)');">Temperature</a>
-                <a href="#" onclick="addFilter('Wind_Chill(F)');">Wind_Chill(F)</a>
-                <a href="#" onclick="addFilter('Humidity(%)');">Humidity(%)</a>
-                <a href="#" onclick="addFilter('Pressure(in)');">Pressure(in)</a>
-                <a href="#" onclick="addFilter('Visibility(mi)');">Visibility(mi)</a>
-                <a href="#" onclick="addFilter('Wind_Direction');">Wind_Direction</a>
-                <a href="#" onclick="addFilter('Wind_Speed(mph)');">Wind_Speed</a>
-                <a href="#" onclick="addFilter('Precipitation(in)');">Precipitation</a>
-                <a href="#" onclick="addFilter('Weather_Condition');">Weather_Condition</a>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="adv-filters"></div>
 
 <!--STATES-->
 <div class="container">
-    Press enter after you typed.
+    States
     <br/>
     <br/>
     <div class="tag-container">
         <input/>
+    </div>
+</div>
+
+<div class="container1">
+    <div class="dropdown">
+        <button class="dropbtn">Criteria</button>
+        <div class="dropdown-content">
+            <div class="dropdown">
+                <button class="dropbtn">Accident details</button>
+                <div class="dropdown-content">
+
+                    <a href="#" onclick="addFilter('Severity');">Severity</a>
+                    <a href="#" onclick="addFilter('Distance(mi)');">Distance</a>
+                    <a href="#" onclick="addFilter('Description');">Description</a>
+                    <a href="#" onclick="addFilter('Number');">Number</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Time of accident related details</button>
+                <div class="dropdown-content">
+
+                    <a href="#" onclick="addFilter('Start_Time');">Start_Time</a>
+                    <a href="#" onclick="addFilter('End_Time');">End_Time</a>
+                    <a href="#" onclick="addFilter('Timezone');">Timezone</a>
+                    <a href="#" onclick="addFilter('Sunrise_Sunset');">Sunrise_Sunset</a>
+                    <a href="#" onclick="addFilter('Civil_Twilight');">Civil_Twilight</a>
+                    <a href="#" onclick="addFilter('Nautical_Twilight');">Nautical_Twilight</a>
+                    <a href="#" onclick="addFilter('Astronomical_Twilight');">Astronomical_Twilight</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Locational details</button>
+                <div class="dropdown-content">
+
+                    <a href="#" onclick="addFilter('Start_Lat');">Start_Lat</a>
+                    <a href="#" onclick="addFilter('Start_Lng');">Start_Lng</a>
+                    <a href="#" onclick="addFilter('End_Lat');">End_Lat</a>
+                    <a href="#" onclick="addFilter('End_Lng');">End_Lng</a>
+                    <a href="#" onclick="addFilter('Street');">Street</a>
+                    <a href="#" onclick="addFilter('City');">City</a>
+                    <a href="#" onclick="addFilter('County');">County</a>
+                    <a href="#" onclick="addFilter('State');">State</a>
+                    <a href="#" onclick="addFilter('Zipcode');">Zipcode</a>
+                    <a href="#" onclick="addFilter('Airport_Code');">Airport_Code</a>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Infrastructure details</button>
+                <div class="dropdown-content">
+
+                    <a href="#" onclick="addFilter('Side');">Side</a>
+                    <a href="#" onclick="addFilter('Bump');">Bump</a>
+                    <a href="#" onclick="addFilter('Crossing');">Crossing</a>
+                    <a href="#" onclick="addFilter('Give_Way');">Give_Way</a>
+                    <a href="#" onclick="addFilter('Junction');">Junction</a>
+                    <a href="#" onclick="addFilter('No_Exit');">No_Exit</a>
+                    <a href="#" onclick="addFilter('Railway');">Railway</a>
+                    <a href="#" onclick="addFilter('Roundabout');">Roundabout</a>
+                    <a href="#" onclick="addFilter('Station');">Station</a>
+                    <a href="#" onclick="addFilter('Stop');">Stop</a>
+                    <a href="#" onclick="addFilter('Traffic_Calming');">Traffic_Calming</a>
+                    <a href="#" onclick="addFilter('Traffic_Signal');">Traffic_Signal</a>
+                    <a href="#" onclick="addFilter('Amenity');">Amenity</a>
+                    <a href="#" onclick="addFilter('Turning_Loop');">Turning_Loop</a>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Weather-related details</button>
+                <div class="dropdown-content">
+
+                    <a href="#" onclick="addFilter('Weather_Timestamp');">Weather_Timestamp</a>
+                    <a href="#" onclick="addFilter('Temperature(F)');">Temperature</a>
+                    <a href="#" onclick="addFilter('Wind_Chill(F)');">Wind_Chill(F)</a>
+                    <a href="#" onclick="addFilter('Humidity(%)');">Humidity(%)</a>
+                    <a href="#" onclick="addFilter('Pressure(in)');">Pressure(in)</a>
+                    <a href="#" onclick="addFilter('Visibility(mi)');">Visibility(mi)</a>
+                    <a href="#" onclick="addFilter('Wind_Direction');">Wind_Direction</a>
+                    <a href="#" onclick="addFilter('Wind_Speed(mph)');">Wind_Speed</a>
+                    <a href="#" onclick="addFilter('Precipitation(in)');">Precipitation</a>
+                    <a href="#" onclick="addFilter('Weather_Condition');">Weather_Condition</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="adv-filters">
+
+</div>
+
+<div class="container1">
+    <div class="dropdown1">
+        <select class = "sel1" id="selectVisualisation">
+            <option selected>Choose a visualisation</option>
+        </select>
 
     </div>
 
+<button class = "btn1" type="button" onclick="generateStatistics();run();">View chart</button>
 </div>
 
-<!--&lt;!&ndash;FILTERS&ndash;&gt;-->
-<!--<div class="containerC">-->
-<!--    Press enter after you typed.-->
-<!--    <br/>-->
-<!--    <br/>-->
-<!--    <div class="tagC-containerC">-->
-<!--        <input/>-->
-
-<!--    </div>-->
-<!--</div>-->
-
-<div class="containerC">
-    <select id="selectVisualisation">
-        <option selected>Choose a visualisation</option>
-    </select>
-</div>
-
-<button type="button" onclick="generateStatistics();run();">View chart</button>
 <div id="regions_div" style="width: 900px; height: 500px;margin: 0 auto;"></div>
 
 <!--<select id="county-dropdown" onchange="onCountyChange()"></select>-->
@@ -180,8 +177,6 @@
 </section>
 
 
-
-
 <!--<script type="text/javascript" src="src/webapp/public/views/mapView.js"></script>-->
 <script type='text/javascript'>
     let objects = [];
@@ -197,7 +192,6 @@
 <script type="text/javascript" src="src/webapp/app-logic/entities/barchart.js"></script>
 <script type="text/javascript" src="src/webapp/app-logic/entities/table.js"></script>
 <script type="text/javascript" src="src/webapp/public/scripts/inputManager.js"></script>
-
 
 
 </body>

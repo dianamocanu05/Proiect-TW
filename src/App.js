@@ -54,7 +54,7 @@ const server = http.createServer(async (req, res) => {
             res.end();
         });
     }
-    else if (path === '/src/webapp/public/styles/header.css') {
+    else if (path === '/styles/header.css') {
         fs.readFile('./src/webapp/public/styles/header.css', function (err, page) {
             res.writeHead(200, {'Content-Type': 'text/css'});
             res.write(page);
@@ -66,15 +66,27 @@ const server = http.createServer(async (req, res) => {
             res.write(page);
             res.end();
         });
-    }
-    else if (path === '/styles/tags.css') {
-        fs.readFile('./src/webapp/public/styles/tags.css', function (err, page) {
+    } else if (path === '/styles/select.css') {
+        fs.readFile('./src/webapp/public/styles/select.css', function (err, page) {
             res.writeHead(200, {'Content-Type': 'text/css'});
             res.write(page);
             res.end();
         });
-    }else if (path === '/styles/layout.css') {
+    }
+    else if (path === '/styles/layout.css') {
         fs.readFile('./src/webapp/public/styles/layout.css', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'text/css'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/styles/filters.css') {
+        fs.readFile('./src/webapp/public/styles/filters.css', function (err, page) {
+            res.writeHead(200, {'Content-Type': 'text/css'});
+            res.write(page);
+            res.end();
+        });
+    }else if (path === '/styles/tags.css') {
+        fs.readFile('./src/webapp/public/styles/tags.css', function (err, page) {
             res.writeHead(200, {'Content-Type': 'text/css'});
             res.write(page);
             res.end();

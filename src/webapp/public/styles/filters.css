@@ -1,0 +1,53 @@
+.container2 {
+    width: 40%;
+    margin: 30px auto;
+    /*display: block;*/
+    /*height: 60px;*/
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+.label11 {
+    width: 40%;
+    margin: 30px auto;
+    /*display: block;*/
+    /*height: 60px;*/
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+/*.label-container2 {*/
+/*    font-size: 15px;*/
+/*}*/
+.input11 {
+    padding: 5px;
+    font-size: calc(8px + 23 * ((100vw - 150px) / (1600 - 150)));
+    border: 0;
+    outline: none;
+    font-family: 'Rubik';
+    color: #333;
+    flex: 1;
+}
+/*.tag-container .tag {*/
+/*    height: 30px;*/
+/*    margin: 5px;*/
+/*    padding: 5px 6px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 3px;*/
+/*    background: rgba(255, 122, 0, 0.16);*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    color: #333;*/
+/*    box-shadow: 0 1px 1px rgb(255, 122, 0), inset 0 1px 1px #ff7a00;*/
+/*    cursor: default;*/
+/*}*/
+
+/*.tag i {*/
+/*    font-size: 16px;*/
+/*    color: #666;*/
+/*    margin-left: 5px;*/
+/*}*/
+
+
+

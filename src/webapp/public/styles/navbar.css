@@ -32,7 +32,7 @@ a {
     display: block;
     font-weight: 800;
     letter-spacing: .2em;
-    font-size: calc(4px + 20 * ((100vw - 150px) / (1600 - 150)));
+    font-size: calc(4px + 16 * ((100vw - 150px) / (1600 - 150)));
 }
 
 a.line {
